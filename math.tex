@@ -1,0 +1,192 @@
+
+% Commands and symbols
+% 
+% Before \begin{document}:
+% 
+%    \include{math.tex}
+% 
+% In document:
+% 
+% \Abs{x}       % absolute value
+% \alg{A}       % algebra
+% \C            % complex field
+% \Card{x}      % cardinality
+% \Ceil{x}      % ceiling
+% \coll{A}      % collection
+% \Conv{x}{y}   % convolution
+% \Corr{x}{y}   % correlation
+% \Dual{x}      % dual
+% \Ex{x}        % expectation - E[x]
+% \Ex[y]{x}     % expectation - E_y[x]
+% \field{A}     % field
+% \Floor{x}     % floor
+% \iff          % if-and-only-if
+% \Inner{x}{y}  % inner product
+% \Inv{x}       % inverse
+% \matr{x}      % matrix
+% \N            % natural semiring
+% \Pdiv{x}{y}   % partial derivative
+% \Pr{x}        % probability - P(x)
+% \Pr[y]{x}     % probability - P_y(x)
+% \Pr{x}{y}     % probability - P(x|y)
+% \Pr{x}{}{y}   % probability - P(x||y)
+% \Pr{x}{y}{z}  % probability - P(x|y||z)
+% \Q            % rational field
+% \ring{A}      % ring
+% \semi{A}      % semiring
+% \set{A}       % set
+% \SInt{A}      % set integral
+% \tmat{x}      % matrix transpose
+% \tvec{x}      % vector transpose
+% \vec{x}       % vector
+% \Z            % integer ring
+
+\usepackage{xparse}
+\usepackage{bm,upgreek,mathtools,mathrsfs}
+
+\DeclarePairedDelimiter\Innerp{\langle}{\rangle}
+\DeclarePairedDelimiter\Floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\Ceil{\lceil}{\rceil}
+\newcommand\Inner[2]{\ensuremath{\innerp{#1, #2}}}
+\DeclarePairedDelimiter\Abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\Card{\lvert}{\rvert}
+\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
+
+\ExplSyntaxOn
+
+% Vector command
+\NewDocumentCommand\Vector{m}
+ {
+  \commexo_vector:n { #1 }
+ }
+
+\cs_new_protected:Npn \commexo_vector:n #1
+ {
+  \tl_map_inline:nn { #1 }
+   {
+    \commexo_vector_inner:n { ##1 }
+   }
+ }
+
+\cs_new_protected:Npn \commexo_vector_inner:n #1
+ {
+  \tl_if_in:VnTF \g_commexo_latin_tl { #1 }
+   {% we check whether the argument is a Latin letter
+    \mathbf { #1 } % a Latin letter
+   }
+   {% if not a Latin letter, we check if it's an uppercase Greek letter
+    \tl_if_in:VnTF \g_commexo_ucgreek_tl { #1 }
+     {
+      \bm { #1 } % a Greek uppercase letter
+     }
+     {% if not, we check if it's a lowercase Greek letter
+      \tl_if_in:VnTF \g_commexo_lcgreek_tl { #1 }
+       {
+        \commexo_makeboldupright:n { #1 }
+       }
+       {% none of the above, just issue #1
+        #1 % fall back
+       }
+     }
+   }
+ }
+
+\cs_new_protected:Npn \commexo_makeboldupright:n #1
+ {
+  \bm { \use:c { up \cs_to_str:N #1 } }
+ }
+
+\tl_new:N \g_commexo_latin_tl
+\tl_new:N \g_commexo_ucgreek_tl
+\tl_new:N \g_commexo_lcgreek_tl
+\tl_gset:Nn \g_commexo_latin_tl
+ {
+  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  abcdefghijklmnopqrstuvwxyz
+ }
+\tl_gset:Nn \g_commexo_ucgreek_tl
+ {
+  \Gamma\Delta\Theta\Lambda\Pi\Sigma\Upsilon\Phi\Chi\Psi\Omega
+ }
+\tl_gset:Nn \g_commexo_lcgreek_tl
+ {
+  \alpha\beta\gamma\delta\epsilon\zeta\eta\theta\iota\kappa
+  \lambda\mu\nu\xi\pi\rho\sigma\tau\upsilon\phi\chi\psi\omega
+  \varepsilon\vartheta\varpi\varphi\varsigma\varrho
+ }
+
+\DeclareDocumentCommand\Pr{O{} m G{} G{}}
+  {
+      \tl_if_empty:nTF {#1}
+        {\text{P}}
+        {\text{P\textsubscript{\ensuremath{#1}}}}
+      \ensuremath{
+      \tl_if_empty:nTF {#3}
+        {\tl_if_empty:nTF {#4}
+          {\left(#2\right)}
+          {\left(#2\middle\|#4\right)}}
+        {\tl_if_empty:nTF {#4}
+          {\left(#2\middle|#3\right)}
+          {\left(#2\middle|#3\middle\|#4\right)}}
+      }
+  }
+
+\DeclareDocumentCommand\Ex{O{} m}
+  {
+    \tl_if_empty:nTF {#1}
+      {\mathbb{E}}
+      {\mathbb{E\text{\textsubscript{\ensuremath{#1}}}}}
+    \ensuremath{\left[#2\right]}
+  }
+
+\DeclareDocumentCommand\EnumSet{s m G{}}
+  {
+    \ensuremath{
+      \IfBooleanTF{#1} {
+        \tl_if_empty:nTF {#3}
+          {\left(#2\right)}
+          {\left(#2\middle|#3\right)}
+      }
+      {
+        \tl_if_empty:nTF {#3}
+          {\left\{#2\right\}}
+          {\left\{#2\middle|#3\right\}}
+      }
+    }
+  }
+
+\DeclareDocumentCommand{\Powerset}{ G{} }
+  {
+    \ensuremath{
+      \tl_if_empty:nTF {#1}
+        {\mathscr{P}}
+        {\mathscr{P}\left({#1}\right)}
+    }
+  }
+
+\ExplSyntaxOff
+
+\renewcommand\vec[1]{\ensuremath{ \Vector{#1} }}
+\newcommand\tvec[1]{\ensuremath{ \Vector{#1}^\intercal }}
+\newcommand\matr\vec
+\newcommand\tmatr\tvec
+\newcommand\field[1]{\ensuremath{ \mathbb{#1} }}
+\newcommand\ring\field
+\newcommand\semi\ring
+\newcommand\set[1]{\ensuremath{ \mathcal{#1} }}
+\newcommand\coll[1]{\ensuremath{ \mathscr{#1} }}
+\newcommand\Conv[2]{\ensuremath{ {#1} \ast {#2} }}
+\newcommand\Corr[2]{\ensuremath{ {#1} \star {#2} }}
+\newcommand\Inv[1]{ \ensuremath{ {#1}^{\text{-}1} }}
+\newcommand\Dual[1]{ \ensuremath{ {#1}\prime }}
+\newcommand\alg[1]{ \ensuremath{ \mathfrak{#1} }}
+\newcommand\setint[1]{ \ensuremath{ \int\limits_{#1} \mathrm{d}#1\> }}
+\newcommand\Pdiv[2]{ \ensuremath{ \frac{\partial #1}{\partial #2}} }
+
+
+
+\newcommand\R{\ensuremath{\field{R}}}
+\newcommand\C{\ensuremath{\field{C}}}
+\newcommand\N{\ensuremath{\semi{N}}}
+\newcommand\Z{\ring{Z}}
+\newcommand\Q{\field{Q}}
