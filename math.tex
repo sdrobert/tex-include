@@ -12,6 +12,7 @@
 % \C            % complex field
 % \Card{x}      % cardinality
 % \Ceil{x}      % ceiling
+% \Closed{x}{y} % closed interval
 % \coll{A}      % collection
 % \Conv{x}{y}   % convolution
 % \Corr{x}{y}   % correlation
@@ -23,8 +24,11 @@
 % \iff          % if-and-only-if
 % \Inner{x}{y}  % inner product
 % \Inv{x}       % inverse
+% \IRange{a}    % range - 1:a
+% \IRange{a}{b} % range - a:b
 % \matr{x}      % matrix
 % \N            % natural semiring
+% \Open{x}{y}   % open interval
 % \Pdiv{x}{y}   % partial derivative
 % \Pr{x}        % probability - P(x)
 % \Pr[y]{x}     % probability - P_y(x)
@@ -39,6 +43,10 @@
 % \tmat{x}      % matrix transpose
 % \tvec{x}      % vector transpose
 % \vec{x}       % vector
+% \V            % vocabulary
+% \vq           % q (vector)
+% \vx           % x (vector)
+% \vy           % y (vector)
 % \Z            % integer ring
 
 % spellcheck-off
@@ -49,14 +57,18 @@
 \DeclarePairedDelimiter\Innerp{\langle}{\rangle}
 \DeclarePairedDelimiter\Floor{\lfloor}{\rfloor}
 \DeclarePairedDelimiter\Ceil{\lceil}{\rceil}
-\newcommand\Inner[2]{\ensuremath{\innerp{#1, #2}}}
+\newcommand\Inner[2]{\ensuremath{\Innerp{#1, #2}}}
 \DeclarePairedDelimiter\Abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\Card{\lvert}{\rvert}
+\DeclarePairedDelimiter\Closedp{[}{]}
+\newcommand\Closed[2]{\ensuremath{\Closedp{#1, #2}}}
+\DeclarePairedDelimiter\Openp{]}{[}
+\newcommand\Open[2]{\ensuremath{\Openp{#1, #2}}}
 \DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
+\newcommand\IRange[2][1]{\ensuremath{#1\mathord{:}#2}}
 
 \ExplSyntaxOn
 
-% Vector command
 \NewDocumentCommand\Vector{m}
  {
   \commexo_vector:n { #1 }
@@ -117,8 +129,7 @@
   \varepsilon\vartheta\varpi\varphi\varsigma\varrho
  }
 
-\DeclareDocumentCommand\Pr{O{} m G{} G{}}
-  {
+\DeclareDocumentCommand\Pr{O{} m G{} G{}}{ %
       \tl_if_empty:nTF {#1}
         {\text{P}}
         {\text{P\textsubscript{\ensuremath{#1}}}}
@@ -192,3 +203,9 @@
 \newcommand\N{\ensuremath{\semi{N}}}
 \newcommand\Z{\ring{Z}}
 \newcommand\Q{\field{Q}}
+\newcommand\V{\set{V}}
+\newcommand\vx{\vec{x}}
+\newcommand\vy{\vec{y}}
+\newcommand\vq{\vec{q}}
+\newcommand\vc{\vec{c}}
+\newcommand\mC{\matr{C}}

@@ -20,10 +20,14 @@
 
 \newacronym{ai}{AI}{Auditory Image}
 \newacronym{ais}{AIS}{Adaptive Importance Sampling}
+\newacronym{am}{AM}{Acoustic Model}
 \newacronym{asr}{ASR}{Automatic Speech Recognition}
+\newacronym{bert}{BERT}{Bidirectional Encoder Representations from Transformers}
 \newacronym{cnn}{CNN}{Convolutional Neural Network}
 \newacronym{ctc}{CTC}{Connectionist Temporal Classification}
 \newacronym{dft}{DFT}{Discrete Fourier Transform}
+\newacronym{dsp}{DSP}{Digital Signal Processing}
+\newacronym{e2e}{E2E}{End-to-End}
 \newacronym{dmc}{DMC}{Discrete Mellin Correlation}
 \newacronym{dnn}{DNN}{Deep Neural Network}
 \newacronym{fbank}{f-bank}{triangular STFT filter bank}
@@ -31,9 +35,15 @@
 \newacronym{hmm}{HMM}{Hidden Markov Model}
 \newacronym{imh}{IMH}{Independent Metropolis-Hastings}
 \newacronym{is}{IS}{Importance Sampling}
-\newacronym{mc}{MC}{Markov Chain \textit{or} Monte Carlo}
+\newacronym{lm}{LM}{Language Model}
+\newacronym{mcarlo}{MC}{Monte Carlo}
+\newacronym{mchain}{MC}{Markov Chain}
 \newacronym{mcmc}{MCMC}{Markov Chain Monte Carlo}
+\newacronym{mlearn}{ML}{Machine Learning}
+\newacronym{mlike}{ML}{Maximum Likelihood}
+\newacronym{mle}{MLE}{Maximum Likelihood Estimate}
 \newacronym{mt}{MT}{Mellin Transform}
+\newacronym{nn}{NN}{Neural Network}
 \newacronym{seq2seq}{seq2seq}{sequence-to-sequence}
 \newacronym{si}{SI}{Short Integration}
 \newacronym{sifbank}{sif-bank}{triangular SI filter bank}
@@ -42,3 +52,36 @@
 \newacronym{stft}{STFT}{Short-Time Fourier Transform}
 \newacronym{tbank}{tone-bank}{Gammatone STFT filter bank}
 \newacronym{vtln}{VTLN}{Vocal Tract Length Normalization}
+
+\newglossaryentry{cint}{ %
+  name={closed interval}, %
+  symbol={\ensuremath{\left[x, y\right]}}, %
+  description={ %
+    The ordered set of all values between $x$ and $y$, including boundaries.
+    $\{a : x \leq a \leq y\}$. %
+  } %
+}
+\newglossaryentry{ifamily}{ %
+  name={indexed family}, %
+  plural={indexed families}, %
+  symbol={\ensuremath{(x_y)_{y \in \mathcal{Y}}}}, %
+  description={ %
+    Ordered elements from a set $x \in \mathcal{X}$ indexed by the set $y \in
+    \mathcal{Y}$. %
+  } %
+}
+\newglossaryentry{irange}{ %
+  name={inclusive range}, %
+  symbol={\ensuremath{x\mathord{:}y}}, %
+  description={ %
+    The ordered set of natural numbers between $x$ and $y$ inclusive. %
+  } %
+}
+\newglossaryentry{oint}{ %
+  name={open interval}, %
+  symbol={\ensuremath{\left]x,y\right[}}, %
+  description={ %
+    The ordered set of all values between $x$ and $y$, excluding boundaries.
+    $\{a : x < a < y\}$. %
+  } %
+}
