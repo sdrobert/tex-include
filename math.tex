@@ -21,6 +21,7 @@
 % \Ex[y]{x}     % expectation - E_y[x]
 % \field{A}     % field
 % \Floor{x}     % floor
+% \Fourier{x}   % Fourier transform of x
 % \iff          % if-and-only-if
 % \Inner{x}{y}  % inner product
 % \Inv{x}       % inverse
@@ -28,6 +29,8 @@
 % \IRange{a}{b} % range - a:b
 % \matr{x}      % matrix
 % \N            % natural semiring
+% \Norm{x}      % norm - ||x||
+% \Norm[y]{x}   % norm - ||x||_y
 % \Open{x}{y}   % open interval
 % \Pdiv{x}{y}   % partial derivative
 % \Pr{x}        % probability - P(x)
@@ -66,8 +69,18 @@
 \newcommand\Open[2]{\ensuremath{\Openp{#1, #2}}}
 \DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
 \newcommand\IRange[2][1]{\ensuremath{#1\mathord{:}#2}}
+\newcommand\Four[1]{\ensuremath{\widehat{#1}}}
+\DeclarePairedDelimiter\Normp{\|}{\|}
 
 \ExplSyntaxOn
+
+\DeclareDocumentCommand\Lp{O{2} G{\mathbb{R}}}{
+  \ensuremath{\mathord{{\bm L}\textsubscript{\ensuremath{#1}}}\left(#2\right)}
+}
+
+\DeclareDocumentCommand\Norm{o m}{
+  \ensuremath{\Normp{#2}\IfNoValueTF{#1}{}{\textsubscript{\ensuremath{#1}}}}
+}
 
 \NewDocumentCommand\Vector{m}
  {
@@ -205,7 +218,6 @@
 \newcommand\Q{\field{Q}}
 \newcommand\V{\set{V}}
 \newcommand\vx{\vec{x}}
+\newcommand\fvx{\Four{\vx}}
 \newcommand\vy{\vec{y}}
 \newcommand\vq{\vec{q}}
-\newcommand\vc{\vec{c}}
-\newcommand\mC{\matr{C}}

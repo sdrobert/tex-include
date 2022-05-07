@@ -18,6 +18,15 @@
 % 
 %   \printglossary
 
+\ExplSyntaxOn
+\DeclareDocumentCommand\newdualentry{ O{} O{} m m m m } {
+  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+    description={#6},#1
+  }
+  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
+\ExplSyntaxOff
+
 \newacronym{ai}{AI}{Auditory Image}
 \newacronym{ais}{AIS}{Adaptive Importance Sampling}
 \newacronym{am}{AM}{Acoustic Model}
@@ -39,6 +48,7 @@
 \newacronym{mcarlo}{MC}{Monte Carlo}
 \newacronym{mchain}{MC}{Markov Chain}
 \newacronym{mcmc}{MCMC}{Markov Chain Monte Carlo}
+\newacronym{mi}{MI}{Mellin Image}
 \newacronym{mlearn}{ML}{Machine Learning}
 \newacronym{mlike}{ML}{Maximum Likelihood}
 \newacronym{mle}{MLE}{Maximum Likelihood Estimate}
@@ -47,10 +57,12 @@
 \newacronym{seq2seq}{seq2seq}{sequence-to-sequence}
 \newacronym{si}{SI}{Short Integration}
 \newacronym{sifbank}{sif-bank}{triangular SI filter bank}
+\newacronym{sift}{SIFT}{Scale-Invariant Feature Transform}
 \newacronym{sigbank}{sig-bank}{Gabor SI filter bank}
 \newacronym{sitbank}{sitone-bank}{Gammatone SI filter bank}
 \newacronym{stft}{STFT}{Short-Time Fourier Transform}
 \newacronym{tbank}{tone-bank}{Gammatone STFT filter bank}
+\newacronym{vtl}{VTL}{Vocal Tract Length}
 \newacronym{vtln}{VTLN}{Vocal Tract Length Normalization}
 
 \newglossaryentry{cint}{ %
@@ -85,3 +97,5 @@
     $\{a : x < a < y\}$. %
   } %
 }
+
+\newdualentry[symbol={\ensuremath{\widehat{f}}}]{cft}{CFT}{Continuous Fourier Transform}{bla}
