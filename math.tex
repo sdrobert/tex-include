@@ -7,51 +7,57 @@
 % 
 % In document:
 % 
-% \Abs{x}       % absolute value
-% \alg{A}       % algebra
-% \C            % complex field
-% \Card{x}      % cardinality
-% \Ceil{x}      % ceiling
-% \Closed{x}{y} % closed interval
-% \coll{A}      % collection
-% \Conv{x}{y}   % convolution
-% \Conj{x}      % conjugate
-% \Corr{x}{y}   % correlation
-% \Dual{x}      % dual
-% \Ex{x}        % expectation - E[x]
-% \Ex[y]{x}     % expectation - E_y[x]
-% \field{A}     % field
-% \Floor{x}     % floor
-% \Fourier{x}   % Fourier transform of x
-% \iff          % if-and-only-if
-% \Inner{x}{y}  % inner product
-% \Inv{x}       % inverse
-% \IRange{a}    % range - 1:a
-% \IRange{a}{b} % range - a:b
-% \matr{x}      % matrix
-% \N            % natural semiring
-% \Norm{x}      % norm - ||x||
-% \Norm[y]{x}   % norm - ||x||_y
-% \Open{x}{y}   % open interval
-% \Pdiv{x}{y}   % partial derivative
-% \Pr{x}        % probability - P(x)
-% \Pr[y]{x}     % probability - P_y(x)
-% \Pr{x}{y}     % probability - P(x|y)
-% \Pr{x}{}{y}   % probability - P(x||y)
-% \Pr{x}{y}{z}  % probability - P(x|y||z)
-% \Q            % rational field
-% \ring{A}      % ring
-% \semi{A}      % semiring
-% \set{A}       % set
-% \SInt{A}      % set integral
-% \tmat{x}      % matrix transpose
-% \tvec{x}      % vector transpose
-% \vec{x}       % vector
-% \V            % vocabulary
-% \vq           % q (vector)
-% \vx           % x (vector)
-% \vy           % y (vector)
-% \Z            % integer ring
+% \Abs{x}        % absolute value
+% \alg{A}        % algebra
+% \C             % complex field
+% \Card{x}       % cardinality
+% \Ceil{x}       % ceiling
+% \Closed{x}{y}  % closed interval
+% \coll{A}       % collection
+% \Conj{x}       % conjugate
+% \Conv{x}{y}    % convolution - x * y
+% \Conv{x}{y}[t] % convolution - (x * y)[t]
+% \Conv*{x}{y}   % convolution (alternate) - x (* w/ underline) y
+% \Corr{x}{y}    % correlation - x star y
+% \Corr{x}{y}[t] % correlation - (x star y)[t]
+% \Corr*{x}{y}   % correlation (alternate) - x (star w/ underline) y
+% \Dual{x}       % dual
+% \Ex[y]{x}      % expectation - E_y[x]
+% \Ex{x}         % expectation - E[x]
+% \field{A}      % field
+% \Floor{x}      % floor
+% \Fourier{x}    % Fourier transform of x
+% x \iff y       % if-and-only-if
+% x \asto y      % almost sure convergence to
+% \Inner{x}{y}   % inner product
+% \Inv{x}        % inverse
+% \IRange{a}     % range - 1:a
+% \IRange{a}{b}  % range - a:b
+% \matr{x}       % matrix
+% \N             % natural semiring
+% \Norm[y]{x}    % norm - ||x||_y
+% \Norm{x}       % norm - ||x||
+% \Open{x}{y}    % open interval
+% \Pdiv{x}{y}    % partial derivative
+% \Pr[y]{x}      % probability - P_y(x)
+% \Pr{x}         % probability - P(x)
+% \Pr{x}{}{y}    % probability - P(x||y)
+% \Pr{x}{y}      % probability - P(x|y)
+% \Pr{x}{y}{z}   % probability - P(x|y||z)
+% \Q             % rational field
+% \ring{A}       % ring
+% \semi{A}       % semiring
+% \set{A}        % set
+% \SInt{A}       % set integral
+% \supp x        % support
+% \tmat{x}       % matrix transpose
+% \tvec{x}       % vector transpose
+% \V             % vocabulary
+% \vec{x}        % vector
+% \vq            % q (vector)
+% \vx            % x (vector)
+% \vy            % y (vector)
+% \Z             % integer ring
 
 % spellcheck-off
 
@@ -68,19 +74,45 @@
 \newcommand\Closed[2]{\ensuremath{\Closedp{#1, #2}}}
 \DeclarePairedDelimiter\Openp{]}{[}
 \newcommand\Open[2]{\ensuremath{\Openp{#1, #2}}}
-\DeclareRobustCommand\iff{\;\Longleftrightarrow\;}
-\newcommand\IRange[2][1]{\ensuremath{#1\mathord{:}#2}}
+\DeclareRobustCommand\iff{\mathbin{\Longleftrightarrow}}
 \newcommand\Four[1]{\ensuremath{\widehat{#1}}}
 \DeclarePairedDelimiter\Normp{\|}{\|}
+\DeclareMathOperator\supp{supp}
 
 \ExplSyntaxOn
 
-\DeclareDocumentCommand\Lp{O{2} G{\mathbb{R}}}{
-  \ensuremath{\mathord{{\bm L}\textsubscript{\ensuremath{#1}}}\left(#2\right)}
+\DeclareDocumentCommand\IRange{m g}{%
+  \ensuremath{\IfNoValueTF{#2}{1}{#1} \mathbin{:} \IfNoValueTF{#2}{#1}{#2}}%
 }
 
-\DeclareDocumentCommand\Norm{o m}{
-  \ensuremath{\Normp{#2}\IfNoValueTF{#1}{}{\textsubscript{\ensuremath{#1}}}}
+\DeclareDocumentCommand\Conv{s m m O{} D(){}}{%
+\ensuremath{%
+  \tl_if_empty:nF {#4#5} {\left(}%
+  {#2}%
+  \mathbin{\IfBooleanTF{#1}{\underline{\ast}}{\ast}}%
+  {#3}%
+  \tl_if_empty:nF {#4} {\right)\!\left[#4\right]}%
+  \tl_if_empty:nF {#5} {\right)\!\left(#5\right)}%
+}%
+}
+
+\DeclareDocumentCommand\Corr{s m m O{} D(){}}{%
+  \ensuremath{%
+    \tl_if_empty:nF {#4#5} {\left(}%
+    {#2}%
+    \mathbin{\IfBooleanTF{#1}{\underline{\star}}{\star}}%
+    {#3}%
+    \tl_if_empty:nF {#4} {\right)\!\left[#4\right]}%
+    \tl_if_empty:nF {#5} {\right)\!\left(#5\right)}%
+  }%
+}
+
+\DeclareDocumentCommand\Lp{O{2} G{\mathbb{R}}}{%
+  \ensuremath{\mathord{{\bm L}\textsubscript{\ensuremath{#1}}}\left(#2\right)}%
+}
+
+\DeclareDocumentCommand\Norm{o m}{%
+  \ensuremath{\Normp{#2}\IfNoValueF{#1}{\textsubscript{\ensuremath{#1}}}}%
 }
 
 \NewDocumentCommand\Vector{m}
@@ -193,25 +225,22 @@
 
 \ExplSyntaxOff
 
-\renewcommand\vec[1]{\ensuremath{ \Vector{#1} }}
-\newcommand\tvec[1]{\ensuremath{ \Vector{#1}^\intercal }}
+\renewcommand\vec[1]{\ensuremath{\Vector{#1}}}
+\newcommand\tvec[1]{\ensuremath{\Vector{#1}^\intercal}}
 \newcommand\matr\vec
 \newcommand\tmatr\tvec
-\newcommand\field[1]{\ensuremath{ \mathbb{#1} }}
+\newcommand\field[1]{\ensuremath{\mathbb{#1}}}
 \newcommand\ring\field
 \newcommand\semi\ring
-\newcommand\set[1]{\ensuremath{ \mathcal{#1} }}
-\newcommand\coll[1]{\ensuremath{ \mathscr{#1} }}
-\newcommand\Conv[2]{\ensuremath{ {#1} \ast {#2} }}
-\newcommand\Corr[2]{\ensuremath{ {#1} \star {#2} }}
-\newcommand\Inv[1]{ \ensuremath{ {#1}^{\text{-}1} }}
-\newcommand\Dual[1]{ \ensuremath{ {#1}\prime }}
-\newcommand\alg[1]{ \ensuremath{ \mathfrak{#1} }}
-\newcommand\setint[1]{ \ensuremath{ \int\limits_{#1} \mathrm{d}#1\> }}
-\newcommand\Pdiv[2]{ \ensuremath{ \frac{\partial #1}{\partial #2}} }
+\newcommand\set[1]{\ensuremath{\mathcal{#1}}}
+\newcommand\coll[1]{\ensuremath{\mathscr{#1}}}
+\newcommand\Inv[1]{\ensuremath{{#1}^{\text{-}1}}}
+\newcommand\Dual[1]{\ensuremath{{#1}\prime}}
+\newcommand\alg[1]{\ensuremath{\mathfrak{#1}}}
+\newcommand\setint[1]{\ensuremath{\int\limits_{#1}\mathrm{d}#1\>}}
+\newcommand\Pdiv[2]{\ensuremath{\frac{\partial{#1}}{\partial{#2}}}}
 \newcommand\Conj[1]{\ensuremath{\overline{#1}}}
-
-
+\newcommand\asto{\ensuremath{\mathbin{\overset{a.s.}{\to}}}}
 
 \newcommand\R{\ensuremath{\field{R}}}
 \newcommand\C{\ensuremath{\field{C}}}
@@ -219,7 +248,3 @@
 \newcommand\Z{\ring{Z}}
 \newcommand\Q{\field{Q}}
 \newcommand\V{\set{V}}
-\newcommand\vx{\vec{x}}
-\newcommand\fvx{\Four{\vx}}
-\newcommand\vy{\vec{y}}
-\newcommand\vq{\vec{q}}

@@ -31,9 +31,15 @@
 
 \newacronym{ai}{AI}{Auditory Image}
 \newacronym{ais}{AIS}{Adaptive Importance Sampling}
+\newacronym{aisimh}{AIS-IMH}{Adaptive Importance Sampling - Independent Metropolis Hastings}
+\newacronym{aisc}{AIS-C}{AIS-IMH Count-estimate}
+\newacronym{aisg}{AIS-G}{AIS-IMH Gibbs-estimate}
 \newacronym{am}{AM}{Acoustic Model}
+\newacronym{amcmc}{AMCMC}{Adaptive Markov Chain Monte Carlo}
 \newacronym{asr}{ASR}{Automatic Speech Recognition}
 \newacronym{bert}{BERT}{Bidirectional Encoder Representations from Transformers}
+\newacronym{cb}{CB}{Conditional Bernoulli}
+\newacronym{ce}{CE}{Cross-Entropy}
 \newacronym{cnn}{CNN}{Convolutional Neural Network}
 \newacronym{ctc}{CTC}{Connectionist Temporal Classification}
 \newacronym{dbn}{DBN}{Deep Belief Network}
@@ -43,14 +49,17 @@
 \newacronym{dp}{DP}{Dynamic Programming}
 \newacronym{dsp}{DSP}{Digital Signal Processing}
 \newacronym{e2e}{E2E}{End-to-End}
+\newacronym{em}{EM}{Expectation Maximization}
 \newacronym{fbank}{f-bank}{triangular STFT filter bank}
 \newacronym{fmllr}{fMLLR}{feature-space Maximum Likelihood Linear Regression}
 \newacronym{gbank}{g-bank}{Gabor STFT filter bank}
+\newacronym{glm}{GLM}{Generalized Linear Model}
 \newacronym{gmm}{GMM}{Gaussian Mixture Model}
 \newacronym{gru}{GRU}{Gated Recurrent Unit}
 \newacronym{hmm}{HMM}{Hidden Markov Model}
 \newacronym{imh}{IMH}{Independent Metropolis-Hastings}
 \newacronym{is}{IS}{Importance Sampling}
+\newacronym{kl}{KL}{Kullback-Leibler}
 \newacronym{lcjs}{LCJS}{Luo-Chiu-Jaitly-Sutskever}
 \newacronym{lm}{LM}{Language Model}
 \newacronym{lstm}{LSTM}{Long Short Term Memory}
@@ -61,19 +70,24 @@
 \newacronym{mle}{MLE}{Maximum Likelihood Estimate}
 \newacronym{mlearn}{ML}{Machine Learning}
 \newacronym{mlike}{ML}{Maximum Likelihood}
+\newacronym{mmie}{MMIE}{Maximum Mutual Information Estimation}
 \newacronym{mt}{MT}{Mellin Transform}
 \newacronym{nn}{NN}{Neural Network}
 \newacronym{per}{PER}{Phone Error Rate}
+\newacronym{prs}{PRS}{Poisson Rejective Sampling}
 \newacronym{rnn}{RNN}{Recurrent Neural Network}
 \newacronym{rnnt}{RNN-T}{Recurrent Neural Network Transducer}
 \newacronym{seq2seq}{seq2seq}{sequence-to-sequence}
+\newacronym{sf}{SF}{Suffix-Forcing}
 \newacronym{si}{SI}{Short Integration}
 \newacronym{sifbank}{sif-bank}{triangular SI filter bank}
 \newacronym{sift}{SIFT}{Scale-Invariant Feature Transform}
 \newacronym{sigbank}{sig-bank}{Gabor SI filter bank}
 \newacronym{sitbank}{sitone-bank}{Gammatone SI filter bank}
+\newacronym{srswor}{SRSWOR}{Simple Random Sampling Without Replacement}
 \newacronym{stft}{STFT}{Short-Time Fourier Transform}
 \newacronym{tbank}{tone-bank}{Gammatone STFT filter bank}
+\newacronym{vi}{VI}{Variational Inference}
 \newacronym{vtl}{VTL}{Vocal Tract Length}
 \newacronym{vtln}{VTLN}{Vocal Tract Length Normalization}
 \newacronym{wer}{WER}{Word Error Rate}
@@ -114,6 +128,15 @@
   description={ %
     The ordered set of all values between $x$ and $y$, excluding boundaries.
     $\{a : x < a < y\}$. %
+  } %
+}
+\newglossaryentry{support}{ %
+  name={support}, %
+  symbol={\ensuremath{\mathord{supp} f}}, %
+  description={ %
+    The elements of the domain of $f : X \to \mathbb{F}$ such that $f$
+    evaluated on those elements is nonzero. $\mathord{supp} f = \{x : f(x) \neq
+    0 \}$. %
   } %
 }
 
