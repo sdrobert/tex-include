@@ -18,6 +18,8 @@
 % 
 %   \printglossary
 
+% spellcheck-off
+
 \ExplSyntaxOn
 \DeclareDocumentCommand\newdualentry{ O{} O{} m m m m } {
   \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
@@ -34,28 +36,34 @@
 \newacronym{bert}{BERT}{Bidirectional Encoder Representations from Transformers}
 \newacronym{cnn}{CNN}{Convolutional Neural Network}
 \newacronym{ctc}{CTC}{Connectionist Temporal Classification}
+\newacronym{dbn}{DBN}{Deep Belief Network}
 \newacronym{dft}{DFT}{Discrete Fourier Transform}
+\newacronym{dmc}{DMC}{Discrete Mellin Correlation}
+\newacronym{dnn}{DNN}{Deep Neural Network}
 \newacronym{dp}{DP}{Dynamic Programming}
 \newacronym{dsp}{DSP}{Digital Signal Processing}
 \newacronym{e2e}{E2E}{End-to-End}
-\newacronym{dmc}{DMC}{Discrete Mellin Correlation}
-\newacronym{dnn}{DNN}{Deep Neural Network}
 \newacronym{fbank}{f-bank}{triangular STFT filter bank}
+\newacronym{fmllr}{fMLLR}{feature-space Maximum Likelihood Linear Regression}
 \newacronym{gbank}{g-bank}{Gabor STFT filter bank}
+\newacronym{gmm}{GMM}{Gaussian Mixture Model}
+\newacronym{gru}{GRU}{Gated Recurrent Unit}
 \newacronym{hmm}{HMM}{Hidden Markov Model}
 \newacronym{imh}{IMH}{Independent Metropolis-Hastings}
 \newacronym{is}{IS}{Importance Sampling}
-\newacronym{lm}{LM}{Language Model}
 \newacronym{lcjs}{LCJS}{Luo-Chiu-Jaitly-Sutskever}
+\newacronym{lm}{LM}{Language Model}
+\newacronym{lstm}{LSTM}{Long Short Term Memory}
 \newacronym{mcarlo}{MC}{Monte Carlo}
 \newacronym{mchain}{MC}{Markov Chain}
 \newacronym{mcmc}{MCMC}{Markov Chain Monte Carlo}
 \newacronym{mi}{MI}{Mellin Image}
+\newacronym{mle}{MLE}{Maximum Likelihood Estimate}
 \newacronym{mlearn}{ML}{Machine Learning}
 \newacronym{mlike}{ML}{Maximum Likelihood}
-\newacronym{mle}{MLE}{Maximum Likelihood Estimate}
 \newacronym{mt}{MT}{Mellin Transform}
 \newacronym{nn}{NN}{Neural Network}
+\newacronym{per}{PER}{Phone Error Rate}
 \newacronym{rnn}{RNN}{Recurrent Neural Network}
 \newacronym{rnnt}{RNN-T}{Recurrent Neural Network Transducer}
 \newacronym{seq2seq}{seq2seq}{sequence-to-sequence}
@@ -68,6 +76,13 @@
 \newacronym{tbank}{tone-bank}{Gammatone STFT filter bank}
 \newacronym{vtl}{VTL}{Vocal Tract Length}
 \newacronym{vtln}{VTLN}{Vocal Tract Length Normalization}
+\newacronym{wer}{WER}{Word Error Rate}
+
+\newglossaryentry{ligru}{%
+  name={liGRU}, %
+  description={Modification of GRU proposed by Ravanelli \textit{et al}.}, %
+  see={gru} %
+}
 
 \newglossaryentry{cint}{ %
   name={closed interval}, %
