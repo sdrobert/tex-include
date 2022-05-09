@@ -27,12 +27,13 @@
 % \field{A}      % field
 % \Floor{x}      % floor
 % \Fourier{x}    % Fourier transform of x
-% x \iff y       % if-and-only-if
-% x \asto y      % almost sure convergence to
 % \Inner{x}{y}   % inner product
 % \Inv{x}        % inverse
 % \IRange{a}     % range - 1:a
 % \IRange{a}{b}  % range - a:b
+% \Lp            % L^2 norm - L^2(\R)
+% \Lp[3]{A}      % L^3 norm on A - L^3(A)
+% \Lp*[p]        % L^p norm (no domain) - L^p
 % \matr{x}       % matrix
 % \N             % natural semiring
 % \Norm[y]{x}    % norm - ||x||_y
@@ -58,6 +59,8 @@
 % \vx            % x (vector)
 % \vy            % y (vector)
 % \Z             % integer ring
+% x \asto y      % almost sure convergence to
+% x \iff y       % if-and-only-if
 
 % spellcheck-off
 
@@ -107,8 +110,8 @@
   }%
 }
 
-\DeclareDocumentCommand\Lp{O{2} G{\mathbb{R}}}{%
-  \ensuremath{\mathord{{\bm L}\textsuperscript{\ensuremath{#1}}}\left(#2\right)}%
+\DeclareDocumentCommand\Lp{s O{2} G{\mathbb{R}}}{%
+  \ensuremath{\mathord{{\bm L}\textsuperscript{\ensuremath{#2}}}\IfBooleanF{#1}{\left(#3\right)}}%
 }
 
 \DeclareDocumentCommand\Norm{o m}{%
