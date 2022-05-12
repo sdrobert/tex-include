@@ -31,9 +31,9 @@
 
 \newacronym{ai}{AI}{Auditory Image}
 \newacronym{ais}{AIS}{Adaptive Importance Sampling}
-\newacronym{aisimh}{AIS-IMH}{Adaptive Importance Sampling - Independent Metropolis Hastings}
 \newacronym{aisc}{AIS-C}{AIS-IMH Count-estimate}
 \newacronym{aisg}{AIS-G}{AIS-IMH Gibbs-estimate}
+\newacronym{aisimh}{AIS-IMH}{Adaptive Importance Sampling - Independent Metropolis Hastings}
 \newacronym{am}{AM}{Acoustic Model}
 \newacronym{amcmc}{AMCMC}{Adaptive Markov Chain Monte Carlo}
 \newacronym{asr}{ASR}{Automatic Speech Recognition}
@@ -48,8 +48,10 @@
 \newacronym{dnn}{DNN}{Deep Neural Network}
 \newacronym{dp}{DP}{Dynamic Programming}
 \newacronym{dsp}{DSP}{Digital Signal Processing}
+\newacronym{dtw}{DTW}{Dynamic Time Warping}
 \newacronym{e2e}{E2E}{End-to-End}
 \newacronym{em}{EM}{Expectation Maximization}
+\newacronym{fft}{FFT}{Fast Fourier Transform}
 \newacronym{fbank}{f-bank}{triangular STFT filter bank}
 \newacronym{fmllr}{fMLLR}{feature-space Maximum Likelihood Linear Regression}
 \newacronym{gbank}{g-bank}{Gabor STFT filter bank}
@@ -62,10 +64,14 @@
 \newacronym{kl}{KL}{Kullback-Leibler}
 \newacronym{lcjs}{LCJS}{Luo-Chiu-Jaitly-Sutskever}
 \newacronym{lm}{LM}{Language Model}
+\newacronym{lpc}{LPC}{Linear Predictive Coding}
 \newacronym{lstm}{LSTM}{Long Short Term Memory}
+\newacronym{lti}{LTI}{Linear Time-Invariant}
+\newacronym{lvcsr}{LVCSR}{Large vocabulary Conversational Speech Recognition}
 \newacronym{mcarlo}{MC}{Monte Carlo}
 \newacronym{mchain}{MC}{Markov Chain}
 \newacronym{mcmc}{MCMC}{Markov Chain Monte Carlo}
+\newacronym{mfcc}{MFCC}{Mel-frequency Cepstral Coefficient}
 \newacronym{mi}{MI}{Mellin Image}
 \newacronym{mle}{MLE}{Maximum Likelihood Estimate}
 \newacronym{mlearn}{ML}{Machine Learning}
@@ -135,9 +141,37 @@
   symbol={\ensuremath{\mathord{supp} f}}, %
   description={ %
     The elements of the domain of $f : X \to \mathbb{F}$ such that $f$
-    evaluated on those elements is nonzero. $\mathord{supp} f = \{x : f(x) \neq
-    0 \}$. %
+    evaluated on those elements is nonzero. $\text{supp} f = \{x : f(x) \neq 0
+    \}$. %
   } %
+}
+\newglossaryentry{phone}{%
+  name={phone},%
+  description={A speech sound.}%
+}
+\newglossaryentry{token}{%
+  name={token},%
+  description={%
+    An element in a transcription sequence such as a word or phone.%
+  },%
+  see={phone}%
+}
+\newglossaryentry{type}{%
+  name={type},%
+  description={%
+    A discrete value which a token can take.%
+  },%
+  see={token}%
+}
+\newglossaryentry{vocabulary}{%
+  name={vocabulary},
+  plural={vocabularies},
+  description={%
+    The set of possible types a token can take in a transcription task. Usually
+    finite.%
+  },%
+  see={type,token},%
+  symbol=\ensuremath{\mathcal{V}}%
 }
 
 \newdualentry[symbol={\ensuremath{\widehat{f}}}]{cft}{CFT}{Continuous Fourier Transform}{bla}

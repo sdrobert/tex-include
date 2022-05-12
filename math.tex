@@ -31,9 +31,11 @@
 % \Inv{x}        % inverse
 % \IRange{a}     % range - 1:a
 % \IRange{a}{b}  % range - a:b
-% \Lp            % L^2 norm - L^2(\R)
-% \Lp[3]{A}      % L^3 norm on A - L^3(A)
-% \Lp*[p]        % L^p norm (no domain) - L^p
+% \lp            % ell^2 space
+% \Lp            % L^2 space - L^2(\R)
+% \Lp[3]{A}      % L^3 space on A - L^3(A)
+% \lp[p]         % ell^p space
+% \Lp*[p]        % L^p space (no domain) - L^p
 % \matr{x}       % matrix
 % \N             % natural semiring
 % \Norm[y]{x}    % norm - ||x||_y
@@ -112,6 +114,10 @@
 
 \DeclareDocumentCommand\Lp{s O{2} G{\mathbb{R}}}{%
   \ensuremath{\mathord{{\bm L}\textsuperscript{\ensuremath{#2}}}\IfBooleanF{#1}{\left(#3\right)}}%
+}
+
+\DeclareDocumentCommand\lp{O{2}}{%
+  \ensuremath{\mathord{{\bm \ell}\textsuperscript{\ensuremath{#1}}}}%
 }
 
 \DeclareDocumentCommand\Norm{o m}{%
@@ -242,6 +248,7 @@
 \newcommand\alg[1]{\ensuremath{\mathfrak{#1}}}
 \newcommand\setint[1]{\ensuremath{\int\limits_{#1}\mathrm{d}#1\>}}
 \newcommand\Pdiv[2]{\ensuremath{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand\Deriv[2]{\ensuremath{\frac{\mathrm{d}{#1}}{\mathrm{d}{#2}}}}
 \newcommand\Conj[1]{\ensuremath{\overline{#1}}}
 \newcommand\asto{\ensuremath{\mathbin{\overset{a.s.}{\to}}}}
 
