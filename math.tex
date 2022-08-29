@@ -16,10 +16,10 @@
 % \coll{A}       % collection
 % \Conj{x}       % conjugate
 % \Conv{x}{y}    % convolution - x * y
-% \Conv{x}{y}[t] % convolution - (x * y)[t]
+% \Conv{x}{y}[t] % convolution - (x * y)_t
 % \Conv*{x}{y}   % convolution (alternate) - x (* w/ underline) y
 % \Corr{x}{y}    % correlation - x star y
-% \Corr{x}{y}[t] % correlation - (x star y)[t]
+% \Corr{x}{y}[t] % correlation - (x star y)_t
 % \Corr*{x}{y}   % correlation (alternate) - x (star w/ underline) y
 % \Dual{x}       % dual
 % \Ex[y]{x}      % expectation - E_y[x]
@@ -52,7 +52,7 @@
 % \semi{A}       % semiring
 % \set{A}        % set
 % \SInt{A}       % set integral
-% \supp x        % support
+% \supp x        % support of x
 % \tmat{x}       % matrix transpose
 % \tvec{x}       % vector transpose
 % \V             % vocabulary
@@ -79,41 +79,47 @@
 \newcommand\Closed[2]{\ensuremath{\Closedp{#1, #2}}}
 \DeclarePairedDelimiter\Openp{]}{[}
 \newcommand\Open[2]{\ensuremath{\Openp{#1, #2}}}
+\DeclarePairedDelimiter\HalfOpenOnLeftp{]}{]}
+\newcommand\HalfOpenOnLeft[2]{\ensuremath{\HalfOpenOnLeftp{#1,#2}}}
+\DeclarePairedDelimiter\HalfOpenOnRightp{[}{[}
+\newcommand\HalfOpenOnRight[2]{\ensuremath{\HalfOpenOnRightp{#1,#2}}}
 \DeclareRobustCommand\iff{\mathbin{\Longleftrightarrow}}
 \newcommand\Four[1]{\ensuremath{\widehat{#1}}}
 \DeclarePairedDelimiter\Normp{\|}{\|}
 \DeclareMathOperator\supp{supp}
 
-\ExplSyntaxOn
+% xparse commands which don't need explicit syntax
 
 \DeclareDocumentCommand\IRange{m g}{%
   \ensuremath{\IfNoValueTF{#2}{1}{#1} \mathbin{:} \IfNoValueTF{#2}{#1}{#2}}%
 }
 
-\DeclareDocumentCommand\Conv{s m m O{} D(){}}{%
+\DeclareDocumentCommand\Conv{s m m o d()}{%
 \ensuremath{%
-  \tl_if_empty:nF {#4#5} {\left(}%
+  \IfNoValueTF{#4}{\IfNoValueF{#5}{\left(}}{\left(}%
   {#2}%
   \mathbin{\IfBooleanTF{#1}{\underline{\ast}}{\ast}}%
   {#3}%
-  \tl_if_empty:nF {#4} {\right)\!\left[#4\right]}%
-  \tl_if_empty:nF {#5} {\right)\!\left(#5\right)}%
+  \IfNoValueF{#4}{\right)_{#4}}%
+  \IfNoValueF{#5}{\right)\!\left(#5\right)}%
 }%
 }
 
-\DeclareDocumentCommand\Corr{s m m O{} D(){}}{%
-  \ensuremath{%
-    \tl_if_empty:nF {#4#5} {\left(}%
-    {#2}%
-    \mathbin{\IfBooleanTF{#1}{\underline{\star}}{\star}}%
-    {#3}%
-    \tl_if_empty:nF {#4} {\right)\!\left[#4\right]}%
-    \tl_if_empty:nF {#5} {\right)\!\left(#5\right)}%
-  }%
+\DeclareDocumentCommand\Corr{s m m o d()}{%
+\ensuremath{%
+  \IfNoValueTF{#4}{\IfNoValueF{#5}{\left(}}{\left(}%
+  {#2}%
+  \mathbin{\IfBooleanTF{#1}{\underline{\star}}{\star}}%
+  {#3}%
+  \IfNoValueF{#4}{\right)_{#4}}%
+  \IfNoValueF{#5}{\right)\!\left(#5\right)}%
+}%
 }
 
 \DeclareDocumentCommand\Lp{s O{2} G{\mathbb{R}}}{%
-  \ensuremath{\mathord{{\bm L}\textsuperscript{\ensuremath{#2}}}\IfBooleanF{#1}{\left(#3\right)}}%
+  \ensuremath{\mathord{%
+    {\bm L}\textsuperscript{\ensuremath{#2}}}\IfBooleanF{#1}{\left(#3\right)%
+  }}%
 }
 
 \DeclareDocumentCommand\lp{O{2}}{%
@@ -123,6 +129,40 @@
 \DeclareDocumentCommand\Norm{o m}{%
   \ensuremath{\Normp{#2}\IfNoValueF{#1}{\textsubscript{\ensuremath{#1}}}}%
 }
+
+\DeclareDocumentCommand\Pr{o m g g}{%
+  \IfNoValueTF{#1}{\text{P}}{\text{P\textsubscript{\ensuremath{#1}}}}%
+  \ensuremath{%
+    \IfNoValueTF{#3}%
+      {\IfNoValueTF{#4}{\left(#2\right)}{\left(#2\middle\|#4\right)}}%
+      {\IfNoValueTF{#4}%
+        {\left(#2\middle|#3\right)}%
+        {\left(#2\middle|#3\middle\|#4\right)}%
+      }%
+  }%
+}
+
+\DeclareDocumentCommand\Ex{o m}{%
+  \IfNoValueTF{#1}%
+    {\mathbb{E}}%
+    {\mathbb{E\text{\textsubscript{\ensuremath{#1}}}}}%
+  \ensuremath{\left[#2\right]}%
+}
+
+\DeclareDocumentCommand\EnumSet{s m g}{%
+  \ensuremath{%
+    \IfBooleanTF{#1}%
+      {\IfNoValueTF{#3}{\left(#2\right)}{\left(#2\middle|#3\right)}}%
+      {\IfNoValueTF{#3}{\left\{#2\right\}}{\left\{#2\middle|#3\right\}}}%
+  }%
+}
+
+\DeclareDocumentCommand{\Powerset}{g}{%
+  \ensuremath{\IfNoValueTF{#1}{\mathscr{P}}{\mathscr{P}\left({#1}\right)}}%
+}
+
+% Commands with explicit syntax
+\ExplSyntaxOn
 
 \NewDocumentCommand\Vector{m}
  {
@@ -183,54 +223,6 @@
   \lambda\mu\nu\xi\pi\rho\sigma\tau\upsilon\phi\chi\psi\omega
   \varepsilon\vartheta\varpi\varphi\varsigma\varrho
  }
-
-\DeclareDocumentCommand\Pr{O{} m G{} G{}}{ %
-      \tl_if_empty:nTF {#1}
-        {\text{P}}
-        {\text{P\textsubscript{\ensuremath{#1}}}}
-      \ensuremath{
-      \tl_if_empty:nTF {#3}
-        {\tl_if_empty:nTF {#4}
-          {\left(#2\right)}
-          {\left(#2\middle\|#4\right)}}
-        {\tl_if_empty:nTF {#4}
-          {\left(#2\middle|#3\right)}
-          {\left(#2\middle|#3\middle\|#4\right)}}
-      }
-  }
-
-\DeclareDocumentCommand\Ex{O{} m}
-  {
-    \tl_if_empty:nTF {#1}
-      {\mathbb{E}}
-      {\mathbb{E\text{\textsubscript{\ensuremath{#1}}}}}
-    \ensuremath{\left[#2\right]}
-  }
-
-\DeclareDocumentCommand\EnumSet{s m G{}}
-  {
-    \ensuremath{
-      \IfBooleanTF{#1} {
-        \tl_if_empty:nTF {#3}
-          {\left(#2\right)}
-          {\left(#2\middle|#3\right)}
-      }
-      {
-        \tl_if_empty:nTF {#3}
-          {\left\{#2\right\}}
-          {\left\{#2\middle|#3\right\}}
-      }
-    }
-  }
-
-\DeclareDocumentCommand{\Powerset}{ G{} }
-  {
-    \ensuremath{
-      \tl_if_empty:nTF {#1}
-        {\mathscr{P}}
-        {\mathscr{P}\left({#1}\right)}
-    }
-  }
 
 \ExplSyntaxOff
 

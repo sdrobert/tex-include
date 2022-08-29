@@ -92,6 +92,7 @@
 \newacronym{sitbank}{sitone-bank}{Gammatone SI filter bank}
 \newacronym{srswor}{SRSWOR}{Simple Random Sampling Without Replacement}
 \newacronym{stft}{STFT}{Short-Time Fourier Transform}
+\newacronym{sti}{STI}{Strobed Temporal Integration}
 \newacronym{tbank}{tone-bank}{Gammatone STFT filter bank}
 \newacronym{tpe}{TPE}{Tree-structured Parzen Estimator}
 \newacronym{vi}{VI}{Variational Inference}
@@ -99,18 +100,36 @@
 \newacronym{vtln}{VTLN}{Vocal Tract Length Normalization}
 \newacronym{wer}{WER}{Word Error Rate}
 
-\newglossaryentry{ligru}{%
-  name={liGRU}, %
-  description={Modification of GRU proposed by Ravanelli \textit{et al}.}, %
-  see={gru} %
+\newglossaryentry{abelian}{ %
+  name={abelian group}, %
+  description={A group whose operation is also commutative.}, %
+  see={group} %
 }
-
 \newglossaryentry{cint}{ %
   name={closed interval}, %
   symbol={\ensuremath{\left[x, y\right]}}, %
   description={ %
     The ordered set of all values between $x$ and $y$, including boundaries.
     $\{a : x \leq a \leq y\}$. %
+  } %
+}
+\newglossaryentry{congruencec}{ %
+  name={congruence class}, %
+  description={synonym for \glshyperlink{residue}.}, %
+}
+\newglossaryentry{field}{ %
+  name={field}, %
+  description={ %
+    A set endowed with addition and multiplication; their identities ($0$ and
+    $1$); inverses (subtraction and division, the latter not defined for $0$);
+    commutativity; associativity; and distributivity. %
+  } %
+}
+\newglossaryentry{group}{ %
+  name={group}, %
+  description={ %
+    A set and a closed, binary operation on said set, which has an identity, an
+    inverse, and is associative. %
   } %
 }
 \newglossaryentry{ifamily}{ %
@@ -129,6 +148,12 @@
     The ordered set of natural numbers between $x$ and $y$ inclusive. %
   } %
 }
+\newglossaryentry{ligru}{%
+  name={liGRU}, %
+  description={Modification of GRU proposed by
+  \citeauthor{ravanelliImprovingSpeechRecognition2017}}, %
+  see={gru} %
+}
 \newglossaryentry{oint}{ %
   name={open interval}, %
   symbol={\ensuremath{\left]x,y\right[}}, %
@@ -137,18 +162,31 @@
     $\{a : x < a < y\}$. %
   } %
 }
+\newglossaryentry{phone}{%
+  name={phone},%
+  description={A speech sound.}%
+}
+\newglossaryentry{residue}{
+  name={residue},%
+  symbol={\ensuremath{[a]}},%
+  description={%
+    A set of integers $\ldots, a - 2n, a - n, a, a + n, a + 2n, \ldots$ with
+    the same value modulo some $n$. An equivalence class.%
+  }%
+}
+\newglossaryentry{residuec}{
+  name={residue class},%
+  description={synonym for \glshyperlink{residue}},%
+  see={residue}
+}
 \newglossaryentry{support}{ %
   name={support}, %
   symbol={\ensuremath{\mathord{supp} f}}, %
   description={ %
     The elements of the domain of $f : X \to \mathbb{F}$ such that $f$
-    evaluated on those elements is nonzero. $\text{supp} f = \{x : f(x) \neq 0
-    \}$. %
+    evaluated on those elements is non-zero. $\text{supp} f = \{x : f(x) \neq
+    0\}$.%
   } %
-}
-\newglossaryentry{phone}{%
-  name={phone},%
-  description={A speech sound.}%
 }
 \newglossaryentry{token}{%
   name={token},%
