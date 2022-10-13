@@ -20,14 +20,14 @@
 
 % spellcheck-off
 
-\ExplSyntaxOn
-\DeclareDocumentCommand\newdualentry{ O{} O{} m m m m } {
-  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
-    description={#6},#1
-  }
-  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
-}
-\ExplSyntaxOff
+% \ExplSyntaxOn
+% \DeclareDocumentCommand\newdualentry{ O{} O{} m m m m } {
+%   \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+%     description={#6},#1
+%   }
+%   \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+% }
+% \ExplSyntaxOff
 
 \newacronym{ai}{AI}{Auditory Image}
 \newacronym{ais}{AIS}{Adaptive Importance Sampling}
@@ -40,6 +40,7 @@
 \newacronym{bert}{BERT}{Bidirectional Encoder Representations from Transformers}
 \newacronym{cb}{CB}{Conditional Bernoulli}
 \newacronym{ce}{CE}{Cross-Entropy}
+\newacronym{cft}{CFT}{Continuous Fourier Transform}
 \newacronym{cmc}{CMC}{Continuous Mellin Correlation}
 \newacronym{cnn}{CNN}{Convolutional Neural Network}
 \newacronym{ctc}{CTC}{Connectionist Temporal Classification}
@@ -222,7 +223,5 @@
   see={type,token},%
   symbol=\ensuremath{\mathcal{V}}%
 }
-
-\newdualentry[symbol={\ensuremath{\widehat{f}}}]{cft}{CFT}{Continuous Fourier Transform}{bla}
 
 % spellcheck-on
