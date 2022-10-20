@@ -2,12 +2,12 @@
 % 
 % Before \begin{document}:
 % 
-%   \usepackage{xparse}
-%   \usepackage[toc,xindy]{glossaries}
+%   \usepackage{xparse}%
+%   \usepackage[toc,xindy]{glossaries}%
 %   \makeglossaries
-%   \usepackage[xindy]{imakeidx}
+%   \usepackage[xindy]{imakeidx}%
 %   \makeindex
-%   \loadglsentries{tex-include/glossary.tex}
+%   \loadglsentries{tex-include/glossary.tex}%
 % 
 % In document:
 % 
@@ -24,204 +24,325 @@
 % \DeclareDocumentCommand\newdualentry{ O{} O{} m m m m } {
 %   \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
 %     description={#6},#1
-%   }
-%   \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
-% }
+%   }%
+%   \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}%
+% }%
 % \ExplSyntaxOff
 
-\newacronym{ai}{AI}{Auditory Image}
-\newacronym{ais}{AIS}{Adaptive Importance Sampling}
-\newacronym{aisc}{AIS-C}{AIS-IMH Count-estimate}
-\newacronym{aisg}{AIS-G}{AIS-IMH Gibbs-estimate}
-\newacronym{aisimh}{AIS-IMH}{Adaptive Importance Sampling - Independent Metropolis Hastings}
-\newacronym{am}{AM}{Acoustic Model}
-\newacronym{amcmc}{AMCMC}{Adaptive Markov Chain Monte Carlo}
-\newacronym{asr}{ASR}{Automatic Speech Recognition}
-\newacronym{bert}{BERT}{Bidirectional Encoder Representations from Transformers}
-\newacronym{cb}{CB}{Conditional Bernoulli}
-\newacronym{ce}{CE}{Cross-Entropy}
-\newacronym{cft}{CFT}{Continuous Fourier Transform}
-\newacronym{cmc}{CMC}{Continuous Mellin Correlation}
-\newacronym{cnn}{CNN}{Convolutional Neural Network}
-\newacronym{ctc}{CTC}{Connectionist Temporal Classification}
-\newacronym{dbn}{DBN}{Deep Belief Network}
-\newacronym{dft}{DFT}{Discrete Fourier Transform}
-\newacronym{dmc}{DMC}{Discrete Mellin Correlation}
-\newacronym{dnn}{DNN}{Deep Neural Network}
-\newacronym{dp}{DP}{Dynamic Programming}
-\newacronym{dsp}{DSP}{Digital Signal Processing}
-\newacronym{dtw}{DTW}{Dynamic Time Warping}
-\newacronym{e2e}{E2E}{End-to-End}
-\newacronym{em}{EM}{Expectation Maximization}
-\newacronym{fbank}{f-bank}{triangular STFT filter bank}
-\newacronym{fft}{FFT}{Fast Fourier Transform}
-\newacronym{fmllr}{fMLLR}{feature-space Maximum Likelihood Linear Regression}
-\newacronym{ft}{FT}{Fourier Transform}
-\newacronym{gbank}{g-bank}{Gabor STFT filter bank}
-\newacronym{gcnn}{G-CNN}{Group-equivariant Convolutional Neural Network}
-\newacronym{glm}{GLM}{Generalized Linear Model}
-\newacronym{gmm}{GMM}{Gaussian Mixture Model}
-\newacronym{gru}{GRU}{Gated Recurrent Unit}
-\newacronym{hmm}{HMM}{Hidden Markov Model}
-\newacronym{imh}{IMH}{Independent Metropolis-Hastings}
-\newacronym{is}{IS}{Importance Sampling}
-\newacronym{kl}{KL}{Kullback-Leibler}
-\newacronym{lcjs}{LCJS}{Luo-Chiu-Jaitly-Sutskever}
-\newacronym{lm}{LM}{Language Model}
-\newacronym{lpc}{LPC}{Linear Predictive Coding}
-\newacronym{lstm}{LSTM}{Long Short Term Memory}
-\newacronym{lti}{LTI}{Linear Time-Invariant}
-\newacronym{lvcsr}{LVCSR}{Large vocabulary Conversational Speech Recognition}
-\newacronym{mcarlo}{MC}{Monte Carlo}
-\newacronym{mchain}{MC}{Markov Chain}
-\newacronym{mcmc}{MCMC}{Markov Chain Monte Carlo}
-\newacronym{mfcc}{MFCC}{Mel-frequency Cepstral Coefficient}
-\newacronym{mi}{MI}{Mellin Image}
-\newacronym{mle}{MLE}{Maximum Likelihood Estimate}
-\newacronym{mlearn}{ML}{Machine Learning}
-\newacronym{mlike}{ML}{Maximum Likelihood}
-\newacronym{mmie}{MMIE}{Maximum Mutual Information Estimation}
-\newacronym{mt}{MT}{Mellin Transform}
-\newacronym{nld}{NLD}{Neural Landmark Detection}
-\newacronym{nn}{NN}{Neural Network}
-\newacronym{per}{PER}{Phone Error Rate}
-\newacronym{prs}{PRS}{Poisson Rejective Sampling}
-\newacronym{rnn}{RNN}{Recurrent Neural Network}
-\newacronym{rnnt}{RNN-T}{Recurrent Neural Network Transducer}
-\newacronym{seq2seq}{seq2seq}{sequence-to-sequence}
-\newacronym{sf}{SF}{Suffix-Forcing}
-\newacronym{si}{SI}{Short Integration}
-\newacronym{sifbank}{sif-bank}{triangular SI filter bank}
-\newacronym{sift}{SIFT}{Scale-Invariant Feature Transform}
-\newacronym{sigbank}{sig-bank}{Gabor SI filter bank}
-\newacronym{sitbank}{sitone-bank}{Gammatone SI filter bank}
-\newacronym{srswor}{SRSWOR}{Simple Random Sampling Without Replacement}
-\newacronym{stft}{STFT}{Short-Time Fourier Transform}
-\newacronym{sti}{STI}{Strobed Temporal Integration}
-\newacronym{tbank}{tone-bank}{Gammatone STFT filter bank}
-\newacronym{tpe}{TPE}{Tree-structured Parzen Estimator}
-\newacronym{vi}{VI}{Variational Inference}
-\newacronym{vtl}{VTL}{Vocal Tract Length}
-\newacronym{vtln}{VTLN}{Vocal Tract Length Normalization}
-\newacronym{wer}{WER}{Word Error Rate}
+\newacronym{ai}{AI}{Auditory Image}%
+\newacronym{ais}{AIS}{Adaptive Importance Sampling}%
+\newacronym{aisc}{AIS-C}{AIS-IMH Count-estimate}%
+\newacronym{aisg}{AIS-G}{AIS-IMH Gibbs-estimate}%
+\newacronym{aisimh}{AIS-IMH}{Adaptive Importance Sampling - Independent Metropolis Hastings}%
+\newacronym{am}{AM}{Acoustic Model}%
+\newacronym{amcmc}{AMCMC}{Adaptive Markov Chain Monte Carlo}%
+\newacronym{asr}{ASR}{Automatic Speech Recognition}%
+\newacronym{bert}{BERT}{Bidirectional Encoder Representations from Transformers}%
+\newacronym{cb}{CB}{Conditional Bernoulli}%
+\newacronym{ce}{CE}{Cross-Entropy}%
+\newacronym{cft}{CFT}{Continuous Fourier Transform}%
+\newacronym{cmc}{CMC}{Continuous Mellin Correlation}%
+\newacronym{cnn}{CNN}{Convolutional Neural Network}%
+\newacronym{ctc}{CTC}{Connectionist Temporal Classification}%
+\newacronym{dbn}{DBN}{Deep Belief Network}%
+\newacronym{dft}{DFT}{Discrete Fourier Transform}%
+\newacronym{dmc}{DMC}{Discrete Mellin Correlation}%
+\newacronym{dnn}{DNN}{Deep Neural Network}%
+\newacronym{dp}{DP}{Dynamic Programming}%
+\newacronym{dsp}{DSP}{Digital Signal Processing}%
+\newacronym{dtw}{DTW}{Dynamic Time Warping}%
+\newacronym{e2e}{E2E}{End-to-End}%
+\newacronym{em}{EM}{Expectation Maximization}%
+\newacronym{fbank}{f-bank}{triangular STFT filter bank}%
+\newacronym{fft}{FFT}{Fast Fourier Transform}%
+\newacronym{fmllr}{fMLLR}{feature-space Maximum Likelihood Linear Regression}%
+\newacronym{ft}{FT}{Fourier Transform}%
+\newacronym{gbank}{g-bank}{Gabor STFT filter bank}%
+\newacronym{gcnn}{G-CNN}{Group-equivariant Convolutional Neural Network}%
+\newacronym{glm}{GLM}{Generalized Linear Model}%
+\newacronym{gmm}{GMM}{Gaussian Mixture Model}%
+\newacronym{gru}{GRU}{Gated Recurrent Unit}%
+\newacronym{hmm}{HMM}{Hidden Markov Model}%
+\newacronym{imh}{IMH}{Independent Metropolis-Hastings}%
+\newacronym{is}{IS}{Importance Sampling}%
+\newacronym{kl}{KL}{Kullback-Leibler}%
+\newacronym{lcjs}{LCJS}{Luo-Chiu-Jaitly-Sutskever}%
+\newacronym{lm}{LM}{Language Model}%
+\newacronym{lpc}{LPC}{Linear Predictive Coding}%
+\newacronym{lstm}{LSTM}{Long Short Term Memory}%
+\newacronym{lti}{LTI}{Linear Time-Invariant}%
+\newacronym{lvcsr}{LVCSR}{Large vocabulary Conversational Speech Recognition}%
+\newacronym{mcarlo}{MC}{Monte Carlo}%
+\newacronym{mchain}{MC}{Markov Chain}%
+\newacronym{mcmc}{MCMC}{Markov Chain Monte Carlo}%
+\newacronym{mfcc}{MFCC}{Mel-frequency Cepstral Coefficient}%
+\newacronym{mi}{MI}{Mellin Image}%
+\newacronym{mle}{MLE}{Maximum Likelihood Estimate}%
+\newacronym{mlearn}{ML}{Machine Learning}%
+\newacronym{mlike}{ML}{Maximum Likelihood}%
+\newacronym{mmie}{MMIE}{Maximum Mutual Information Estimation}%
+\newacronym{mt}{MT}{Mellin Transform}%
+\newacronym{nld}{NLD}{Neural Landmark Detection}%
+\newacronym{nn}{NN}{Neural Network}%
+\newacronym{per}{PER}{Phone Error Rate}%
+\newacronym{prs}{PRS}{Poisson Rejective Sampling}%
+\newacronym{rnn}{RNN}{Recurrent Neural Network}%
+\newacronym{rnnt}{RNN-T}{Recurrent Neural Network Transducer}%
+\newacronym{seq2seq}{seq2seq}{sequence-to-sequence}%
+\newacronym{sf}{SF}{Suffix-Forcing}%
+\newacronym{si}{SI}{Short Integration}%
+\newacronym{sifbank}{sif-bank}{triangular SI filter bank}%
+\newacronym{sift}{SIFT}{Scale-Invariant Feature Transform}%
+\newacronym{sigbank}{sig-bank}{Gabor SI filter bank}%
+\newacronym{sitbank}{sitone-bank}{Gammatone SI filter bank}%
+\newacronym{srswor}{SRSWOR}{Simple Random Sampling Without Replacement}%
+\newacronym{stft}{STFT}{Short-Time Fourier Transform}%
+\newacronym{sti}{STI}{Strobed Temporal Integration}%
+\newacronym{tbank}{tone-bank}{Gammatone STFT filter bank}%
+\newacronym{tpe}{TPE}{Tree-structured Parzen Estimator}%
+\newacronym{vi}{VI}{Variational Inference}%
+\newacronym{vtl}{VTL}{Vocal Tract Length}%
+\newacronym{vtln}{VTLN}{Vocal Tract Length Normalization}%
+\newacronym{wer}{WER}{Word Error Rate}%
 
-\newglossaryentry{abelian}{ %
-  name={abelian group}, %
-  description={A group whose operation is also commutative.}, %
-  see={group} %
-}
-\newglossaryentry{cint}{ %
-  name={closed interval}, %
-  symbol={\ensuremath{\left[x, y\right]}}, %
-  description={ %
+\newglossaryentry{abeliang}{%
+  name={abelian group},%
+  description={A group whose multiplicative operation is also commutative.},%
+  see={group}%
+}%
+\newglossaryentry{cint}{%
+  name={closed interval},%
+  symbol={\ensuremath{\left[x, y\right]}},%
+  description={%
     The ordered set of all values between $x$ and $y$, including boundaries.
-    $\{a : x \leq a \leq y\}$. %
-  } %
-}
-\newglossaryentry{congruencec}{ %
-  name={congruence class}, %
-  description={synonym for \glshyperlink{residue}.}, %
-}
-\newglossaryentry{field}{ %
-  name={field}, %
-  description={ %
+    $\{a : x \leq a \leq y\}$.%
+  }%
+}%
+\newglossaryentry{compactg}{%
+  name={compact group},%
+  description={},%
+  see={compact,topgroup}%
+}%
+\newglossaryentry{compacts}{%
+  name={compact space},
+  description={%
+    A topological space $\mathcal{X}$ (with topology $\mathscr{X}$) such that,
+    for any open cover, \textit{i.e.} a collection $\mathscr{X}' \subseteq
+    \mathcal{X}$ \textit{s.t.} $\mathcal{X} = \cup_{\mathcal{X}' \in
+    \mathscr{X}'} \mathcal{X}'$, there exists a finite subcover, $\exists
+    \mathscr{X}'' \subseteq \mathscr{X}'$ \textit{s.t.} $|\mathscr{X}''| \in
+    \mathbb{N}$ and $\mathscr{X}''$ is an open cover of $\mathcal{X}$.%
+  },%
+  see={topology}%
+}%
+\newglossaryentry{congruencec}{%
+  name={congruence class},%
+  plural={congruence classes},%
+  description={},%
+  see={residue}%
+}%
+\newglossaryentry{discretet}{%
+  name={discrete topology},%
+  plural={discrete topologies},%
+  description={%
+    The powerset topology over $\mathcal{X}$, \textit{i.e.} $\mathcal{X}'
+    \subseteq \mathcal{X} \iff \mathcal{X}' \in \mathscr{X}$.%
+  }%
+}%
+\newglossaryentry{equivalencec}{%
+  name={equivalence class},%
+  plural={equivalence classes},%
+  description={%
+    A subset of the elements of a set $x,x' \in \mathcal{X}$ which are
+    equivalent with respect to some equivalence relation $\sim$. The class can
+    is usually denoted $[x]$, where $x \in \mathcal{X}$ is any member in the
+    class (called a representative). Any member can be a representative,
+    \textit{i.e.} $[x'] = [x] \iff x' \sim x$.%
+  },
+  symbol={\ensuremath{[x]}}%
+}%
+\newglossaryentry{field}{%
+  name={field},%
+  description={%
     A set endowed with addition and multiplication; their identities ($0$ and
     $1$); inverses (subtraction and division, the latter not defined for $0$);
-    commutativity; associativity; and distributivity. %
-  } %
-}
-\newglossaryentry{ghomo}{ %
-  name={group homomorphism}, %
-  description={ %
-    A map $\phi$ from one group $\set{G}$ to another $\set{H}$ preserving group
-    structure: $\phi(gg') = \phi(g)\phi(g')$. %
-  } %
-}
-\newglossaryentry{group}{ %
-  name={group}, %
-  description={ %
-    A set and a closed, binary operation on said set, which has an identity, an
-    inverse, and is associative. %
-  } %
-}
-\newglossaryentry{homogenous}{%
+    commutativity; associativity; and distributivity.%
+  }%
+}%
+\newglossaryentry{leftc}{%
+  name={(left) coset},%
+  description={},%
+  see={leftq}%
+}%
+\newglossaryentry{leftq}{%
+  name={(left) quotient space},
+  symbol={\ensuremath{\mathcal{G}/\mathcal{H}}},
+  description={%
+    For group $\mathcal{G}$ and subgroup $\mathcal{H}$, the left quotient
+    space, denoted $\mathcal{G}/\mathcal{H}$, contains equivalence classes $[g]
+    = \{g : gh \in \mathcal{H}\}$ (also called cosets and denoted $gH$) under
+    the equivalence relation $g \sim g' \iff g^{-1}g' \in \mathcal{H}$.%
+  },%
+  see={quotients}%
+}%
+\newglossaryentry{ghomo}{%
+  name={group homomorphism},%
+  description={%
+    A map $\phi$ from one group $\mathcal{G}$ to another $\mathcal{H}$ which
+    commutes with group multiplicaiton: $\phi(gg') = \phi(g)\phi(g')$.%
+  }%
+} \newglossaryentry{group}{%
+  name={group},%
+  symbol={\ensuremath{\mathcal{G}}},%
+  description={%
+    A set $\mathcal{G}$ and a closed, binary operation on said set, which has
+    an identity, an inverse, and is associative.%
+  }%
+} \newglossaryentry{homogenous}{%
   name={homogeneous space},%
   description={%
-    A space $\set{X}$ which a group acts $\set{G}$ on transitively. That is,
-    $\forall x,x' \in \set{X},\exists g \in \set{G}: x = gx'$.%
+    A space $\mathcal{X}$ which a group acts $\mathcal{G}$ on transitively.
+    That is, $\forall x,x' \in \mathcal{X},\exists g \in \mathcal{G}: x =
+    gx'$.%
   },%
   see={group}%
-}
-\newglossaryentry{ifamily}{ %
-  name={indexed family}, %
-  plural={indexed families}, %
-  symbol={\ensuremath{(x_y)_{y \in \mathcal{Y}}}}, %
-  description={ %
+}%
+\newglossaryentry{ifamily}{%
+  name={indexed family},%
+  plural={indexed families},%
+  symbol={\ensuremath{(x_y)_{y \in \mathcal{Y}}}},%
+  description={%
     Ordered elements from a set $x \in \mathcal{X}$ indexed by the set $y \in
-    \mathcal{Y}$. %
-  } %
-}
-\newglossaryentry{irange}{ %
-  name={inclusive range}, %
-  symbol={\ensuremath{x\mathord{:}y}}, %
-  description={ %
-    The ordered set of natural numbers between $x$ and $y$ inclusive. %
-  } %
-}
+    \mathcal{Y}$.%
+  }%
+}%
+\newglossaryentry{irange}{%
+  name={inclusive range},%
+  symbol={\ensuremath{x\mathord{:}y}},%
+  description={%
+    The ordered set of natural numbers between $x$ and $y$ inclusive.%
+  }%
+}%
 \newglossaryentry{ligru}{%
-  name={liGRU}, %
+  name={liGRU},%
   description={Modification of GRU proposed by
-  \citeauthor{ravanelliImprovingSpeechRecognition2017}}, %
-  see={gru} %
-}
-\newglossaryentry{oint}{ %
-  name={open interval}, %
-  symbol={\ensuremath{\left]x,y\right[}}, %
-  description={ %
+  \citeauthor{ravanelliImprovingSpeechRecognition2017}},%
+  see={gru}%
+}%
+\newglossaryentry{oint}{%
+  name={open interval},%
+  symbol={\ensuremath{\left]x,y\right[}},%
+  description={%
     The ordered set of all values between $x$ and $y$, excluding boundaries.
-    $\{a : x < a < y\}$. %
-  } %
-}
+    $\left]x,y\right[ = \{a : x < a < y\}$.%
+  }%
+}%
+\newglossaryentry{openset}{%
+  name={open sets},%
+  description={},%
+  see={topology}%
+}%
 \newglossaryentry{phone}{%
   name={phone},%
   description={A speech sound.}%
-}
+}%
+\newglossaryentry{quotients}{%
+  name={quotient space},%
+  symbol={\ensuremath{\mathcal{X}/\sim}},%
+  description={%
+    A set $\mathcal{X}/\sim$ of all the equivalence classes $[x] \in
+    \mathcal{X}/\sim$ of $\mathcal{X}$ induced by the equivalence relation
+    $\sim$. The quotient space partitions $\mathcal{X}$ ($\cup [x] =
+    \mathcal{X}$ and $x \not \sim x' \iff [x]\cap[x'] = \emptyset$).%
+  }%
+}%
+\newglossaryentry{representative}{
+  name={representative},%
+  description={},%
+  see={equivalencec}%
+}%
 \newglossaryentry{residue}{
   name={residue},%
-  symbol={\ensuremath{[a]}},%
   description={%
-    A set of integers $\ldots, a - 2n, a - n, a, a + n, a + 2n, \ldots$ with
-    the same value modulo some $n$. An equivalence class.%
-  }%
-}
+    An equivalence class of integers $\ldots, a - 2n, a - n, a, a + n, a + 2n,
+    \ldots$ with the same value modulo some $n$.%
+  },%
+  see={equivalencec}%
+}%
 \newglossaryentry{residuec}{
   name={residue class},%
-  description={synonym for \glshyperlink{residue}},%
-  see={residue}
-}
-\newglossaryentry{support}{ %
-  name={support}, %
-  symbol={\ensuremath{\mathord{supp} f}}, %
-  description={ %
+  description={},%
+  see={residue}%
+}%
+\newglossaryentry{rightc}{
+  name={right coset},%
+  description={},%
+  see={rightq}%
+}%
+\newglossaryentry{rightq}{
+  name={right quotient space},%
+  symbol={\ensuremath{\mathcal{H}\setminus\mathcal{G}}},%
+  description={%
+    Like the left quotient space, but with elements (right cosets) defined by
+    actions on elements of $\mathcal{H}$ on the right (and $g \sim g' \iff
+    gg'^{-1} \in \mathcal{H}$).%
+  },%
+  see={leftq}%
+}%
+\newglossaryentry{support}{%
+  name={support},%
+  symbol={\ensuremath{\mathord{supp} f}},%
+  description={%
     The elements of the domain of $f : X \to \mathbb{F}$ such that $f$
-    evaluated on those elements is non-zero. $\text{supp} f = \{x : f(x) \neq
-    0\}$.%
-  } %
-}
+    evaluated on those elements is non-zero. $\operatorname{supp} f = \{x :
+    f(x) \neq 0\}$.%
+  }%
+}%
 \newglossaryentry{token}{%
   name={token},%
   description={%
     An element in a transcription sequence such as a word or phone.%
   },%
   see={phone}%
-}
+}%
+\newglossaryentry{topspace}{%
+  name={topological space},%
+  description={},%
+  see={topology}%
+}%
+\newglossaryentry{topgroup}{%
+  name={topological group},%
+  description={},%
+  see={group,topology}%
+}%
+\newglossaryentry{topology}{%
+  name={topology},%
+  plural={topologies},%
+  description={%
+    For a given set $\mathcal{X}$, a topology on $\mathcal{X}$ is a collection of
+    subsets (called open sets) of $\mathcal{X}$, $\mathscr{X}$, such that,
+   %
+    \begin{itemize}%
+      \item $\emptyset,\mathcal{X} \in \mathscr{X}$;
+      \item for any indexed collection $\mathcal{X}_i \in \mathscr{X}$
+            (countable or uncountable), $\bigcup_i \mathcal{X}_i \in
+            \mathscr{X}$; and
+      \item for any finite collection $\mathcal{X}_i \in \mathscr{X}$,
+            $\bigcap_i \mathcal{X}_i \in \mathscr{X}$.
+    \end{itemize}%
+   %
+    When equipped with a topology, the set $\mathcal{X}$ is considered a
+    topological space.%
+  },%
+  symbol={\ensuremath{\mathscr{X}}}%
+}%
 \newglossaryentry{type}{%
   name={type},%
   description={%
     A discrete value which a token can take.%
   },%
   see={token}%
-}
+}%
 \newglossaryentry{vocabulary}{%
   name={vocabulary},
   plural={vocabularies},
@@ -231,6 +352,6 @@
   },%
   see={type,token},%
   symbol=\ensuremath{\mathcal{V}}%
-}
+}%
 
 % spellcheck-on
