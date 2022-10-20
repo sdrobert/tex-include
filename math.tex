@@ -127,7 +127,7 @@
 }
 
 \DeclareDocumentCommand\Norm{o m}{%
-  \ensuremath{\Normp{#2}\IfNoValueF{#1}{\textsubscript{\ensuremath{#1}}}}%
+  \Normp{#2}\IfNoValueF{#1}{\textsubscript{\ensuremath{#1}}}%
 }
 
 \DeclareDocumentCommand\Pr{o m g g}{%
