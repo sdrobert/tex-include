@@ -141,6 +141,14 @@
   description={},%
   see={residue}%
 }%
+\newglossaryentry{countingm}{%
+  name={counting measure},%
+  description={%
+    The measure $\mu$ on a countable $\sigma$-algebra $\Sigma$ which
+    counts the number of elements in the set, $\mu(\sigma) = |\sigma|$.%
+  },%
+  see={measure},%
+}%
 \newglossaryentry{discretet}{%
   name={discrete topology},%
   plural={discrete topologies},%
@@ -191,14 +199,16 @@
     A map $\phi$ from one group $\mathcal{G}$ to another $\mathcal{H}$ which
     commutes with group multiplicaiton: $\phi(gg') = \phi(g)\phi(g')$.%
   }%
-} \newglossaryentry{group}{%
+}%
+\newglossaryentry{group}{%
   name={group},%
   symbol={\ensuremath{\mathcal{G}}},%
   description={%
     A set $\mathcal{G}$ and a closed, binary operation on said set, which has
     an identity, an inverse, and is associative.%
   }%
-} \newglossaryentry{homogenous}{%
+}%
+\newglossaryentry{homogenous}{%
   name={homogeneous space},%
   description={%
     A space $\mathcal{X}$ which a group acts $\mathcal{G}$ on transitively.
@@ -228,6 +238,24 @@
   description={Modification of GRU proposed by
   \citeauthor{ravanelliImprovingSpeechRecognition2017}},%
   see={gru}%
+}%
+\newglossaryentry{measure}{%
+  name={measure},%
+  symbol={\ensuremath{\mu}},%
+  description={%
+    A function $\mu$ whose domain is a $\sigma$-algebra $\Sigma$ over a set
+    $\mathcal{X}$ and whose codomain is the non-negative extended reals
+    $\mathbb{R}_{\geq 0} \cup \{\infty\}$. It additionally has the properties:
+    %
+    \begin{enumerate}
+      \item $\mu(\emptyset) = 0$; and
+      \item for countably-indexed collection $\sigma_i \in \Sigma'
+            \subseteq \Sigma$ containing disjoint subsets, $i \neq i' \implies
+            \sigma_i \cap \sigma_{i'} = \emptyset$, $\mu(\cup_i \sigma_i) =
+            \sum_i \mu(\sigma_i)$.
+    \end{enumerate}
+  },%
+  see={sigmaa},%
 }%
 \newglossaryentry{oint}{%
   name={open interval},%
@@ -288,6 +316,24 @@
     gg'^{-1} \in \mathcal{H}$).%
   },%
   see={leftq}%
+}%
+\newglossaryentry{semig}{%
+  name={semigroup},%
+  description={A set together with a closed, associative binary operation.}%
+}%
+\newglossaryentry{sigmaa}{%
+  name={\ensuremath{\sigma}-algebra},%
+  symbol={\ensuremath{\Sigma}},%
+  description={
+    A collection $\Sigma$ of subsets of a set $\mathcal{X}$ such that:
+    %
+    \begin{enumerate}
+      \item $\emptyset, \mathcal{X} \in \Sigma$;
+      \item $\forall \sigma \in \Sigma$, $\mathcal{X} \setminus \sigma \in \Sigma$; and
+      \item for countably-indexed collections $\Sigma' \subseteq \Sigma'$,
+            $\bigcup_{\sigma \in \Sigma'} \sigma \in \Sigma$.
+    \end{enumerate}
+  }%
 }%
 \newglossaryentry{support}{%
   name={support},%

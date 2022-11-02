@@ -47,7 +47,10 @@
 % \Pr{x}{}{y}    % probability - P(x||y)
 % \Pr{x}{y}      % probability - P(x|y)
 % \Pr{x}{y}{z}   % probability - P(x|y||z)
-% \Q             % rational field
+% \Q             % rational numbers
+% \Qp            % positive rational numbers
+% \R             % real numbers
+% \Rp            % positive real numbers
 % \ring{A}       % ring
 % \semi{A}       % semiring
 % \set{A}        % set
@@ -70,19 +73,21 @@
 \usepackage{bm,upgreek,mathtools,mathrsfs}
 
 \DeclarePairedDelimiter\Innerp{\langle}{\rangle}
-\DeclarePairedDelimiter\Floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\Floorp{\lfloor}{\rfloor}
+\newcommand\Floor[1]{\ensuremath{\Floorp*{#1}}}
 \DeclarePairedDelimiter\Ceil{\lceil}{\rceil}
-\newcommand\Inner[2]{\ensuremath{\Innerp{#1, #2}}}
-\DeclarePairedDelimiter\Abs{\lvert}{\rvert}
-\DeclarePairedDelimiter\Card{\lvert}{\rvert}
+\newcommand\Inner[2]{\ensuremath{\Innerp*{#1, #2}}}
+\DeclarePairedDelimiter\Absp{\lvert}{\rvert}
+\newcommand\Abs[1]{\ensuremath{\Absp*{#1}}}
+\newcommand\Card\Abs
 \DeclarePairedDelimiter\Closedp{[}{]}
-\newcommand\Closed[2]{\ensuremath{\Closedp{#1, #2}}}
+\newcommand\Closed[2]{\ensuremath{\Closedp*{#1, #2}}}
 \DeclarePairedDelimiter\Openp{]}{[}
-\newcommand\Open[2]{\ensuremath{\Openp{#1, #2}}}
+\newcommand\Open[2]{\ensuremath{\Openp*{#1, #2}}}
 \DeclarePairedDelimiter\HalfOpenOnLeftp{]}{]}
-\newcommand\HalfOpenOnLeft[2]{\ensuremath{\HalfOpenOnLeftp{#1,#2}}}
+\newcommand\HalfOpenOnLeft[2]{\ensuremath{\HalfOpenOnLeftp*{#1,#2}}}
 \DeclarePairedDelimiter\HalfOpenOnRightp{[}{[}
-\newcommand\HalfOpenOnRight[2]{\ensuremath{\HalfOpenOnRightp{#1,#2}}}
+\newcommand\HalfOpenOnRight[2]{\ensuremath{\HalfOpenOnRightp*{#1,#2}}}
 \DeclareRobustCommand\iff{\mathbin{\Longleftrightarrow}}
 \newcommand\Four[1]{\ensuremath{\widehat{#1}}}
 \DeclarePairedDelimiter\Normp{\|}{\|}
@@ -127,7 +132,7 @@
 }
 
 \DeclareDocumentCommand\Norm{o m}{%
-  \Normp{#2}\IfNoValueF{#1}{\textsubscript{\ensuremath{#1}}}%
+  \Normp*{#2}\IfNoValueF{#1}{\textsubscript{\ensuremath{#1}}}%
 }
 
 \DeclareDocumentCommand\Pr{o m g g}{%
@@ -240,15 +245,18 @@
 \newcommand\alg[1]{\ensuremath{\mathfrak{#1}}}
 \newcommand\setint[1]{\ensuremath{\int\limits_{#1}\mathrm{d}#1\>}}
 \newcommand\Pdiv[2]{\ensuremath{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand\Diff[2]{\ensuremath{\frac{\mathrm{d}#1}{\mathrm{d}#2}}}
 \newcommand\Deriv[2]{\ensuremath{\frac{\mathrm{d}{#1}}{\mathrm{d}{#2}}}}
 \newcommand\Conj[1]{\ensuremath{\overline{#1}}}
 \newcommand\asto{\ensuremath{\mathbin{\overset{a.s.}{\to}}}}
 
-\newcommand\R{\ensuremath{\field{R}}}
-\newcommand\C{\ensuremath{\field{C}}}
-\newcommand\N{\ensuremath{\semi{N}}}
+\newcommand\R{\field{R}}
+\newcommand\Rp{\R_{>0}}
+\newcommand\C{\field{C}}
+\newcommand\N{\semi{N}}
 \newcommand\Z{\ring{Z}}
 \newcommand\Q{\field{Q}}
+\newcommand\Qp{\Q_{>0}}
 \newcommand\V{\set{V}}
 
 % spellcheck-on
