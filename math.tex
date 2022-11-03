@@ -22,6 +22,7 @@
 % \Corr{x}{y}[t] % correlation - (x star y)_t
 % \Corr*{x}{y}   % correlation (alternate) - x (star w/ underline) y
 % \Dual{x}       % dual
+% \EClass{i}     % equivalence class of i - [i]
 % \Ex[y]{x}      % expectation - E_y[x]
 % \Ex{x}         % expectation - E[x]
 % \field{A}      % field - A
@@ -74,6 +75,8 @@
 
 \DeclarePairedDelimiter\Innerp{\langle}{\rangle}
 \DeclarePairedDelimiter\Floorp{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\EClassp{[}{]}
+\newcommand\EClass[1]{\ensuremath{\EClassp*{#1}}}
 \newcommand\Floor[1]{\ensuremath{\Floorp*{#1}}}
 \DeclarePairedDelimiter\Ceil{\lceil}{\rceil}
 \newcommand\Inner[2]{\ensuremath{\Innerp*{#1, #2}}}
