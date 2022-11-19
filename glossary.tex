@@ -31,8 +31,6 @@
 
 \newacronym{ai}{AI}{Auditory Image}%
 \newacronym{ais}{AIS}{Adaptive Importance Sampling}%
-\newacronym{aisc}{AIS-C}{AIS-IMH Count-estimate}%
-\newacronym{aisg}{AIS-G}{AIS-IMH Gibbs-estimate}%
 \newacronym{aisimh}{AIS-IMH}{Adaptive Importance Sampling - Independent Metropolis Hastings}%
 \newacronym{am}{AM}{Acoustic Model}%
 \newacronym{amcmc}{AMCMC}{Adaptive Markov Chain Monte Carlo}%
@@ -48,7 +46,6 @@
 \newacronym{ctc}{CTC}{Connectionist Temporal Classification}%
 \newacronym{dbn}{DBN}{Deep Belief Network}%
 \newacronym{dft}{DFT}{Discrete Fourier Transform}%
-\newacronym{dmc}{DMC}{Discrete Mellin Correlation}%
 \newacronym{dnn}{DNN}{Deep Neural Network}%
 \newacronym{dp}{DP}{Dynamic Programming}%
 \newacronym{dsp}{DSP}{Digital Signal Processing}%
@@ -59,7 +56,6 @@
 \newacronym{fft}{FFT}{Fast Fourier Transform}%
 \newacronym{fmllr}{fMLLR}{feature-space Maximum Likelihood Linear Regression}%
 \newacronym{ft}{FT}{Fourier Transform}%
-\newacronym{gbank}{g-bank}{Gabor STFT filter bank}%
 \newacronym{gcnn}{G-CNN}{Group-equivariant Convolutional Neural Network}%
 \newacronym{glm}{GLM}{Generalized Linear Model}%
 \newacronym{gmm}{GMM}{Gaussian Mixture Model}%
@@ -68,7 +64,6 @@
 \newacronym{imh}{IMH}{Independent Metropolis-Hastings}%
 \newacronym{is}{IS}{Importance Sampling}%
 \newacronym{kl}{KL}{Kullback-Leibler}%
-\newacronym{lcjs}{LCJS}{Luo-Chiu-Jaitly-Sutskever}%
 \newacronym{lm}{LM}{Language Model}%
 \newacronym{lpc}{LPC}{Linear Predictive Coding}%
 \newacronym{lstm}{LSTM}{Long Short Term Memory}%
@@ -84,7 +79,6 @@
 \newacronym{mlike}{ML}{Maximum Likelihood}%
 \newacronym{mmie}{MMIE}{Maximum Mutual Information Estimation}%
 \newacronym{mt}{MT}{Mellin Transform}%
-\newacronym{nld}{NLD}{Neural Landmark Detection}%
 \newacronym{nn}{NN}{Neural Network}%
 \newacronym{per}{PER}{Phone Error Rate}%
 \newacronym{prs}{PRS}{Poisson Rejective Sampling}%
@@ -92,12 +86,7 @@
 \newacronym{rnn}{RNN}{Recurrent Neural Network}%
 \newacronym{rnnt}{RNN-T}{Recurrent Neural Network Transducer}%
 \newacronym{seq2seq}{seq2seq}{sequence-to-sequence}%
-\newacronym{sf}{SF}{Suffix-Forcing}%
-\newacronym{si}{SI}{Short Integration}%
-\newacronym{sifbank}{sif-bank}{triangular SI filter bank}%
 \newacronym{sift}{SIFT}{Scale-Invariant Feature Transform}%
-\newacronym{sigbank}{sig-bank}{Gabor SI filter bank}%
-\newacronym{sitbank}{sitone-bank}{Gammatone SI filter bank}%
 \newacronym{srswor}{SRSWOR}{Simple Random Sampling Without Replacement}%
 \newacronym{stft}{STFT}{Short-Time Fourier Transform}%
 \newacronym{sti}{STI}{Strobed Temporal Integration}%
@@ -182,19 +171,21 @@
 }%
 \newglossaryentry{leftc}{%
   name={(left) coset},%
+  sort={coset},%
   description={},%
   see={leftq}%
 }%
 \newglossaryentry{leftq}{%
-  name={(left) quotient space},
-  symbol={\ensuremath{\mathcal{G}/\mathcal{H}}},
+  name={(left) quotient space},%
+  sort={quotient space left},%
+  symbol={\ensuremath{\mathcal{G}/\mathcal{H}}},%
   description={%
     For group $\mathcal{G}$ and subgroup $\mathcal{H}$, the left quotient
     space, denoted $\mathcal{G}/\mathcal{H}$, contains equivalence classes $[g]
     = \{g : gh \in \mathcal{H}\}$ (also called cosets and denoted $gH$) under
     the equivalence relation $g \sim g' \iff g^{-1}g' \in \mathcal{H}$.%
   },%
-  see={quotients}%
+  see={rightq,quotients}%
 }%
 \newglossaryentry{ghomo}{%
   name={group homomorphism},%
@@ -235,12 +226,6 @@
   description={%
     The ordered set of natural numbers between $x$ and $y$ inclusive.%
   }%
-}%
-\newglossaryentry{ligru}{%
-  name={liGRU},%
-  description={Modification of GRU proposed by
-  \citeauthor{ravanelliImprovingSpeechRecognition2017}},%
-  see={gru}%
 }%
 \newglossaryentry{measure}{%
   name={measure},%
@@ -326,6 +311,7 @@
 }%
 \newglossaryentry{sigmaa}{%
   name={\ensuremath{\sigma}-algebra},%
+  sort={sigma algebra},%
   symbol={\ensuremath{\Sigma}},%
   description={
     A collection $\Sigma$ of subsets of a set $\mathcal{X}$ such that:
