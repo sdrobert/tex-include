@@ -1,0 +1,127 @@
+% Abbreviation file
+%
+% If don't you plan on printing the abbreviations in a glossary, then
+%
+%   \include[autoseeindex=false]{glossaries-extra}
+%   \loadglsentries{tex-include/abbreviations.tex}
+%   % ...
+%   \begin{document}
+%   % ...
+%   I like to do \gls{ml.ml} with all the \gls{ml.nn}!
+%   % ...
+%   \end{document}
+%
+% If you do want to print the abbreviations in a glossary,
+%
+%   \include[automake=immediate]{glossaries-extra}
+%   \makeglossaries
+%   \loadglsentries{tex-include/abbreviations.tex}
+%   % ...
+%   \begin{document}
+%   % ...
+%   I like to do \gls{ml.ml} with all the \gls{ml.nn}!
+%   % ...
+%   \printglossary
+%   \end{document}
+%
+
+
+% Automatic Speech Recognition (asr)
+\newabbreviation{asr.am}{AM}{Acoustic Model}%
+\newabbreviation{asr.asr}{ASR}{Automatic Speech Recognition}%
+\newabbreviation{asr.ctc}{CTC}{Connectionist Temporal Classification}%
+\newabbreviation{asr.dtw}{DTW}{Dynamic Time Warping}%
+\newabbreviation{asr.e2e}{E2E}{End-to-End}%
+\newabbreviation{asr.fbank}{f-bank}{triangular \glsps{dsp.stft} filter bank}%
+\newabbreviation{asr.fmllr}{fMLLR}{feature-space Maximum Likelihood Linear Regression}%
+\newabbreviation{asr.lvcsr}{LVCSR}{Large Vocabulary Conversational Speech Recognition}%
+\newabbreviation{asr.mfcc}{MFCC}{Mel-frequency Cepstral Coefficient}%
+\newabbreviation{asr.mmie}{MMIE}{Maximum Mutual Information Estimation}%
+\newabbreviation{asr.per}{PER}{Phone Error Rate}%
+\newabbreviation{asr.vtln}{VTLN}{\glsps{sp.vtl} Normalization}%
+\newabbreviation{asr.wer}{WER}{Word Error Rate}%
+
+% Computer Science (cs)
+\newabbreviation{cs.cs}{CS}{Computer Science}%
+\newabbreviation{cs.dp}{DP}{Dynamic Programming}%
+
+% Computer Vision (cv)
+\newabbreviation{cv.cv}{CV}{Computer Vision}%
+\newabbreviation{cv.sift}{SIFT}{Scale-Invariant Feature Transform}%
+
+% Digital Signal Processing (dsp)
+\newabbreviation{dsp.dft}{DFT}{Discrete Fourier Transform}%
+\newabbreviation{dsp.dsp}{DSP}{Digital Signal Processing}%
+\newabbreviation{dsp.fft}{FFT}{Fast Fourier Transform}%
+\newabbreviation{dsp.lpc}{LPC}{Linear Predictive Coding}% 
+\newabbreviation{dsp.lti}{LTI}{Linear Time-Invariant}%
+\newabbreviation{dsp.stft}{STFT}{Short-Time Fourier Transform}%
+
+% Harmonic Analysis (harm)
+\newabbreviation{harm.cft}{CFT}{Continuous Fourier Transform}%
+\newabbreviation{harm.ft}{FT}{Fourier Transform}%
+\newabbreviation{harm.mt}{MT}{Mellin Transform}%
+
+% Linguistics (ling)
+\newabbreviation{ling.aae}{AAE}{African American English}%
+\newabbreviation{ling.aave}{AAVE}{African American Vernacular English}%
+\newabbreviation{ling.ga}{GA}{General American}%
+\newabbreviation{ling.gae}{GAE}{General American English}%
+\newabbreviation{ling.mae}{MAE}{Mainstream American Engish}%
+\newabbreviation{ling.rp}{RP}{Received Pronunciation}%
+\newabbreviation{ling.sae}{SAE}{Standard American English}%
+
+% Language Modelling (lm)
+\newabbreviation{lm.bert}{BERT}{Bidirectional Encoder Representations from Transformers}%
+\newabbreviation{lm.lm}{LM}{Language Model}%
+
+% Machine Learning (ml)
+\newabbreviation{ml.ce}{CE}{Cross-Entropy}%
+\newabbreviation{ml.cnn}{CNN}{Convolutional Neural Network}%
+\newabbreviation{ml.crf}{CRF}{Conditional Random Field}%
+\newabbreviation{ml.dnn}{DNN}{Deep Neural Network}%
+\newabbreviation{ml.dbn}{DBN}{Deep Belief Network}%
+\newabbreviation{ml.em}{EM}{Expectation Maximization}%
+\newabbreviation{ml.gcnn}{G-CNN}{Group-equivariant \glsps{ml.cnn}}%
+\newabbreviation{ml.glm}{GLM}{Generalized Linear Model}%
+\newabbreviation{ml.gmm}{GMM}{Gaussian Mixture Model}%
+\newabbreviation{ml.gru}{GRU}{Gated Recurrent Unit}%
+\newabbreviation{ml.hmm}{HMM}{Hidden Markov Model}%
+\newabbreviation{ml.lstm}{LSTM}{Long Short Term Memory Network}%
+\newabbreviation{ml.ml}{ML}{Machine Learning}%
+\newabbreviation{ml.nn}{NN}{Neural Network}%
+\newabbreviation{ml.pac}{PAC}{Probably Approximately Correct}%
+\newabbreviation{ml.rl}{RL}{Reinforcement Learning}%
+\newabbreviation{ml.rnn}{RNN}{Recurrent Neural Network}%
+\newabbreviation{ml.rnnt}{RNN-T}{\glsps{ml.rnn} Transducer}%
+\newabbreviation{ml.seq2seq}{seq2seq}{sequence-to-sequence}%
+\newabbreviation{ml.tpe}{TPE}{Tree-structured Parzen Estimator}%
+\newabbreviation{ml.vi}{VI}{Variational Inference}%
+
+% Monte Carlo (mc)
+\newabbreviation{mc.ais}{AIS}{Adaptive Importance Sampling}%
+\newabbreviation{mc.amcmc}{AMCMC}{Adaptive \glsps{mc.mcmc}}%
+\newabbreviation{mc.imh}{IMH}{Independent Metropolis-Hastings}%
+\newabbreviation{mc.is}{IS}{Importance Sampling}%
+\newabbreviation{mc.mc}{MC}{Monte Carlo}%
+\newabbreviation{mc.mcmc}{MCMC}{Markov Chain Monte Carlo}%
+\newabbreviation{mc.mh}{MH}{Metropolis-Hastings}%
+\newabbreviation{mc.prs}{PRS}{Poisson Rejective Sampling}%
+\newabbreviation{mc.srswor}{SRSWOR}{Simple Random Sampling Without Replacement}%
+
+% Speech Production/Perception (sp)
+\newabbreviation{sp.ai}{AI}{Auditory Image}%
+\newabbreviation{sp.mi}{MI}{Mellin Image}%
+\newabbreviation{sp.sti}{STI}{Strobed Temporal Integration}%
+\newabbreviation{sp.vtl}{VTL}{Vocal Tract Length}%
+
+% Statistics (stats)
+\newabbreviation{stats.anova}{ANOVA}{Analysis of Variance}%
+\newabbreviation{stats.cb}{CB}{Conditional Bernoulli}%
+\newabbreviation{stats.kl}{KL divergence}{Kullback-Leibler divergence}%
+\newabbreviation{stats.mc}{MC}{Markov Chain}%
+\newabbreviation{stats.mle}{MLE}{Maximum Likelihood Estimate}%
+\newabbreviation{stats.ml}{ML}{Maximum Likelihood}%
+
+% Text-to-Speech/Speech Synthesis (tts)
+\newabbreviation{tts.tts}{TTS}{Text-To-Speech}%

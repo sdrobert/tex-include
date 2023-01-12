@@ -2,156 +2,142 @@
 % 
 % Before \begin{document}:
 % 
-%   \usepackage{xparse}%
-%   \usepackage[toc,xindy]{glossaries}%
-%   \makeglossaries
-%   \usepackage[xindy]{imakeidx}%
+%   \include[automake=immediate]{glossaries-extra.tex}
 %   \makeindex
-%   \loadglsentries{tex-include/glossary.tex}%
+%   \loadglsentries{tex-include/glossary.tex}
 % 
 % In document:
 % 
-%   ... proves that, for an \gls{slp} ...
+%   ... proves that, for an \gls{asr.utt} ...
 % 
 % 
 % End of document:
 % 
 %   \printglossary
 
-% spellcheck-off
+% Automatic Speech Recognition (ASR)
+\newglossaryentry{asr.utt}{%
+  name={utterance},%
+  description={%
+    An interval of speech, usually delineated by some acoustic or linguistic
+    marker such as a pause, the end of a phrase, or sentence.%
+  },%
+}%
+\newglossaryentry{asr.trans}{%
+  name={transcription},%
+  description={%
+    A token sequence corresponding to what was said in an utterance. Usually
+    words, but can be sub-words, characters, or phones.%
+  },%
+  seealso={asr.utt,sp.phone},%
+}%
 
-% \ExplSyntaxOn
-% \DeclareDocumentCommand\newdualentry{ O{} O{} m m m m } {
-%   \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
-%     description={#6},#1
-%   }%
-%   \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}%
-% }%
-% \ExplSyntaxOff
-
-\newacronym{ai}{AI}{Auditory Image}%
-\newacronym{ais}{AIS}{Adaptive Importance Sampling}%
-\newacronym{aisimh}{AIS-IMH}{Adaptive Importance Sampling - Independent Metropolis Hastings}%
-\newacronym{am}{AM}{Acoustic Model}%
-\newacronym{amcmc}{AMCMC}{Adaptive Markov Chain Monte Carlo}%
-\newacronym{anova}{ANOVA}{Analysis of Variance}%
-\newacronym{asr}{ASR}{Automatic Speech Recognition}%
-\newacronym{bert}{BERT}{Bidirectional Encoder Representations from Transformers}%
-\newacronym{cb}{CB}{Conditional Bernoulli}%
-\newacronym{ce}{CE}{Cross-Entropy}%
-\newacronym{cft}{CFT}{Continuous Fourier Transform}%
-\newacronym{cmc}{CMC}{Continuous Mellin Correlation}%
-\newacronym{cnn}{CNN}{Convolutional Neural Network}%
-\newacronym{crf}{CRF}{Conditional Random Field}%
-\newacronym{ctc}{CTC}{Connectionist Temporal Classification}%
-\newacronym{dbn}{DBN}{Deep Belief Network}%
-\newacronym{dft}{DFT}{Discrete Fourier Transform}%
-\newacronym{dnn}{DNN}{Deep Neural Network}%
-\newacronym{dp}{DP}{Dynamic Programming}%
-\newacronym{dsp}{DSP}{Digital Signal Processing}%
-\newacronym{dtw}{DTW}{Dynamic Time Warping}%
-\newacronym{e2e}{E2E}{End-to-End}%
-\newacronym{em}{EM}{Expectation Maximization}%
-\newacronym{fbank}{f-bank}{triangular STFT filter bank}%
-\newacronym{fft}{FFT}{Fast Fourier Transform}%
-\newacronym{fmllr}{fMLLR}{feature-space Maximum Likelihood Linear Regression}%
-\newacronym{ft}{FT}{Fourier Transform}%
-\newacronym{gcnn}{G-CNN}{Group-equivariant Convolutional Neural Network}%
-\newacronym{glm}{GLM}{Generalized Linear Model}%
-\newacronym{gmm}{GMM}{Gaussian Mixture Model}%
-\newacronym{gru}{GRU}{Gated Recurrent Unit}%
-\newacronym{hmm}{HMM}{Hidden Markov Model}%
-\newacronym{imh}{IMH}{Independent Metropolis-Hastings}%
-\newacronym{is}{IS}{Importance Sampling}%
-\newacronym{kl}{KL}{Kullback-Leibler}%
-\newacronym{lm}{LM}{Language Model}%
-\newacronym{lpc}{LPC}{Linear Predictive Coding}%
-\newacronym{lstm}{LSTM}{Long Short Term Memory}%
-\newacronym{lti}{LTI}{Linear Time-Invariant}%
-\newacronym{lvcsr}{LVCSR}{Large vocabulary Conversational Speech Recognition}%
-\newacronym{mcarlo}{MC}{Monte Carlo}%
-\newacronym{mchain}{MC}{Markov Chain}%
-\newacronym{mcmc}{MCMC}{Markov Chain Monte Carlo}%
-\newacronym{mfcc}{MFCC}{Mel-frequency Cepstral Coefficient}%
-\newacronym{mi}{MI}{Mellin Image}%
-\newacronym{mle}{MLE}{Maximum Likelihood Estimate}%
-\newacronym{mlearn}{ML}{Machine Learning}%
-\newacronym{mlike}{ML}{Maximum Likelihood}%
-\newacronym{mmie}{MMIE}{Maximum Mutual Information Estimation}%
-\newacronym{mt}{MT}{Mellin Transform}%
-\newacronym{nn}{NN}{Neural Network}%
-\newacronym{pac}{PAC}{Probably Approximately Correct}%
-\newacronym{per}{PER}{Phone Error Rate}%
-\newacronym{prs}{PRS}{Poisson Rejective Sampling}%
-\newacronym{rl}{RL}{Reinforcement Learning}%
-\newacronym{rnn}{RNN}{Recurrent Neural Network}%
-\newacronym{rnnt}{RNN-T}{Recurrent Neural Network Transducer}%
-\newacronym{seq2seq}{seq2seq}{sequence-to-sequence}%
-\newacronym{sift}{SIFT}{Scale-Invariant Feature Transform}%
-\newacronym{srswor}{SRSWOR}{Simple Random Sampling Without Replacement}%
-\newacronym{stft}{STFT}{Short-Time Fourier Transform}%
-\newacronym{sti}{STI}{Strobed Temporal Integration}%
-\newacronym{tbank}{tone-bank}{Gammatone STFT filter bank}%
-\newacronym{tpe}{TPE}{Tree-structured Parzen Estimator}%
-\newacronym{tts}{TTS}{Text-To-Speech}%
-\newacronym{vi}{VI}{Variational Inference}%
-\newacronym{vtl}{VTL}{Vocal Tract Length}%
-\newacronym{vtln}{VTLN}{Vocal Tract Length Normalization}%
-\newacronym{wer}{WER}{Word Error Rate}%
-
-\newglossaryentry{abeliang}{%
+% Group theory (grp)
+\newglossaryentry{grp.abelian}{%
   name={abelian group},%
   description={A group whose multiplicative operation is also commutative.},%
-  see={group}%
+  seealso={grp.grp},%
 }%
-\newglossaryentry{cint}{%
+\newglossaryentry{grp.comp}{%
+  name={compact group},%
+  description={A topological group whose topology is compact},%
+  seealso={grp.top,top.comp},%
+}%
+\newglossaryentry{grp.cos}{%
+  name={coset},%
+  description={\nopostdesc},%
+  see={grp.qspace},%
+}%
+\newglossaryentry{grp.grp}{%
+  name={group},%
+  symbol={\ensuremath{\mathcal{G}}},%
+  description={%
+    A set $\mathcal{G}$ and a closed, binary operation on said set, which has
+    an identity, an inverse, and is associative.%
+  },%
+}%
+\newglossaryentry{grp.homo}{%
+  name={group homomorphism},%
+  description={%
+    A map $\phi$ from one group $g \in \mathcal{G}$ to another which commutes
+    with group multiplication: $\phi(gg') = \phi(g)\phi(g')$.%
+  },%
+  seealso={grp.grp},%
+}%
+\newglossaryentry{grp.hspace}{%
+  name={homogeneous space},%
+  description={%
+    A space $\mathcal{X}$ which a group acts $\mathcal{G}$ on transitively.
+    That is, $\forall x,x' \in \mathcal{X},\exists g \in \mathcal{G}: x =
+    gx'$.%
+  },%
+  seealso={grp.grp}%
+}%
+\newglossaryentry{grp.lcoset}{%
+  name={left coset},%
+  description={\nopostdesc},%
+  alias={grp.cos},%
+}
+\newglossaryentry{grp.qspace}{%
+  name={quotient space (group)},%
+  text={quotient space},%
+  symbol={\ensuremath{\mathcal{G}/\mathcal{H}}},%
+  description={%
+    For group $\mathcal{G}$ and subgroup $\mathcal{H}$, the left quotient
+    space, denoted $\mathcal{G}/\mathcal{H}$, contains equivalence classes $[g]
+    = \{g : gh \in \mathcal{H}\}$ (also called cosets and denoted $gH$) under
+    the equivalence relation $g \sim g' \iff g^{-1}g' \in \mathcal{H}$.%
+  },%
+  seealso={math.qspace,grp.rqspace}%
+}%
+\newglossaryentry{grp.rcos}{
+  name={right coset},%
+  description={\nopostdesc},%
+  see={grp.rqspace},%
+}%
+\newglossaryentry{grp.rqspace}{
+  name={right quotient space},%
+  symbol={\ensuremath{\mathcal{H}\setminus\mathcal{G}}},%
+  description={%
+    Like the (left) quotient space, but with elements (right cosets) defined by
+    actions on elements of $\mathcal{H}$ on the right (and $g \sim g' \iff
+    gg'^{-1} \in \mathcal{H}$).%
+  },%
+  seealso={grp.qspace},%
+}%
+\newglossaryentry{grp.semi}{%
+  name={semigroup},%
+  description={A set together with a closed, associative binary operation.},%
+}%
+\newglossaryentry{grp.top}{%
+  name={topological group},%
+  description={
+    A group on a topological space wherein group multiplication is continuous.%
+  },%
+  seealso={grp.grp,top.cont},%
+}%
+
+% Harmonic analysis (harm)
+\newglossaryentry{harm.supp}{%
+  name={support},%
+  symbol={\ensuremath{\mathord{supp} f}},%
+  description={%
+    The elements of the domain of $f : X \to \mathbb{F}$ such that $f$
+    evaluated on those elements is non-zero. $\operatorname{supp} f = \{x :
+    f(x) \neq 0\}$.%
+  }%
+}%
+
+% Math (math)
+\newglossaryentry{math.cint}{%
   name={closed interval},%
-  symbol={\ensuremath{\left[x, y\right]}},%
+  symbol={\ensuremath{\left[a, b\right]}},%
   description={%
     The ordered set of all values between $x$ and $y$, including boundaries.
-    $\{a : x \leq a \leq y\}$.%
-  }%
-}%
-\newglossaryentry{compactg}{%
-  name={compact group},%
-  description={},%
-  see={compact,topgroup}%
-}%
-\newglossaryentry{compacts}{%
-  name={compact space},
-  description={%
-    A topological space $\mathcal{X}$ (with topology $\mathscr{X}$) such that,
-    for any open cover, \textit{i.e.} a collection $\mathscr{X}' \subseteq
-    \mathcal{X}$ \textit{s.t.} $\mathcal{X} = \cup_{\mathcal{X}' \in
-    \mathscr{X}'} \mathcal{X}'$, there exists a finite subcover, $\exists
-    \mathscr{X}'' \subseteq \mathscr{X}'$ \textit{s.t.} $|\mathscr{X}''| \in
-    \mathbb{N}$ and $\mathscr{X}''$ is an open cover of $\mathcal{X}$.%
+    $\left[a,b\right] = \{c : a \leq c \leq b\}$.%
   },%
-  see={topology}%
 }%
-\newglossaryentry{congruencec}{%
-  name={congruence class},%
-  plural={congruence classes},%
-  description={},%
-  see={residue}%
-}%
-\newglossaryentry{countingm}{%
-  name={counting measure},%
-  description={%
-    The measure $\mu$ on a countable $\sigma$-algebra $\Sigma$ which
-    counts the number of elements in the set, $\mu(\sigma) = |\sigma|$.%
-  },%
-  see={measure},%
-}%
-\newglossaryentry{discretet}{%
-  name={discrete topology},%
-  plural={discrete topologies},%
-  description={%
-    The powerset topology over $\mathcal{X}$, \textit{i.e.} $\mathcal{X}'
-    \subseteq \mathcal{X} \iff \mathcal{X}' \in \mathscr{X}$.%
-  }%
-}%
-\newglossaryentry{equivalencec}{%
+\newglossaryentry{math.eclass}{%
   name={equivalence class},%
   plural={equivalence classes},%
   description={%
@@ -163,7 +149,7 @@
   },
   symbol={\ensuremath{[x]}}%
 }%
-\newglossaryentry{field}{%
+\newglossaryentry{math.field}{%
   name={field},%
   description={%
     A set endowed with addition and multiplication; their identities ($0$ and
@@ -171,100 +157,31 @@
     commutativity; associativity; and distributivity.%
   }%
 }%
-\newglossaryentry{leftc}{%
-  name={(left) coset},%
-  sort={coset},%
-  description={},%
-  see={leftq}%
-}%
-\newglossaryentry{leftq}{%
-  name={(left) quotient space},%
-  sort={quotient space left},%
-  symbol={\ensuremath{\mathcal{G}/\mathcal{H}}},%
-  description={%
-    For group $\mathcal{G}$ and subgroup $\mathcal{H}$, the left quotient
-    space, denoted $\mathcal{G}/\mathcal{H}$, contains equivalence classes $[g]
-    = \{g : gh \in \mathcal{H}\}$ (also called cosets and denoted $gH$) under
-    the equivalence relation $g \sim g' \iff g^{-1}g' \in \mathcal{H}$.%
-  },%
-  see={rightq,quotients}%
-}%
-\newglossaryentry{ghomo}{%
-  name={group homomorphism},%
-  description={%
-    A map $\phi$ from one group $\mathcal{G}$ to another $\mathcal{H}$ which
-    commutes with group multiplicaiton: $\phi(gg') = \phi(g)\phi(g')$.%
-  }%
-}%
-\newglossaryentry{group}{%
-  name={group},%
-  symbol={\ensuremath{\mathcal{G}}},%
-  description={%
-    A set $\mathcal{G}$ and a closed, binary operation on said set, which has
-    an identity, an inverse, and is associative.%
-  }%
-}%
-\newglossaryentry{homogenous}{%
-  name={homogeneous space},%
-  description={%
-    A space $\mathcal{X}$ which a group acts $\mathcal{G}$ on transitively.
-    That is, $\forall x,x' \in \mathcal{X},\exists g \in \mathcal{G}: x =
-    gx'$.%
-  },%
-  see={group}%
-}%
-\newglossaryentry{ifamily}{%
+\newglossaryentry{math.ifamily}{%
   name={indexed family},%
   plural={indexed families},%
   symbol={\ensuremath{(x_y)_{y \in \mathcal{Y}}}},%
   description={%
     Ordered elements from a set $x \in \mathcal{X}$ indexed by the set $y \in
     \mathcal{Y}$.%
-  }%
+  },%
 }%
-\newglossaryentry{irange}{%
+\newglossaryentry{math.irange}{%
   name={inclusive range},%
   symbol={\ensuremath{x\mathord{:}y}},%
   description={%
     The ordered set of natural numbers between $x$ and $y$ inclusive.%
   }%
 }%
-\newglossaryentry{measure}{%
-  name={measure},%
-  symbol={\ensuremath{\mu}},%
-  description={%
-    A function $\mu$ whose domain is a $\sigma$-algebra $\Sigma$ over a set
-    $\mathcal{X}$ and whose codomain is the non-negative extended reals
-    $\mathbb{R}_{\geq 0} \cup \{\infty\}$. It additionally has the properties:
-    %
-    \begin{enumerate}
-      \item $\mu(\emptyset) = 0$; and
-      \item for countably-indexed collection $\sigma_i \in \Sigma'
-            \subseteq \Sigma$ containing disjoint subsets, $i \neq i' \implies
-            \sigma_i \cap \sigma_{i'} = \emptyset$, $\mu(\cup_i \sigma_i) =
-            \sum_i \mu(\sigma_i)$.
-    \end{enumerate}
-  },%
-  see={sigmaa},%
-}%
-\newglossaryentry{oint}{%
+\newglossaryentry{math.oint}{%
   name={open interval},%
-  symbol={\ensuremath{\left]x,y\right[}},%
+  symbol={\ensuremath{\left]a,b\right[}},%
   description={%
-    The ordered set of all values between $x$ and $y$, excluding boundaries.
-    $\left]x,y\right[ = \{a : x < a < y\}$.%
-  }%
+    The ordered set of all values between $a$ and $b$, excluding boundaries.
+    $\left]a,b\right[ = \{c : a < c < b\}$.%
+  },%
 }%
-\newglossaryentry{openset}{%
-  name={open sets},%
-  description={},%
-  see={topology}%
-}%
-\newglossaryentry{phone}{%
-  name={phone},%
-  description={A speech sound.}%
-}%
-\newglossaryentry{quotients}{%
+\newglossaryentry{math.qspace}{%
   name={quotient space},%
   symbol={\ensuremath{\mathcal{X}/\sim}},%
   description={%
@@ -274,121 +191,159 @@
     \mathcal{X}$ and $x \not \sim x' \iff [x]\cap[x'] = \emptyset$).%
   }%
 }%
-\newglossaryentry{representative}{
+\newglossaryentry{math.represent}{
   name={representative},%
   description={},%
-  see={equivalencec}%
+  see={math.eclass}%
 }%
-\newglossaryentry{residue}{
-  name={residue},%
+
+% Measure Theory (meas)
+\newglossaryentry{meas.count}{%
+  name={counting measure},%
   description={%
-    An equivalence class of integers $\ldots, a - 2n, a - n, a, a + n, a + 2n,
-    \ldots$ with the same value modulo some $n$.%
+    The measure $\mu$ on a countable $\sigma$-algebra $\Sigma$ which
+    counts the number of elements in the set, $\mu(\sigma) = |\sigma|$.%
   },%
-  see={equivalencec}%
+  seealso={meas.meas},%
 }%
-\newglossaryentry{residuec}{
-  name={residue class},%
-  description={},%
-  see={residue}%
-}%
-\newglossaryentry{rightc}{
-  name={right coset},%
-  description={},%
-  see={rightq}%
-}%
-\newglossaryentry{rightq}{
-  name={right quotient space},%
-  symbol={\ensuremath{\mathcal{H}\setminus\mathcal{G}}},%
+\newglossaryentry{meas.meas}{%
+  name={measure},%
+  symbol={\ensuremath{\mu}},%
   description={%
-    Like the left quotient space, but with elements (right cosets) defined by
-    actions on elements of $\mathcal{H}$ on the right (and $g \sim g' \iff
-    gg'^{-1} \in \mathcal{H}$).%
+    A function $\mu$ whose domain is a $\sigma$-algebra $\Sigma$ over a set
+    $\mathcal{X}$ and whose codomain is the non-negative extended reals
+    $\mathbb{R}_{\geq 0} \cup \{\infty\}$. It additionally has the properties:
+    $\mu(\emptyset) = 0$; and for countably-indexed collection $\sigma_i
+    \in \Sigma' \subseteq \Sigma$ containing disjoint subsets, $i \neq i'
+    \implies \sigma_i \cap \sigma_{i'} = \emptyset$, $\mu(\cup_i \sigma_i) =
+    \sum_i \mu(\sigma_i)$.
   },%
-  see={leftq}%
+  seealso={meas.sigma},%
 }%
-\newglossaryentry{semig}{%
-  name={semigroup},%
-  description={A set together with a closed, associative binary operation.}%
-}%
-\newglossaryentry{sigmaa}{%
+\newglossaryentry{meas.sigma}{%
   name={\ensuremath{\sigma}-algebra},%
   sort={sigma algebra},%
   symbol={\ensuremath{\Sigma}},%
   description={
     A collection $\Sigma$ of subsets of a set $\mathcal{X}$ such that:
-    %
-    \begin{enumerate}
-      \item $\emptyset, \mathcal{X} \in \Sigma$;
-      \item $\forall \sigma \in \Sigma$, $\mathcal{X} \setminus \sigma \in \Sigma$; and
-      \item for countably-indexed collections $\Sigma' \subseteq \Sigma'$,
-            $\bigcup_{\sigma \in \Sigma'} \sigma \in \Sigma$.
-    \end{enumerate}
+    $\emptyset, \mathcal{X} \in \Sigma$; $\forall \sigma \in \Sigma$,
+    $\mathcal{X} \setminus \sigma \in \Sigma$; and for countably-indexed
+    collections $\Sigma' \subseteq \Sigma'$, $\bigcup_{\sigma \in \Sigma'}
+    \sigma \in \Sigma$.%
   }%
 }%
-\newglossaryentry{support}{%
-  name={support},%
-  symbol={\ensuremath{\mathord{supp} f}},%
+
+% Linguistics (ling)
+\newglossaryentry{ling.token}{%
+  name={token (linguistics)},%
   description={%
-    The elements of the domain of $f : X \to \mathbb{F}$ such that $f$
-    evaluated on those elements is non-zero. $\operatorname{supp} f = \{x :
-    f(x) \neq 0\}$.%
-  }%
-}%
-\newglossaryentry{token}{%
-  name={token},%
-  description={%
-    An element in a transcription sequence such as a word or phone.%
+    An instance of a linguistic unit, \textit{e.g.} a word written on a page or
+    an uttered sound. Takes on values matching types. %
   },%
-  see={phone}%
+  seealso={ling.type}%
 }%
-\newglossaryentry{topspace}{%
-  name={topological space},%
+\newglossaryentry{ling.type}{%
+  name={type (linguistics)},%
+  description={%
+    A class or label of linguistic unit, \textit{e.g.} a word uninstantiated.
+    A type gives values to tokens. %
+  },%
+  seealso={ling.token},%
+}%
+\newglossaryentry{ling.vocab}{%
+  name={vocabulary},
+  plural={vocabularies},
+  symbol=\ensuremath{\mathcal{V}},%
+  description={%
+    The set of possible types which can give value to a token. Usually finite.%
+  },%
+  see={ling.type,ling.token},%
+}%
+
+% Modular Arithmetic (mod)
+\newglossaryentry{mod.cclass}{
+  name={congruence class},%
+  plural={congruence classes},%
+  description={\nopostdesc},%
+  alias={mod.residue},%
+}%
+\newglossaryentry{mod.residue}{
+  name={residue},%
+  description={%
+    An equivalence class of integers $\ldots, a - 2n, a - n, a, a + n, a + 2n,
+    \ldots$ with the same value modulo some $n$.%
+  },%
+  seealso={math.eclass},%
+}%
+\newglossaryentry{mod.rclass}{
+  name={residue class},%
+  plural={residue classes},%
   description={},%
-  see={topology}%
+  alias={mod.residue},%
 }%
-\newglossaryentry{topgroup}{%
-  name={topological group},%
-  description={},%
-  see={group,topology}%
+
+% Speech Production/Perception (sp)
+\newglossaryentry{sp.phone}{%
+  name={phone},%
+  description={A speech sound.}%
 }%
-\newglossaryentry{topology}{%
+
+% Topology (top)
+\newglossaryentry{top.top}{%
   name={topology},%
   plural={topologies},%
+  symbol={\ensuremath{\mathscr{X}}},%
   description={%
-    For a given set $\mathcal{X}$, a topology on $\mathcal{X}$ is a collection of
-    subsets (called open sets) of $\mathcal{X}$, $\mathscr{X}$, such that,
-   %
-    \begin{itemize}%
-      \item $\emptyset,\mathcal{X} \in \mathscr{X}$;
-      \item for any indexed collection $\mathcal{X}_i \in \mathscr{X}$
-            (countable or uncountable), $\bigcup_i \mathcal{X}_i \in
-            \mathscr{X}$; and
-      \item for any finite collection $\mathcal{X}_i \in \mathscr{X}$,
-            $\bigcap_i \mathcal{X}_i \in \mathscr{X}$.
-    \end{itemize}%
-   %
+    For a given set $\mathcal{X}$, a topology on $\mathcal{X}$ is a collection
+    of subsets (called open sets) of $\mathcal{X}$, $\mathscr{X}$, such that:
+    $\emptyset,\mathcal{X} \in \mathscr{X}$; for any indexed collection
+    $\mathcal{X}_i \in \mathscr{X}$ (countable or uncountable), $\bigcup_i
+    \mathcal{X}_i \in \mathscr{X}$; and for any finite collection
+    $\mathcal{X}_i \in \mathscr{X}$, $\bigcap_i \mathcal{X}_i \in \mathscr{X}$.
     When equipped with a topology, the set $\mathcal{X}$ is considered a
     topological space.%
   },%
-  symbol={\ensuremath{\mathscr{X}}}%
 }%
-\newglossaryentry{type}{%
-  name={type},%
+\newglossaryentry{top.comp}{%
+  name={compact topology},%
+  plural={compact topologies},%
   description={%
-    A discrete value which a token can take.%
+    A topology \textit{s.t.} for any open cover of $\mathcal{X}$, \textit{i.e.}
+    a collection $\mathscr{X}' \subseteq \mathcal{X}$ \textit{s.t.}
+    $\mathcal{X} = \cup_{\mathcal{X}' \in \mathscr{X}'} \mathcal{X}'$, there
+    exists a finite subcover, $\exists \mathscr{X}'' \subseteq \mathscr{X}'$
+    \textit{s.t.} $|\mathscr{X}''| \in \mathbb{N}$ and $\mathscr{X}''$ is an
+    open cover of $\mathcal{X}$. $\mathcal{X}$ equipped with the compact
+    topology is considered a compact space.%
   },%
-  see={token}%
+  seealso={top.top},%
 }%
-\newglossaryentry{vocabulary}{%
-  name={vocabulary},
-  plural={vocabularies},
+\newglossaryentry{top.cont}{%
+  name={continuous (topology)},%
+  text={continuous},%
   description={%
-    The set of possible types a token can take in a transcription task. Usually
-    finite.%
+    A map $\phi$ between two topological spaces $\mathcal{X},\mathcal{Y}$ is
+    continuous \textit{iff.}, for every open set $\mathcal{Y}' \subseteq
+    \mathcal{Y}$, its pre-image $\phi^{-1}(Y') = \{x \in \mathcal{X} :
+    \phi(x) \in \mathcal{Y}'\} \subseteq \mathcal{X}$ is an open set.%
   },%
-  see={type,token},%
-  symbol=\ensuremath{\mathcal{V}}%
+  seealso={top.top},%
+}
+\newglossaryentry{top.compspace}{%
+  name={compact space},%
+  description={\nopostdesc},%
+  see={top.comp},%
 }%
-
-% spellcheck-on
+\newglossaryentry{top.disc}{%
+  name={discrete topology},%
+  plural={discrete topologies},%
+  description={%
+    The powerset topology over $\mathcal{X}$, \textit{i.e.} $\mathcal{X}'
+    \subseteq \mathcal{X} \iff \mathcal{X}' \in \mathscr{X}$.%
+  }%
+}%
+\newglossaryentry{top.topspace}{%
+  name={topological space},%
+  description={\nopostdesc},%
+  see={top.top},%
+}%
