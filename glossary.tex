@@ -15,7 +15,7 @@
 % 
 %   \printglossary
 
-% Automatic Speech Recognition (ASR)
+% Automatic Speech Recognition (grp)
 \newglossaryentry{asr.utt}{%
   name={utterance},%
   description={%
@@ -30,6 +30,38 @@
     words, but can be sub-words, characters, or phones.%
   },%
   seealso={asr.utt,sp.phone},%
+}%
+
+% Digital Signal Processing (dsp)
+\newglossaryentry{dsp.bandwidth}{%
+  name={bandwidth},%
+  description={%
+    A difference between two frequencies. Those frequencies usually demarcate
+    the region of a filter's non-negligible frequency response. Commonly the
+    3dB bandwidth, marked by the points at which the magnitude of the response
+    first drops to half that of its apex.%
+  },%
+}%
+\newglossaryentry{dsp.highpass}{%
+  name={high-pass},%
+  description={%
+    A filtering operation which attenuates (diminishes) a signals' low
+    frequency coefficients.%
+  },%
+}%
+\newglossaryentry{dsp.lowpass}{%
+  name={low-pass},%
+  description={%
+    A filtering operation which attenuates (diminishes) a signals' high
+    frequency coefficients.%
+  },%
+}%
+\newglossaryentry{dsp.spectro}{%
+  name={spectrogram},%
+  description={%
+    A pictoral representation of the energy of a signal over time and
+    frequency.%
+  },%
 }%
 
 % Group theory (grp)
@@ -90,7 +122,7 @@
   },%
   seealso={math.qspace,grp.rqspace}%
 }%
-\newglossaryentry{grp.rcos}{
+\newglossaryentry{grp.rcos}{%
   name={right coset},%
   description={\nopostdesc},%
   see={grp.rqspace},%
@@ -120,11 +152,22 @@
 % Harmonic analysis (harm)
 \newglossaryentry{harm.supp}{%
   name={support},%
-  symbol={\ensuremath{\mathord{supp} f}},%
+  symbol={\ensuremath{\mathord{supp}}},%
   description={%
     The elements of the domain of $f : X \to \mathbb{F}$ such that $f$
     evaluated on those elements is non-zero. $\operatorname{supp} f = \{x :
     f(x) \neq 0\}$.%
+  }%
+}%
+\newglossaryentry{harm.spectra}{%
+  name={spectrum},%
+  plural={spectra},%
+  symbol={\ensuremath{\widehat{\cdot}}},%
+  description={%
+    The eigenvalues of an eigendecomposition of a bounded linear operator.
+    Usually refers to the set of frequency coefficients describing a signal
+    after a Fourier Transform, though other transforms may be substituted,
+    (\emph{e.g.} Laplace).%
   }%
 }%
 
@@ -148,6 +191,13 @@
     \textit{i.e.} $[x'] = [x] \iff x' \sim x$.%
   },
   symbol={\ensuremath{[x]}}%
+}%
+\newglossaryentry{math.edist}{%
+  name={Euclidean distance},%
+  description={%
+    For two points $\mathbf{a},\mathbf{b} \in \mathbb{C}^N$, their Euclidean
+    distance is the value $\sqrt{\sum_n (a_n - b_n)\overline{(a_n - b_n)}}$.%
+  },%
 }%
 \newglossaryentry{math.field}{%
   name={field},%
@@ -233,9 +283,22 @@
   }%
 }%
 
+% Machine Learning (ml)
+\newglossaryentry{ml.pretrain}{%
+  name={pre-training},%
+  description={%
+    Additional training of a statistical model prior to whatever constitutes
+    the standard training regime. In speech recognition, pre-training is an
+    unsupervised training stage wherein an acoustic model is trained to predict
+    masked, quantized samples or frames. In language modelling, pre-training
+    involves predicting masked tokens.
+  },%
+}%
+
 % Linguistics (ling)
 \newglossaryentry{ling.token}{%
   name={token (linguistics)},%
+  text={token},%
   description={%
     An instance of a linguistic unit, \textit{e.g.} a word written on a page or
     an uttered sound. Takes on values matching types. %
@@ -244,6 +307,7 @@
 }%
 \newglossaryentry{ling.type}{%
   name={type (linguistics)},%
+  text={type},%
   description={%
     A class or label of linguistic unit, \textit{e.g.} a word uninstantiated.
     A type gives values to tokens. %
@@ -283,10 +347,27 @@
 }%
 
 % Speech Production/Perception (sp)
+\newglossaryentry{sp.coart}{%
+  name={coarticulation},%
+  description={%
+    The phenonenon in speech wherein the realization of speech sounds is
+    impacted by another nearby sound.%
+  },%
+}
+\newglossaryentry{sp.formant}{%
+  name={formant},%
+  description={A high-energy band within the a speech spectrum.},%
+  seealso={harm.spectra},%
+}%
 \newglossaryentry{sp.phone}{%
   name={phone},%
   description={A speech sound.}%
 }%
+\newglossaryentry{sp.pitch}{%
+  name={pitch},%
+  plural={pitches},%
+  description={The perception of frequency.},%
+}
 
 % Topology (top)
 \newglossaryentry{top.top}{%
