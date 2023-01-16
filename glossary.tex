@@ -64,6 +64,66 @@
   },%
 }%
 
+% Geometry (geom)
+\newglossaryentry{geom.cauch}{%
+  name={Cauchy sequence},%
+  description={%
+    A sequence of values from a measure space $(\mathcal{X}, d)$, $x_1, x_2,
+    \ldots \in \mathcal{X}$, such that, for any $\epsilon \in \mathbb{R}_{>0}$,
+    there exists some $N \in \mathbb{N}$ such that, for all $x_n,x_{n'}$ where
+    $n, n' \geq N$, $d(x_n, x_{n'}) \leq \epsilon$.%
+  },%
+  seealso={geom.met},%
+}%
+\newglossaryentry{geom.complete}{%
+  name={complete metric space},%
+  description={%
+    A metric space whose Cauchy sequences all have limits contained in that
+    space.%
+  },%
+  seealso={geom.cauch},%
+}%
+\newglossaryentry{geom.emet}{%
+  name={Euclidean metric},%
+  description={%
+    For $\mathbf{x}, \mathbf{x}' \in \mathbb{R}^N$, the metric 
+    $d(\mathbf{x}, \mathbf{x'}) = \sqrt{sum_n (x_n - x'_n)^2}$. The value is
+    the Euclidean distance between $\mathbf{x}$ and $\mathbf{x'}$.%
+  },%
+  seealso={geom.met},%
+}%
+\newglossaryentry{geom.edist}{%
+  name={Euclidean distance},%
+  description={},%
+  see={geom.emet},%
+}%
+\newglossaryentry{geom.met}{%
+  name={metric},%
+  symbol={\ensuremath{d(\cdot,\cdot)}},%
+  description={%
+    A metric is a function $d : \mathcal{X} \times \mathcal{X} \to
+    \mathbb{R}_{\geq 0}$ such that, for all $x,x',x'' \in \mathcal{X}$: $x = x'
+    \iff d(x, x') = 0$; $d(x, x') = d(x', x)$; and $d(x, x'') \leq d(x, x') +
+    d(x', x'')$. The pair $(\mathcal{X}, d)$ is a metric space.%
+  },%
+}%
+\newglossaryentry{geom.lip}{%
+  name={continuous (Lipschitz)},%
+  text={Lipschitz continuous},%
+  description={%
+    A function $f : \mathcal{X} \to \mathcal{X}'$ on metric spaces
+    $(\mathcal{X}, d)$ and $(\mathcal{X}', d')$ is Lipschitz continuous (or
+    just ``Lipschitz'') \emph{iff.} there exists some $C \in \mathbb{R}_{\geq
+    0}$ such that, for all $x, x' \in \mathcal{X}$, $d'(f(x), f(x')) \leq C
+    d(x, x')$.%
+  },%
+}%
+\newglossaryentry{geom.mspace}{%
+  name={metric space},%
+  description={},%
+  see={geom.met},%
+}%
+
 % Group theory (grp)
 \newglossaryentry{grp.abelian}{%
   name={abelian group},%
@@ -77,7 +137,7 @@
 }%
 \newglossaryentry{grp.cos}{%
   name={coset},%
-  description={\nopostdesc},%
+  description={},%
   see={grp.qspace},%
 }%
 \newglossaryentry{grp.grp}{%
@@ -107,7 +167,7 @@
 }%
 \newglossaryentry{grp.lcoset}{%
   name={left coset},%
-  description={\nopostdesc},%
+  description={},%
   alias={grp.cos},%
 }
 \newglossaryentry{grp.qspace}{%
@@ -124,7 +184,7 @@
 }%
 \newglossaryentry{grp.rcos}{%
   name={right coset},%
-  description={\nopostdesc},%
+  description={},%
   see={grp.rqspace},%
 }%
 \newglossaryentry{grp.rqspace}{
@@ -172,6 +232,17 @@
 }%
 
 % Math (math)
+\newglossaryentry{math.cconj}{%
+  name={complex conjugate},%
+  symbol={\ensuremath{\overline{\cdot}}},%
+  description={%
+    The complex conjugate of complex number $\mathbb{C} \ni c = a + bi$,
+    where $a,b \in \mathbb{R}$ and $i$ is the imaginary unit, is
+    $\overline{c} = a - bi$. The complex conjugate of function
+    $f : \mathbb{F} \to \mathbb{C}$ is a operator $f \mapsto \overline{f}$
+    \emph{s.t.} $\overline{f}(x) = \overline{f(x)}$.%
+  },%
+}%
 \newglossaryentry{math.cint}{%
   name={closed interval},%
   symbol={\ensuremath{\left[a, b\right]}},%
@@ -188,16 +259,9 @@
     equivalent with respect to some equivalence relation $\sim$. The class can
     is usually denoted $[x]$, where $x \in \mathcal{X}$ is any member in the
     class (called a representative). Any member can be a representative,
-    \textit{i.e.} $[x'] = [x] \iff x' \sim x$.%
+    \emph{i.e.} $[x'] = [x] \iff x' \sim x$.%
   },
   symbol={\ensuremath{[x]}}%
-}%
-\newglossaryentry{math.edist}{%
-  name={Euclidean distance},%
-  description={%
-    For two points $\mathbf{a},\mathbf{b} \in \mathbb{C}^N$, their Euclidean
-    distance is the value $\sqrt{\sum_n (a_n - b_n)\overline{(a_n - b_n)}}$.%
-  },%
 }%
 \newglossaryentry{math.field}{%
   name={field},%
@@ -231,6 +295,15 @@
     $\left]a,b\right[ = \{c : a < c < b\}$.%
   },%
 }%
+\newglossaryentry{math.preim}{%
+  name={pre-image},%
+  symbol={\ensuremath{\cdot^{-1}}},%
+  description={%
+    The pre-image of a function $f : \mathcal{A} \to \mathcal{B}$ on
+    $\mathcal{B}' \subseteq \mathcal{B}$ is the set $f^{-1}(\mathcal{B}') = 
+    \{a \in \mathcal{B} : f(a) \in \mathcal{B}'\} \subseteq \mathcal{A}$.%
+  },%
+}%
 \newglossaryentry{math.qspace}{%
   name={quotient space},%
   symbol={\ensuremath{\mathcal{X}/\sim}},%
@@ -241,7 +314,7 @@
     \mathcal{X}$ and $x \not \sim x' \iff [x]\cap[x'] = \emptyset$).%
   }%
 }%
-\newglossaryentry{math.represent}{
+\newglossaryentry{math.represent}{%
   name={representative},%
   description={},%
   see={math.eclass}%
@@ -256,6 +329,29 @@
   },%
   seealso={meas.meas},%
 }%
+\newglossaryentry{meas.lip}{
+  name={continuous (Lipschitz, measurable)},%
+  text={continuous},%
+  description={%
+    A measurable function is continuous
+  },%
+}%
+\newglossaryentry{meas.mablefunc}{%
+  name={measurable function},%
+  description={%
+    A function $f : \mathcal{X} \to \mathcal{X}'$ with measurable domain
+    $(\mathcal{X}, \Sigma)$ and codomain $(\mathcal{X}', \Sigma')$ is
+    measurable \emph{iff.} the pre-image of every element $\sigma' \in \Sigma'$
+    of the $\sigma$-algebra of the codomain is an element in the
+    $\sigma$-algebra of the domain, $f^{-1}(\sigma') \in \Sigma$.%
+  },%
+  seealso={meas.sigma,math.preim},%
+}
+\newglossaryentry{meas.mablespace}{%
+  name={measurable space},%
+  description={},%
+  see={meas.sigma},%
+}%
 \newglossaryentry{meas.meas}{%
   name={measure},%
   symbol={\ensuremath{\mu}},%
@@ -263,12 +359,18 @@
     A function $\mu$ whose domain is a $\sigma$-algebra $\Sigma$ over a set
     $\mathcal{X}$ and whose codomain is the non-negative extended reals
     $\mathbb{R}_{\geq 0} \cup \{\infty\}$. It additionally has the properties:
-    $\mu(\emptyset) = 0$; and for countably-indexed collection $\sigma_i
-    \in \Sigma' \subseteq \Sigma$ containing disjoint subsets, $i \neq i'
-    \implies \sigma_i \cap \sigma_{i'} = \emptyset$, $\mu(\cup_i \sigma_i) =
-    \sum_i \mu(\sigma_i)$.
+    $\mu(\emptyset) = 0$; and for countably-indexed collection $\sigma_i \in
+    \Sigma' \subseteq \Sigma$ containing disjoint subsets, $i \neq i' \implies
+    \sigma_i \cap \sigma_{i'} = \emptyset$, $\mu(\cup_i \sigma_i) = \sum_i
+    \mu(\sigma_i)$. The resulting triple $(\mathcal{X}, \Sigma, \mu)$ is a
+    measure space.%
   },%
   seealso={meas.sigma},%
+}%
+\newglossaryentry{meas.mspace}{%
+  name={measure space},%
+  description={},%
+  see={meas.meas},%
 }%
 \newglossaryentry{meas.sigma}{%
   name={\ensuremath{\sigma}-algebra},%
@@ -279,7 +381,8 @@
     $\emptyset, \mathcal{X} \in \Sigma$; $\forall \sigma \in \Sigma$,
     $\mathcal{X} \setminus \sigma \in \Sigma$; and for countably-indexed
     collections $\Sigma' \subseteq \Sigma'$, $\bigcup_{\sigma \in \Sigma'}
-    \sigma \in \Sigma$.%
+    \sigma \in \Sigma$. The resulting pair $(\mathcal{X}, \Sigma)$ is a
+    measurable space.%
   }%
 }%
 
@@ -300,7 +403,7 @@
   name={token (linguistics)},%
   text={token},%
   description={%
-    An instance of a linguistic unit, \textit{e.g.} a word written on a page or
+    An instance of a linguistic unit, \emph{e.g.} a word written on a page or
     an uttered sound. Takes on values matching types. %
   },%
   seealso={ling.type}%
@@ -309,7 +412,7 @@
   name={type (linguistics)},%
   text={type},%
   description={%
-    A class or label of linguistic unit, \textit{e.g.} a word uninstantiated.
+    A class or label of linguistic unit, \emph{e.g.} a word uninstantiated.
     A type gives values to tokens. %
   },%
   seealso={ling.token},%
@@ -328,7 +431,7 @@
 \newglossaryentry{mod.cclass}{
   name={congruence class},%
   plural={congruence classes},%
-  description={\nopostdesc},%
+  description={},%
   alias={mod.residue},%
 }%
 \newglossaryentry{mod.residue}{
@@ -353,7 +456,7 @@
     The phenonenon in speech wherein the realization of speech sounds is
     impacted by another nearby sound.%
   },%
-}
+}%
 \newglossaryentry{sp.formant}{%
   name={formant},%
   description={A high-energy band within the a speech spectrum.},%
@@ -367,7 +470,7 @@
   name={pitch},%
   plural={pitches},%
   description={The perception of frequency.},%
-}
+}%
 
 % Topology (top)
 \newglossaryentry{top.top}{%
@@ -389,11 +492,11 @@
   name={compact topology},%
   plural={compact topologies},%
   description={%
-    A topology \textit{s.t.} for any open cover of $\mathcal{X}$, \textit{i.e.}
-    a collection $\mathscr{X}' \subseteq \mathcal{X}$ \textit{s.t.}
+    A topology \emph{s.t.} for any open cover of $\mathcal{X}$, \emph{i.e.}
+    a collection $\mathscr{X}' \subseteq \mathcal{X}$ \emph{s.t.}
     $\mathcal{X} = \cup_{\mathcal{X}' \in \mathscr{X}'} \mathcal{X}'$, there
     exists a finite subcover, $\exists \mathscr{X}'' \subseteq \mathscr{X}'$
-    \textit{s.t.} $|\mathscr{X}''| \in \mathbb{N}$ and $\mathscr{X}''$ is an
+    \emph{s.t.} $|\mathscr{X}''| \in \mathbb{N}$ and $\mathscr{X}''$ is an
     open cover of $\mathcal{X}$. $\mathcal{X}$ equipped with the compact
     topology is considered a compact space.%
   },%
@@ -404,27 +507,27 @@
   text={continuous},%
   description={%
     A map $\phi$ between two topological spaces $\mathcal{X},\mathcal{Y}$ is
-    continuous \textit{iff.}, for every open set $\mathcal{Y}' \subseteq
-    \mathcal{Y}$, its pre-image $\phi^{-1}(Y') = \{x \in \mathcal{X} :
-    \phi(x) \in \mathcal{Y}'\} \subseteq \mathcal{X}$ is an open set.%
+    continuous \emph{iff.}, for every open set $\mathcal{Y}' \subseteq
+    \mathcal{Y}$, its pre-image $\phi^{-1}(\mathcal{Y}')$ is an open set in
+    $\mathcal{X}$.%
   },%
-  seealso={top.top},%
-}
+  seealso={top.top,math.preim},%
+}%
 \newglossaryentry{top.compspace}{%
   name={compact space},%
-  description={\nopostdesc},%
+  description={},%
   see={top.comp},%
 }%
 \newglossaryentry{top.disc}{%
   name={discrete topology},%
   plural={discrete topologies},%
   description={%
-    The powerset topology over $\mathcal{X}$, \textit{i.e.} $\mathcal{X}'
+    The powerset topology over $\mathcal{X}$, \emph{i.e.} $\mathcal{X}'
     \subseteq \mathcal{X} \iff \mathcal{X}' \in \mathscr{X}$.%
   }%
 }%
 \newglossaryentry{top.topspace}{%
   name={topological space},%
-  description={\nopostdesc},%
+  description={},%
   see={top.top},%
 }%
