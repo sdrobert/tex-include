@@ -31,13 +31,13 @@
 \newabbreviation{asr.ctc}{CTC}{Connectionist Temporal Classification}%
 \newabbreviation{asr.dtw}{DTW}{Dynamic Time Warping}%
 \newabbreviation{asr.e2e}{E2E}{end-to-end}%
-\newabbreviation{asr.fbank}{f-bank}{triangular \glsps{dsp.stft} filter bank}%
+\newabbreviation{asr.fbank}{f-bank}{triangular \glsps{sp.stft} filter bank}%
 \newabbreviation{asr.fmllr}{fMLLR}{feature-space Maximum Likelihood Linear Regression}%
 \newabbreviation{asr.lvcsr}{LVCSR}{Large Vocabulary Conversational Speech Recognition}%
 \newabbreviation{asr.mfcc}{MFCC}{Mel-frequency Cepstral Coefficient}%
 \newabbreviation{asr.mmie}{MMIE}{Maximum Mutual Information Estimation}%
 \newabbreviation{asr.per}{PER}{phone error rate}%
-\newabbreviation{asr.vtln}{VTLN}{\glsps{sp.vtl} normalization}%
+\newabbreviation{asr.vtln}{VTLN}{\glsps{speech.vtl} normalization}%
 \newabbreviation{asr.wer}{WER}{word error rate}%
 
 % Computer Science (cs)
@@ -47,18 +47,6 @@
 % Computer Vision (cv)
 \newabbreviation{cv.cv}{CV}{Computer Vision}%
 \newabbreviation{cv.sift}{SIFT}{Scale-Invariant Feature Transform}%
-
-% Digital Signal Processing (dsp)
-\newabbreviation{dsp.dft}{DFT}{Discrete Fourier Transform}%
-\newabbreviation{dsp.dsp}{DSP}{Digital Signal Processing}%
-\newabbreviation{dsp.fft}{FFT}{Fast Fourier Transform}%
-\newabbreviation{dsp.lti}{LTI}{linear time-invariant}%
-\newabbreviation{dsp.stft}{STFT}{Short-Time Fourier Transform}%
-
-% Harmonic Analysis (harm)
-\newabbreviation{harm.cft}{CFT}{Continuous Fourier Transform}%
-\newabbreviation{harm.ft}{FT}{Fourier Transform}%
-\newabbreviation{harm.mt}{MT}{Mellin Transform}%
 
 % Linguistics (ling)
 \newabbreviation{ling.aae}{AAE}{African American English}%
@@ -77,9 +65,10 @@
 \newabbreviation[longplural={cross-entropies}]{ml.ce}{CE}{cross-entropy}%
 \newabbreviation{ml.cnn}{CNN}{Convolutional Neural Network}%
 \newabbreviation{ml.crf}{CRF}{Conditional Random Field}%
-\newabbreviation{ml.dnn}{DNN}{deep neural network}%
 \newabbreviation{ml.dbn}{DBN}{Deep Belief Network}%
+\newabbreviation{ml.dnn}{DNN}{deep neural network}%
 \newabbreviation{ml.em}{EM}{expectation maximization}%
+\newabbreviation{ml.ffnn}{FFNN}{feed-forward \glsps{ml.nn}}%
 \newabbreviation{ml.gcnn}{G-CNN}{Group-equivariant \glsps{ml.cnn}}%
 \newabbreviation{ml.glm}{GLM}{Generalized Linear Model}%
 \newabbreviation{ml.gmm}{GMM}{Gaussian Mixture Model}%
@@ -108,16 +97,28 @@
 \newabbreviation{mc.prs}{PRS}{Poisson Rejective Sampling}%
 \newabbreviation{mc.srswor}{SRSWOR}{Simple Random Sampling Without Replacement}%
 
-% Speech Production/Perception (sp)
-\newabbreviation{sp.ai}{AI}{Auditory Image}%
-\newabbreviation{sp.lpc}{LPC}{Linear Predictive Coding}% 
-\newabbreviation{sp.mi}{MI}{Mellin Image}%
-\newabbreviation{sp.sti}{STI}{Strobed Temporal Integration}%
-\newabbreviation{sp.vtl}{VTL}{Vocal Tract Length}%
-\newabbreviation[longplural={fundamental frequencies}]{sp.f0}{F0}{fundamental frequency}%
-\newabbreviation{sp.f1}{F1}{first formant}%
-\newabbreviation{sp.f2}{F2}{second formant}%
-\newabbreviation{sp.f3}{F3}{third formant}%
+% Signal Processing (sp)
+\newabbreviation{sp.cft}{CFT}{Continuous Fourier Transform}%
+\newabbreviation{sp.dft}{DFT}{Discrete Fourier Transform}%
+\newabbreviation{sp.dsp}{DSP}{Digital Signal Processing}%
+\newabbreviation{sp.dwt}{DWT}{Discrete Wavelet Transform}%
+\newabbreviation{sp.fft}{FFT}{Fast Fourier Transform}%
+\newabbreviation{sp.ft}{FT}{Fourier Transform}%
+\newabbreviation{sp.lti}{LTI}{linear time-invariant}%
+\newabbreviation{sp.mt}{MT}{Mellin Transform}%
+\newabbreviation{sp.stft}{STFT}{Short-Time Fourier Transform}%
+\newabbreviation{sp.wt}{WT}{Wavelet Transform}%
+
+% Speech Production/Perception (speech)
+\newabbreviation{speech.ai}{AI}{Auditory Image}%
+\newabbreviation{speech.lpc}{LPC}{Linear Predictive Coding}% 
+\newabbreviation{speech.mi}{MI}{Mellin Image}%
+\newabbreviation{speech.sti}{STI}{Strobed Temporal Integration}%
+\newabbreviation{speech.vtl}{VTL}{Vocal Tract Length}%
+\newabbreviation[longplural={fundamental frequencies}]{speech.f0}{F0}{fundamental frequency}%
+\newabbreviation{speech.f1}{F1}{first formant}%
+\newabbreviation{speech.f2}{F2}{second formant}%
+\newabbreviation{speech.f3}{F3}{third formant}%
 
 % Statistics (stats)
 \newabbreviation[longplural={Analyses of Variance}]{stats.anova}{ANOVA}{Analysis of Variance}%

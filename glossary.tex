@@ -29,50 +29,8 @@
     A token sequence corresponding to what was said in an utterance. Usually
     words, but can be sub-words, characters, or phones.%
   },%
-  seealso={asr.utt,sp.phone},%
+  seealso={asr.utt,speech.phone},%
 }%
-
-% Digital Signal Processing (dsp)
-\newglossaryentry{dsp.bandwidth}{%
-  name={bandwidth},%
-  description={%
-    A difference between two frequencies. Those frequencies usually demarcate
-    the region of a filter's non-negligible frequency response. Commonly the
-    3dB bandwidth, marked by the points at which the magnitude of the response
-    first drops to half that of its apex.%
-  },%
-}%
-\newglossaryentry{dsp.highpass}{%
-  name={high-pass},%
-  description={%
-    A filtering operation which attenuates (diminishes) a signals' low
-    frequency coefficients.%
-  },%
-}%
-\newglossaryentry{dsp.lowpass}{%
-  name={low-pass},%
-  description={%
-    A filtering operation which attenuates (diminishes) a signals' high
-    frequency coefficients.%
-  },%
-}%
-\newglossaryentry{dsp.narrowband}{%
-  name={narrow-band},%
-  description={A signal whose bandwidth is relatively short.},%
-  seealso={dsp.bandwidth},%
-}
-\newglossaryentry{dsp.spectro}{%
-  name={spectrogram},%
-  description={%
-    A pictoral representation of the energy of a signal over time and
-    frequency.%
-  },%
-}%
-\newglossaryentry{dsp.wideband}{%
-  name={wide-band},%
-  description={A signal whose bandwidth is relatively long.},%
-  seealso={dsp.bandwidth},%
-}
 
 % Geometry (geom)
 \newglossaryentry{geom.cauch}{%
@@ -97,7 +55,7 @@
   name={Euclidean metric},%
   description={%
     For $\mathbf{x}, \mathbf{x}' \in \mathbb{R}^N$, the metric 
-    $d(\mathbf{x}, \mathbf{x'}) = \sqrt{sum_n (x_n - x'_n)^2}$. The value is
+    $d(\mathbf{x}, \mathbf{x'}) = \sqrt{\sum_n (x_n - x'_n)^2}$. The value is
     the Euclidean distance between $\mathbf{x}$ and $\mathbf{x'}$.%
   },%
   seealso={geom.met},%
@@ -217,28 +175,6 @@
     A group on a topological space wherein group multiplication is continuous.%
   },%
   seealso={grp.grp,top.cont},%
-}%
-
-% Harmonic analysis (harm)
-\newglossaryentry{harm.supp}{%
-  name={support},%
-  symbol={\ensuremath{\mathord{supp}}},%
-  description={%
-    The elements of the domain of $f : X \to \mathbb{F}$ such that $f$
-    evaluated on those elements is non-zero. $\operatorname{supp} f = \{x :
-    f(x) \neq 0\}$.%
-  }%
-}%
-\newglossaryentry{harm.spectra}{%
-  name={spectrum},%
-  plural={spectra},%
-  symbol={\ensuremath{\widehat{\cdot}}},%
-  description={%
-    The eigenvalues of an eigendecomposition of a bounded linear operator.
-    Usually refers to the set of frequency coefficients describing a signal
-    after a Fourier Transform, though other transforms may be substituted,
-    (\emph{e.g.} Laplace).%
-  }%
 }%
 
 % Math (math)
@@ -396,17 +332,6 @@
   }%
 }%
 
-% Machine Learning (ml)
-\newglossaryentry{ml.pretrain}{%
-  name={pre-training},%
-  description={%
-    Additional training of a statistical model prior to whatever constitutes
-    the standard training regime. In speech recognition, pre-training is an
-    unsupervised training stage wherein an acoustic model is trained to predict
-    masked, quantized samples or frames. In language modelling, pre-training
-    involves predicting masked tokens.
-  },%
-}%
 
 % Linguistics (ling)
 \newglossaryentry{ling.token}{%
@@ -437,6 +362,24 @@
   see={ling.type,ling.token},%
 }%
 
+% Machine Learning (ml)
+\newglossaryentry{ml.pretrain}{%
+  name={pre-training},%
+  description={%
+    Additional training of a statistical model prior to whatever constitutes
+    the standard training regime. In speech recognition, pre-training is an
+    unsupervised training stage wherein an acoustic model is trained to predict
+    masked, quantized samples or frames. In language modelling, pre-training
+    involves predicting masked tokens.
+  },%
+}%
+\newglossaryentry{ml.ulearn}{%
+  name={unsupervised learning},%
+  description={%
+    Machine learning in which training is performed without target labels.
+  },%
+}%
+
 % Modular Arithmetic (mod)
 \newglossaryentry{mod.cclass}{
   name={congruence class},%
@@ -459,24 +402,110 @@
   alias={mod.residue},%
 }%
 
-% Speech Production/Perception (sp)
-\newglossaryentry{sp.coart}{%
+% NLP (nlp)
+\newglossaryentry{nlp.corpus}{%
+  name={corpus},%
+  plural={corpora},%
+  description={
+    A language resource, \eg text (with or without parse trees) or
+    utterances and their transcriptions.%
+  },%
+}
+
+% Signal Processing (sp)
+\newglossaryentry{sp.admis}{%
+  name={admissibility condition (wavelet)},%
+  text={admissibility condition},%
+  description={},%
+  see={sp.wavelet},%
+}%
+\newglossaryentry{sp.bandwidth}{%
+  name={bandwidth},%
+  description={%
+    A difference between two frequencies. Those frequencies usually demarcate
+    the region of a filter's non-negligible frequency response. Commonly the
+    3dB bandwidth, marked by the points at which the magnitude of the response
+    first drops to half that of its apex.%
+  },%
+}%
+\newglossaryentry{sp.highpass}{%
+  name={high-pass},%
+  description={%
+    A filtering operation which attenuates (diminishes) a signals' low
+    frequency coefficients.%
+  },%
+}%
+\newglossaryentry{sp.lowpass}{%
+  name={low-pass},%
+  description={%
+    A filtering operation which attenuates (diminishes) a signals' high
+    frequency coefficients.%
+  },%
+}%
+\newglossaryentry{sp.narrowband}{%
+  name={narrow-band},%
+  description={A signal whose bandwidth is relatively short.},%
+  seealso={sp.bandwidth},%
+}
+\newglossaryentry{sp.spectra}{%
+  name={spectrum},%
+  plural={spectra},%
+  symbol={\ensuremath{\widehat{\cdot}}},%
+  description={%
+    The eigenvalues of an eigendecomposition of a bounded linear operator.
+    Usually refers to the set of frequency coefficients describing a signal
+    after a Fourier Transform, though other transforms may be substituted,
+    (\emph{e.g.} Laplace).%
+  }%
+}%
+\newglossaryentry{sp.spectro}{%
+  name={spectrogram},%
+  description={%
+    A pictoral representation of the energy of a signal over time and
+    frequency.%
+  },%
+}%
+\newglossaryentry{sp.supp}{%
+  name={support},%
+  symbol={\ensuremath{\mathord{supp}}},%
+  description={%
+    The elements of the domain of $f : X \to \mathbb{F}$ such that $f$
+    evaluated on those elements is non-zero. $\operatorname{supp} f = \{x :
+    f(x) \neq 0\}$.%
+  },%
+}%
+\newglossaryentry{sp.wavelet}{%
+  name={wavelet},%
+  description={%
+    A filter $\psi : \R \to \C$, $\psi \in L^2(\mathbb{R})$ also satisfying the
+    admissibility condition $\int_0^\infty
+    \frac{|\widehat{\psi}(\omega)|^2}{\omega} \mathrm{d}\omega < \infty$.%
+  },%
+}
+\newglossaryentry{sp.wideband}{%
+  name={wide-band},%
+  description={A signal whose bandwidth is relatively long.},%
+  seealso={sp.bandwidth},%
+}
+
+% Speech Production/Perception (speech)
+\newglossaryentry{speech.coart}{%
   name={coarticulation},%
   description={%
     The phenonenon in speech wherein the realization of speech sounds is
     impacted by another nearby sound.%
   },%
 }%
-\newglossaryentry{sp.formant}{%
+\newglossaryentry{speech.formant}{%
   name={formant},%
   description={A high-energy band within the a speech spectrum.},%
-  seealso={harm.spectra},%
+  seealso={sp.spectra},%
 }%
-\newglossaryentry{sp.phone}{%
+\newglossaryentry{speech.phone}{%
   name={phone},%
   description={A speech sound.}%
 }%
-\newglossaryentry{sp.pitch}{%
+\newglossaryentry{speech.pitch}{%
   name={pitch},%
   plural={pitches},%
   description={The perception of frequency.},%
