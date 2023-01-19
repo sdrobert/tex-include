@@ -15,13 +15,23 @@
 % 
 %   \printglossary
 
-% Automatic Speech Recognition (grp)
-\newglossaryentry{asr.utt}{%
-  name={utterance},%
+% Automatic Speech Recognition (asr)
+\newglossaryentry{asr.delta}{%
+  name={delta (ASR)},%
+  symbol={\ensuremath{\Delta}},%
+  text={delta},%
   description={%
-    An interval of speech, usually delineated by some acoustic or linguistic
-    marker such as a pause, the end of a phrase, or sentence.%
-  },%
+    Features extracted from an existing sequence of feature vectors
+    $\mathbf{x}$ by taking a rolling average over the sequence dimension.
+    Double-deltas are computed by taking the rolling average of deltas.%
+  }%
+}%
+\newglossaryentry{asr.ddelta}{
+  name={double delta (ASR)},%
+  symbol={\ensuremath{\Delta\Delta}},%
+  text={double delta},%
+  description={},%
+  see={asr.delta},%
 }%
 \newglossaryentry{asr.trans}{%
   name={transcription},%
@@ -30,6 +40,13 @@
     words, but can be sub-words, characters, or phones.%
   },%
   seealso={asr.utt,speech.phone},%
+}%
+\newglossaryentry{asr.utt}{%
+  name={utterance},%
+  description={%
+    An interval of speech, usually delineated by some acoustic or linguistic
+    marker such as a pause, the end of a phrase, or sentence.%
+  },%
 }%
 
 % Geometry (geom)
@@ -419,6 +436,13 @@
   description={},%
   see={sp.wavelet},%
 }%
+\newglossaryentry{sp.alias}{%
+  name={aliasing},%
+  description={%
+    Phenomenon wherein a digitized signal's frequency response cannot
+    distinguish higher frequencies from lower ones due to undersampling.%
+  },%
+}
 \newglossaryentry{sp.bandwidth}{%
   name={bandwidth},%
   description={%
