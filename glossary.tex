@@ -49,66 +49,6 @@
   },%
 }%
 
-% Geometry (geom)
-\newglossaryentry{geom.cauch}{%
-  name={Cauchy sequence},%
-  description={%
-    A sequence of values from a measure space $(\mathcal{X}, d)$, $x_1, x_2,
-    \ldots \in \mathcal{X}$, such that, for any $\epsilon \in \mathbb{R}_{>0}$,
-    there exists some $N \in \mathbb{N}$ such that, for all $x_n,x_{n'}$ where
-    $n, n' \geq N$, $d(x_n, x_{n'}) \leq \epsilon$.%
-  },%
-  seealso={geom.met},%
-}%
-\newglossaryentry{geom.complete}{%
-  name={complete metric space},%
-  description={%
-    A metric space whose Cauchy sequences all have limits contained in that
-    space.%
-  },%
-  seealso={geom.cauch},%
-}%
-\newglossaryentry{geom.emet}{%
-  name={Euclidean metric},%
-  description={%
-    For $\mathbf{x}, \mathbf{x}' \in \mathbb{R}^N$, the metric 
-    $d(\mathbf{x}, \mathbf{x'}) = \sqrt{\sum_n (x_n - x'_n)^2}$. The value is
-    the Euclidean distance between $\mathbf{x}$ and $\mathbf{x'}$.%
-  },%
-  seealso={geom.met},%
-}%
-\newglossaryentry{geom.edist}{%
-  name={Euclidean distance},%
-  description={},%
-  see={geom.emet},%
-}%
-\newglossaryentry{geom.met}{%
-  name={metric},%
-  symbol={\ensuremath{d(\cdot,\cdot)}},%
-  description={%
-    A metric is a function $d : \mathcal{X} \times \mathcal{X} \to
-    \mathbb{R}_{\geq 0}$ such that, for all $x,x',x'' \in \mathcal{X}$: $x = x'
-    \iff d(x, x') = 0$; $d(x, x') = d(x', x)$; and $d(x, x'') \leq d(x, x') +
-    d(x', x'')$. The pair $(\mathcal{X}, d)$ is a metric space.%
-  },%
-}%
-\newglossaryentry{geom.lip}{%
-  name={continuous (Lipschitz)},%
-  text={Lipschitz continuous},%
-  description={%
-    A function $f : \mathcal{X} \to \mathcal{X}'$ on metric spaces
-    $(\mathcal{X}, d)$ and $(\mathcal{X}', d')$ is Lipschitz continuous (or
-    just ``Lipschitz'') \emph{iff.} there exists some $C \in \mathbb{R}_{\geq
-    0}$ such that, for all $x, x' \in \mathcal{X}$, $d'(f(x), f(x')) \leq C
-    d(x, x')$.%
-  },%
-}%
-\newglossaryentry{geom.mspace}{%
-  name={metric space},%
-  description={},%
-  see={geom.met},%
-}%
-
 % Group theory (grp)
 \newglossaryentry{grp.abelian}{%
   name={abelian group},%
@@ -144,9 +84,9 @@
 \newglossaryentry{grp.hspace}{%
   name={homogeneous space},%
   description={%
-    A space $\mathcal{X}$ which a group acts $\mathcal{G}$ on transitively.
-    That is, $\forall x,x' \in \mathcal{X},\exists g \in \mathcal{G}: x =
-    gx'$.%
+    A set $\mathcal{X}$ whose elements a group $\mathcal{G}$ acts on
+    transitively. That is, $\forall x,x' \in \mathcal{X},\exists g \in
+    \mathcal{G}: x = gx'$.%
   },%
   seealso={grp.grp}%
 }%
@@ -195,16 +135,43 @@
 }%
 
 % Math (math)
+\newglossaryentry{math.bspace}{%
+  name={Banach space},%
+  description={%
+    A normed vector space whose induced metric makes it a complete metric space
+    as well.%
+  },%
+  seealso={math.norm,math.cmspace},%
+}%
+\newglossaryentry{math.cauch}{%
+  name={Cauchy sequence},%
+  description={%
+    A sequence of values from a measure space $(\mathcal{X}, d)$, $x_1, x_2,
+    \ldots \in \mathcal{X}$, such that, for any $\epsilon \in \mathbb{R}_{>0}$,
+    there exists some $N \in \mathbb{N}$ such that, for all $x_n,x_{n'}$ where
+    $n, n' \geq N$, $d(x_n, x_{n'}) \leq \epsilon$.%
+  },%
+  seealso={math.met},%
+}%
 \newglossaryentry{math.cconj}{%
   name={complex conjugate},%
   symbol={\ensuremath{\overline{\cdot}}},%
   description={%
-    The complex conjugate of complex number $\mathbb{C} \ni c = a + bi$,
-    where $a,b \in \mathbb{R}$ and $i$ is the imaginary unit, is
-    $\overline{c} = a - bi$. The complex conjugate of function
-    $f : \mathbb{F} \to \mathbb{C}$ is a operator $f \mapsto \overline{f}$
-    \emph{s.t.} $\overline{f}(x) = \overline{f(x)}$.%
+    The complex conjugate of complex number $\mathbb{C} \ni c = a + bi$, where
+    $a,b \in \mathbb{R}$ and $i$ is the imaginary unit, is $\overline{c} = a -
+    bi$. The complex conjugate of function $f : \mathbb{F} \to \mathbb{C}$ is a
+    operator $f \mapsto \overline{f}$ \emph{s.t.} $\overline{f}(x) =
+    \overline{f(x)}$. Since $\mathbb{R} \ni c = a + 0i \in \mathbb{C}$, a real
+    number is its own conjugate.%
   },%
+}%
+\newglossaryentry{math.cmspace}{%
+  name={complete metric space},%
+  description={%
+    A metric space whose Cauchy sequences all have limits contained in that
+    space.%
+  },%
+  seealso={math.met,math.cauch},%
 }%
 \newglossaryentry{math.cint}{%
   name={closed interval},%
@@ -226,13 +193,36 @@
   },
   symbol={\ensuremath{[x]}}%
 }%
+\newglossaryentry{math.edist}{%
+  name={Euclidean distance},%
+  description={},%
+  see={math.emet},%
+}%
+\newglossaryentry{math.emet}{%
+  name={Euclidean metric},%
+  description={%
+    For $\mathbf{x}, \mathbf{x}' \in \mathbb{R}^N$, the metric 
+    $d(\mathbf{x}, \mathbf{x'}) = \sqrt{\sum_n (x_n - x'_n)^2}$. The value is
+    the Euclidean distance between $\mathbf{x}$ and $\mathbf{x'}$.%
+  },%
+  seealso={math.met},%
+}%
 \newglossaryentry{math.field}{%
   name={field},%
+  symbol={\ensuremath{\mathbb{F}}},%
   description={%
-    A set endowed with addition and multiplication; their identities ($0$ and
-    $1$); inverses (subtraction and division, the latter not defined for $0$);
-    commutativity; associativity; and distributivity.%
-  }%
+    A set endowed with addition and multiplication of elements (called
+    scalars); their identities ($0$ and $1$); inverses (subtraction and
+    division, the latter not defined for $0$); commutativity; associativity;
+    and distributivity.%
+  },%
+}%
+\newglossaryentry{math.hspace}{%
+  name={Hilbert space},%
+  description={%
+    An inner product space whose induced norm makes it a Banach space as well.%
+  },%
+  seealso={math.iprod,math.bspace},%
 }%
 \newglossaryentry{math.ifamily}{%
   name={indexed family},%
@@ -243,12 +233,77 @@
     \mathcal{Y}$.%
   },%
 }%
+\newglossaryentry{math.iprod}{%
+  name={inner product},%
+  symbol={\ensuremath{\langle\cdot,\cdot\rangle}},%
+  description={%
+    A binary operator over vectors $\langle\cdot,\cdot\rangle : \mathcal{X}
+    \times \mathcal{X} \to \mathbb{F}$ which is: conjugate symmetric,
+    $\langle\mathbf{x},\mathbf{x}'\rangle =
+    \overline{\langle\mathbf{x}',\mathbf{x}\rangle}$; linear (and
+    conjugate-bilinear), $\langle\alpha\mathbf{x} +
+    \alpha'\mathbf{x}',\mathbf{x}''\rangle =
+    \alpha\langle\mathbf{x},\mathbf{x}''\rangle +
+    \alpha'\langle\mathbf{x}',\mathbf{x}''\rangle$; and positive-definite,
+    $\langle\mathbf{x},\mathbf{x}\rangle \geq 0$,
+    $\langle\mathbf{x},\mathbf{x}\rangle = 0 \iff \mathbf{x} = \mathbf{0}$. A
+    vector space equipped with an inner product is called an inner product
+    space. It is also a normed vector space by the induced norm $\|\mathbf{x}\|
+    = \sqrt{\langle\mathbf{x},\mathbf{x}\rangle}$.%
+  },%
+  seealso={math.norm,math.cconj},
+}%
 \newglossaryentry{math.irange}{%
   name={inclusive range},%
   symbol={\ensuremath{x\mathord{:}y}},%
   description={%
     The ordered set of natural numbers between $x$ and $y$ inclusive.%
   }%
+}%
+\newglossaryentry{math.ispace}{%
+  name={inner product space},%
+  description={},%
+  see={math.iprod},%
+}%
+\newglossaryentry{math.lip}{%
+  name={continuous (Lipschitz)},%
+  text={Lipschitz continuous},%
+  description={%
+    A function $f : \mathcal{X} \to \mathcal{X}'$ on metric spaces
+    $(\mathcal{X}, d)$ and $(\mathcal{X}', d')$ is Lipschitz continuous (or
+    just ``Lipschitz'') \emph{iff.} there exists some $C \in \mathbb{R}_{\geq
+    0}$ such that, for all $x, x' \in \mathcal{X}$, $d'(f(x), f(x')) \leq C
+    d(x, x')$.%
+  },%
+}%
+\newglossaryentry{math.met}{%
+  name={metric},%
+  symbol={\ensuremath{d(\cdot,\cdot)}},%
+  description={%
+    A metric is a function $d : \mathcal{X} \times \mathcal{X} \to
+    \mathbb{R}_{\geq 0}$ such that, for all $x,x',x'' \in \mathcal{X}$: $x = x'
+    \iff d(x, x') = 0$; $d(x, x') = d(x', x)$; and $d(x, x'') \leq d(x, x') +
+    d(x', x'')$. The pair $(\mathcal{X}, d)$ is a metric space.%
+  },%
+}%
+\newglossaryentry{math.mspace}{%
+  name={metric space},%
+  description={},%
+  see={math.met},%
+}%
+\newglossaryentry{math.norm}{%
+  name={norm},%
+  symbol={\ensuremath{\|\cdot\|}},%
+  description={%
+    A non-negative operator over vectors $\|\cdot\| : \mathcal{X} \to \R_{\geq
+    0}$ such that $\|\mathbf{x}\| = 0 \iff \mathbf{x} = \mathbf{0}$,
+    $\|\alpha\mathbf{x}\| = |\alpha|\|\mathbf{x}\|$, and $\|\mathbf{x} +
+    \mathbf{x}'\| \leq \|\mathbf{x}\| + \|\mathbf{x}\|$. A vector space
+    equipped with a norm is called a normed vector space. It is also a metric
+    space by the induced metric $d(\mathbf{x},\mathbf{x}') = \|\mathbf{x} -
+    \mathbf{x}'\|$.%
+  },%
+  seealso={math.vspace,math.mspace},%
 }%
 \newglossaryentry{math.oint}{%
   name={open interval},%
@@ -282,22 +337,77 @@
   description={},%
   see={math.eclass}%
 }%
+\newglossaryentry{math.scalar}{%
+  name={scalar},%
+  description={},%
+  see={math.field},%
+}%
+\newglossaryentry{math.vector}{%
+  name={vector},%
+  description={},%
+  see={math.vspace},%
+}%
+\newglossaryentry{math.vspace}{%
+  name={vector space},%
+  description={%
+    A set $\mathcal{X}$ (whose members $\mathbf{x},\mathbf{x}'$ are called
+    vectors) equipped with two binary operators: addition ($+ : \mathcal{X}
+    \times \mathcal{X} \to \mathcal{X}$) and scalar ($\alpha,\alpha' \in
+    \mathbb{F}$) multiplication ($\cdot : \mathbb{F} \times \mathcal{X} \to
+    \mathcal{X}$). A vector space is an abelian group \textit{w.r.t.} addition
+    with identity $\mathbb{0}$. Multiplication satisfies: distributivity
+    \textit{w.r.t} the space's addition, $\alpha(\mathbf{x} + \mathbf{x}') =
+    \alpha \mathbf{x} + \alpha\mathbf{x}'$; \textit{w.r.t.} the field's
+    addition, $(\alpha + \alpha')\mathbf{x} = \alpha\mathbf{x} +
+    \alpha'\mathbf{x}'$; is associative \textit{w.r.t.} the field's
+    multiplication, $(\alpha\alpha')\mathbf{x} = \alpha (\alpha'\mathbf{x})$;
+    and satisfies identities $1\mathbf{x} = \mathbf{x}$ and $0\mathbf{x} =
+    \mathbf{0}$.%
+  },%
+  seealso={grp.abelian,math.field},%
+}%
 
 % Measure Theory (meas)
+\newglossaryentry{meas.ae}{%
+  name={almost everywhere},%
+  symbol={\ensuremath{\cdot_{a.e.}}},%
+  description={%
+    A property holds almost everywhere on a measure space if and only if the
+    points it does not hold is a subset of measure zero.%
+  },%
+  seealso={meas.meas},%
+}
 \newglossaryentry{meas.count}{%
   name={counting measure},%
   description={%
-    The measure $\mu$ on a countable $\sigma$-algebra $\Sigma$ which
-    counts the number of elements in the set, $\mu(\sigma) = |\sigma|$.%
+    The measure $\mu$ on a $\sigma$-algebra $\Sigma$ which counts the number of
+    elements in the set, $\mu(\sigma) = |\sigma|$. $\mu(\sigma) = \infty$ for
+    infinite $\sigma$.%
   },%
   seealso={meas.meas},%
 }%
-\newglossaryentry{meas.lip}{
-  name={continuous (Lipschitz, measurable)},%
-  text={continuous},%
+\newglossaryentry{meas.ellpspace}{%
+  name={\ensuremath{\ell^p}-sequence space},%
+  symbol={\ensuremath{\ell^p}},%
+  sort={lp space},%
   description={%
-    A measurable function is continuous
+    The space $L^p(\mathbb{N})$ equipped with the counting metric.%
   },%
+  seealso={meas.lpspace},%
+}%
+\newglossaryentry{meas.lpspace}{%
+  name={\ensuremath{L^p}-space},%
+  symbol={\ensuremath{L^p(\mathcal{X})}},%
+  sort={Lp space},%
+  description={%
+    A measure space consisting of the quotient space of functions $f :
+    \mathcal{X} \to \mathbb{C}$ (with $f \equiv f' \iff f(x) =_{a.e.} f'(x)$)
+    equipped with $p$-norm $\|f\|^p_p = \int_{x \in \mathcal{X}} |f(x)|^p
+    \mathrm{d}\mu(x)$. The space is also a Banach space. If $p = 2$, it is also
+    a Hilbert space with inner product $\langle f,f'\rangle = \int_{x \in
+    \mathcal{X}} f(x)\overline{f'(x)} \mathrm{d}\mu(x)$.%
+  },%
+  seealso={meas.meas,meas.ae,math.hspace},%
 }%
 \newglossaryentry{meas.mablefunc}{%
   name={measurable function},%
@@ -335,6 +445,13 @@
   description={},%
   see={meas.meas},%
 }%
+\newglossaryentry{meas.si}{%
+  name={square-integrable},%
+  description={%
+    A function is square-integrable if it is member of $L^2(\mathbb{R})$.%
+  },%
+  seealso={meas.lpspace},%
+}%
 \newglossaryentry{meas.sigma}{%
   name={\ensuremath{\sigma}-algebra},%
   sort={sigma algebra},%
@@ -348,6 +465,12 @@
     measurable space.%
   }%
 }%
+\newglossaryentry{meas.ss}{%
+  name={square-summable},%
+  description={A sequence is square-summable if it is a member of $\ell^2$.},%
+  seealso={meas.ellpspace},%
+}%
+
 
 
 % Linguistics (ling)
@@ -501,9 +624,9 @@
 \newglossaryentry{sp.wavelet}{%
   name={wavelet},%
   description={%
-    A filter $\psi : \R \to \C$, $\psi \in L^2(\mathbb{R})$ also satisfying the
-    admissibility condition $\int_0^\infty
-    \frac{|\widehat{\psi}(\omega)|^2}{\omega} \mathrm{d}\omega < \infty$.%
+    A signal $\psi \in L^2(\mathbb{R})$ also satisfying the admissibility
+    condition $\int_0^\infty \frac{|\widehat{\psi}(\omega)|^2}{\omega}
+    \mathrm{d}\omega < \infty$.%
   },%
 }
 \newglossaryentry{sp.wideband}{%
