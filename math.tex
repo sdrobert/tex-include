@@ -9,6 +9,8 @@
 % 
 % \Abs{x}        % absolute value
 % \alg{A}        % algebra
+% \Borel         % Borel sigma-algebra on R
+% \Borel{X}      % Borel sigma-algebra on X
 % \C             % complex field
 % \Card{x}       % cardinality
 % \Ceil{x}       % ceiling
@@ -98,9 +100,13 @@
 
 % xparse commands which don't need explicit syntax
 
+\DeclareDocumentCommand\Borel{G{\mathbb{R}}}{%
+\ensuremath{\mathop{\mathcal{B}}\left(#1\right)}%
+}%
+
 \DeclareDocumentCommand\IRange{m g}{%
-  \ensuremath{\IfNoValueTF{#2}{1}{#1} \mathbin{:} \IfNoValueTF{#2}{#1}{#2}}%
-}
+\ensuremath{\IfNoValueTF{#2}{1}{#1} \mathbin{:} \IfNoValueTF{#2}{#1}{#2}}%
+}%
 
 \DeclareDocumentCommand\Conv{s m m o d()}{%
 \ensuremath{%
@@ -111,7 +117,7 @@
   \IfNoValueF{#4}{\right)_{#4}}%
   \IfNoValueF{#5}{\right)\!\left(#5\right)}%
 }%
-}
+}%
 
 \DeclareDocumentCommand\Corr{s m m o d()}{%
 \ensuremath{%

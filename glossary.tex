@@ -181,6 +181,11 @@
     $\left[a,b\right] = \{c : a \leq c \leq b\}$.%
   },%
 }%
+\newglossaryentry{math.dist}{%
+  name={distance},%
+  description={},%
+  see={math.met},%
+}%
 \newglossaryentry{math.eclass}{%
   name={equivalence class},%
   plural={equivalence classes},%
@@ -196,14 +201,13 @@
 \newglossaryentry{math.edist}{%
   name={Euclidean distance},%
   description={},%
-  see={math.emet},%
+  see={math.met,math.emet},%
 }%
 \newglossaryentry{math.emet}{%
   name={Euclidean metric},%
   description={%
     For $\mathbf{x}, \mathbf{x}' \in \mathbb{R}^N$, the metric 
-    $d(\mathbf{x}, \mathbf{x'}) = \sqrt{\sum_n (x_n - x'_n)^2}$. The value is
-    the Euclidean distance between $\mathbf{x}$ and $\mathbf{x'}$.%
+    $d(\mathbf{x}, \mathbf{x'}) = \sqrt{\sum_n (x_n - x'_n)^2}$.%
   },%
   seealso={math.met},%
 }%
@@ -401,7 +405,7 @@
   sort={Lp space},%
   description={%
     A measure space consisting of the quotient space of functions $f :
-    \mathcal{X} \to \mathbb{C}$ (with $f \equiv f' \iff f(x) =_{a.e.} f'(x)$)
+    \mathcal{X} \to \mathbb{C}$ (with $f \sim f' \iff f(x) =_{a.e.} f'(x)$)
     equipped with $p$-norm $\|f\|^p_p = \int_{x \in \mathcal{X}} |f(x)|^p
     \mathrm{d}\mu(x)$. The space is also a Banach space. If $p = 2$, it is also
     a Hilbert space with inner product $\langle f,f'\rangle = \int_{x \in
@@ -456,21 +460,31 @@
   name={\ensuremath{\sigma}-algebra},%
   sort={sigma algebra},%
   symbol={\ensuremath{\Sigma}},%
-  description={
+  description={%
     A collection $\Sigma$ of subsets of a set $\mathcal{X}$ such that:
     $\emptyset, \mathcal{X} \in \Sigma$; $\forall \sigma \in \Sigma$,
     $\mathcal{X} \setminus \sigma \in \Sigma$; and for countably-indexed
-    collections $\Sigma' \subseteq \Sigma'$, $\bigcup_{\sigma \in \Sigma'}
-    \sigma \in \Sigma$. The resulting pair $(\mathcal{X}, \Sigma)$ is a
-    measurable space.%
+    collections $\Sigma' \subseteq \Sigma$, $\bigcup_{\sigma \in \Sigma'}
+    \sigma$ is closed in $\Sigma$. The resulting pair $(\mathcal{X}, \Sigma)$
+    is a measurable space.%
   }%
+}%
+\newglossaryentry{meas.sfinite}{%
+  name={\ensuremath{\sigma}-finite},%
+  sort={sigma-finite},%
+  description={%
+    A measure space $(\mathcal{X}, \Sigma, \mu)$ is $\sigma$-finite if there
+    exists a countable subset of $\Sigma$, $\Sigma'$, such that for all $\sigma
+    \in \Sigma'$, $\mu(\sigma) < \infty$, and $\cup_{\sigma \in \Sigma'} \sigma
+    = \mathcal{X}$.%
+  },%
+  seealso={meas.meas},%
 }%
 \newglossaryentry{meas.ss}{%
   name={square-summable},%
   description={A sequence is square-summable if it is a member of $\ell^2$.},%
   seealso={meas.ellpspace},%
 }%
-
 
 
 % Linguistics (ling)
@@ -659,20 +673,15 @@
 }%
 
 % Topology (top)
-\newglossaryentry{top.top}{%
-  name={topology},%
-  plural={topologies},%
-  symbol={\ensuremath{\mathscr{X}}},%
+\newglossaryentry{top.borel}{
+  name={Borel $\sigma$-algrebra},%
+  symbol={\ensuremath{\mathcal{B}(\mathcal{X})}},%
   description={%
-    For a given set $\mathcal{X}$, a topology on $\mathcal{X}$ is a collection
-    of subsets (called open sets) of $\mathcal{X}$, $\mathscr{X}$, such that:
-    $\emptyset,\mathcal{X} \in \mathscr{X}$; for any indexed collection
-    $\mathcal{X}_i \in \mathscr{X}$ (countable or uncountable), $\bigcup_i
-    \mathcal{X}_i \in \mathscr{X}$; and for any finite collection
-    $\mathcal{X}_i \in \mathscr{X}$, $\bigcap_i \mathcal{X}_i \in \mathscr{X}$.
-    When equipped with a topology, the set $\mathcal{X}$ is considered a
-    topological space.%
-  },%
+    On topological space $\mathcal{X}$ with topology $\mathscr{X}$, its Borel
+    $\sigma$-algebra is the smallest $\sigma$-algebra containing $\mathcal{X}$,
+    $\cap_{\{\Sigma : \mathcal{X} \subseteq \Sigma\}} \Sigma$.%
+  },
+  seealso={top.top,meas.sigma},%
 }%
 \newglossaryentry{top.comp}{%
   name={compact topology},%
@@ -711,6 +720,21 @@
     The powerset topology over $\mathcal{X}$, \emph{i.e.} $\mathcal{X}'
     \subseteq \mathcal{X} \iff \mathcal{X}' \in \mathscr{X}$.%
   }%
+}%
+\newglossaryentry{top.top}{%
+  name={topology},%
+  plural={topologies},%
+  symbol={\ensuremath{\mathscr{X}}},%
+  description={%
+    For a given set $\mathcal{X}$, a topology on $\mathcal{X}$ is a collection
+    of subsets (called open sets) of $\mathcal{X}$, $\mathscr{X}$, such that:
+    $\emptyset,\mathcal{X} \in \mathscr{X}$; for any indexed collection
+    $\mathcal{X}_i \in \mathscr{X}$ (countable or uncountable), $\bigcup_i
+    \mathcal{X}_i \in \mathscr{X}$; and for any finite collection
+    $\mathcal{X}_i \in \mathscr{X}$, $\bigcap_i \mathcal{X}_i \in \mathscr{X}$.
+    When equipped with a topology, the set $\mathcal{X}$ is considered a
+    topological space.%
+  },%
 }%
 \newglossaryentry{top.topspace}{%
   name={topological space},%
