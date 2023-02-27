@@ -152,7 +152,7 @@
 \newglossaryentry{math.cauch}{%
   name={Cauchy sequence},%
   description={%
-    A sequence of values from a measure space $(\mathcal{X}, d)$, $x_1, x_2,
+    A sequence of values from a metric space $(\mathcal{X}, d)$, $x_1, x_2,
     \ldots \in \mathcal{X}$, such that, for any $\epsilon \in \mathbb{R}_{>0}$,
     there exists some $N \in \mathbb{N}$ such that, for all $x_n,x_{n'}$ where
     $n, n' \geq N$, $d(x_n, x_{n'}) \leq \epsilon$.%
@@ -281,7 +281,7 @@
   description={%
     A function $f : \mathcal{X} \to \mathcal{X}'$ on metric spaces
     $(\mathcal{X}, d)$ and $(\mathcal{X}', d')$ is Lipschitz continuous (or
-    just ``Lipschitz'') \emph{iff.} there exists some $C \in \mathbb{R}_{\geq
+    just ``Lipschitz'') if there exists some $C \in \mathbb{R}_{\geq
     0}$ such that, for all $x, x' \in \mathcal{X}$, $d'(f(x), f(x')) \leq C
     d(x, x')$.%
   },%
@@ -322,6 +322,20 @@
     The ordered set of all values between $a$ and $b$, excluding boundaries.
     $\left]a,b\right[ = \{c : a < c < b\}$.%
   },%
+}%
+\newglossaryentry{math.pcvg}{%
+  name={pointwise convergence},%
+  description={%
+    A sequence of real-valued functions $(f_n)_{n \in \mathbb{N}}$, $f_n :
+    \mathcal{X} \to \mathbb{R}$ converges pointwise on $\mathcal{X}' \subseteq
+    \mathcal{X}$ if $\lim_{n \to \infty} f(x)$ exists for all $x \in
+    \mathcal{X}'$. The function it converges to is its pointwise limit.%
+  },%
+}%
+\newglossaryentry{math.plimit}{%
+  name={pointwise limit},%
+  description={},%
+  see={math.pcvg},%
 }%
 \newglossaryentry{math.preim}{%
   name={pre-image},%
@@ -428,6 +442,15 @@
   },%
   seealso={meas.meas},%
 }%
+\newglossaryentry{meas.domin}{%
+  name={domination},%
+  description={
+      Given measures $\mu,\nu$ on the same measure space
+      $(\mathcal{X}, \Sigma)$, $\mu$ dominates $\nu$ if, for every
+      $\sigma \in \Sigma$, $\mu(\sigma) = 0$ implies $\nu(\sigma) = 0$.%
+  },%
+  seealso={meas.meas},%
+}
 \newglossaryentry{meas.ellpspace}{%
   name={\ensuremath{\ell^p}-sequence space},%
   symbol={\ensuremath{\ell^p}},%
@@ -442,7 +465,7 @@
   description={%
     A Lebesgue integral whose domain is equipped with a Haar measure.%
   },%
-  seealso={meas.lebesi,meas.haarm},%
+  seealso={meas.lebi,meas.haarm},%
 }%
 \newglossaryentry{meas.haarm}{%
   name={Haar measure},%
@@ -475,7 +498,7 @@
   },%
   seealso={top.borel,meas.mablefunc},%
 }%
-\newglossaryentry{meas.lebesi}{
+\newglossaryentry{meas.lebi}{
   name={Lebesgue integral},%
   symbol={\ensuremath{\int_{x \in \mathcal{X}}f(x)\mathrm{d}\mu(x)}},%
   description={%
@@ -510,7 +533,7 @@
     $\sigma$-algebra of the domain, $f^{-1}(\sigma') \in \Sigma$.%
   },%
   seealso={meas.sigma,math.preim},%
-}
+}%
 \newglossaryentry{meas.mablespace}{%
   name={measurable space},%
   description={},%
@@ -581,7 +604,6 @@
   seealso={meas.ellpspace},%
 }%
 
-
 % Linguistics (ling)
 \newglossaryentry{ling.token}{%
   name={token (linguistics)},%
@@ -611,15 +633,40 @@
   see={ling.type,ling.token},%
 }%
 
+% Monte Carlo (mc)
+\newglossaryentry{mc.mc_approx}{%
+  name={Monte Carlo approximation},%
+  description={%
+    Estimation of an expected value derived by sampling values over the
+    expectation.%
+  },%
+}%
+\newglossaryentry{mc.proposal}{%
+  name={proposal distribution},%
+  description={%
+    The distribution sampled from to derive a Monte Carlo estimate. May match
+    or approximate the target distribution.%
+  },%
+  seealso={mc.target},%
+}%
+\newglossaryentry{mc.target}{%
+  name={target distribution},%
+  description={%
+    The probability distribution over the expectation in a Monte Carlo
+    approximation.%
+  },%
+  seealso={mc.mc_approx},%
+}%
+
 % Machine Learning (ml)
 \newglossaryentry{ml.pretrain}{%
   name={pre-training},%
   description={%
     Additional training of a statistical model prior to whatever constitutes
-    the standard training regime. In speech recognition, pre-training is an
-    unsupervised training stage wherein an acoustic model is trained to predict
-    masked, quantized samples or frames. In language modelling, pre-training
-    involves predicting masked tokens.
+    the standard training regime. In speech recognition, pre-training is often
+    an unsupervised training stage wherein an acoustic model is trained to
+    predict masked, quantized samples or frames. In language modelling,
+    pre-training involves predicting masked tokens.%
   },%
 }%
 \newglossaryentry{ml.ulearn}{%
@@ -636,7 +683,7 @@
   description={},%
   alias={mod.residue},%
 }%
-\newglossaryentry{mod.residue}{
+\newglossaryentry{mod.residue}{%
   name={residue},%
   description={%
     An equivalence class of integers $\ldots, a - 2n, a - n, a, a + n, a + 2n,
@@ -659,7 +706,69 @@
     A language resource, \eg text (with or without parse trees) or
     utterances and their transcriptions.%
   },%
-}
+}%
+
+% Probability Theory (prob)
+\newglossaryentry{prob.ascvg}{
+  name={almost-sure convergence},%
+  symbol={\ensuremath{\overset{a.s.}{\to}}},%
+  description={%
+    A sequence of (real) random variables $f_1,f_2,\ldots$, converges
+    almost-surely to a random variable $f$ in probability space
+    $(\mathcal{X},\Sigma, P)$, $(f_n)_{n\in\mathbb{N}}
+    \mathbin{\overset{a.s.}{\to}} f$, if the set where the sequence's pointwise
+    limit is $f$ has probability $1$, \emph{i.e.} $P(\{x \in \mathcal{X} :
+    \lim_{n \to \infty} f_n(x) = f(x)\}) = 1$.%
+  },%
+  seealso={prob.randv,math.pcvg},%
+}%
+\newglossaryentry{prob.event}{%
+  name={event (of a probability space)},%
+  text={event},%
+  description={},%
+  see={prob.pspace},%
+}%
+\newglossaryentry{prob.exp}{%
+  name={expectation},%
+  symbol={\ensuremath{\mathbb{E}\left[\cdot\right]}},%
+  description={%
+    The Lebesgue integral of a (Lebesgue-measurable) random variable
+    \emph{w.r.t.} some probability space $(\mathcal{X}, \Sigma, P)$
+    $\mathbb{E}_x\left[v(x)\right] = \int_{x \in \mathcal{X}} v(x) \mathrm{d}
+    P(x)$.%
+  },%
+  seealso={prob.randv,meas.lebi},%
+}%
+\newglossaryentry{prob.prob}{%
+  name={probability (of a probability space)},%
+  text={probability},%
+  plural={probabilities},%
+  description={},%
+  see={prob.pspace},%
+}%
+\newglossaryentry{prob.probm}{%
+  name={probability measure},%
+  symbol={$P$},%
+  description={},%
+  see={prob.pspace},%
+}%
+\newglossaryentry{prob.pspace}{%
+  name={probability space},%
+  description={%
+    A measure space $(\mathcal{X}, \Sigma, P)$ where the measure, called
+    a probability measure, satisfies $P(\mathcal{X}) = 1$. Elements
+    $\sigma \in \Sigma$ are called events; $P(\sigma)$ are their probabilities.
+  },%
+  seealso={meas.meas},%
+}%
+\newglossaryentry{prob.randv}{%
+  name={random variable},%
+  description={%
+    A measurable function \emph{w.r.t.} some probability space, \emph{esp.}
+    a Legesgue-measurable one.%
+  }%
+  seealso={meas.mablefunc,meas.lebmable,prob.pspace},%
+}%
 
 % Signal Processing (sp)
 \newglossaryentry{sp.admis}{%
@@ -674,7 +783,7 @@
     Phenomenon wherein a digitized signal's frequency response cannot
     distinguish higher frequencies from lower ones due to undersampling.%
   },%
-}
+}%
 \newglossaryentry{sp.bandwidth}{%
   name={bandwidth},%
   description={%
@@ -723,7 +832,7 @@
 }%
 \newglossaryentry{sp.supp}{%
   name={support},%
-  symbol={\ensuremath{\mathord{supp}}},%
+  symbol={\ensuremath{\mathrm{supp}}},%
   description={%
     The elements of the domain of $f : X \to \mathbb{F}$ such that $f$
     evaluated on those elements is non-zero. $\operatorname{supp} f = \{x :
@@ -779,7 +888,7 @@
   seealso={top.top,meas.sigma},%
 }%
 \newglossaryentry{top.closed}{%
-  name={closed set (topology)},%
+  name={closed set (Topology)},%
   text={closed set},%
   description={%
     The complement of an open set $\mathcal{A} \in \mathscr{X}$ relative to the
@@ -803,13 +912,12 @@
   seealso={top.top},%
 }%
 \newglossaryentry{top.cont}{%
-  name={continuous (topology)},%
+  name={continuous (Topology)},%
   text={continuous},%
   description={%
     A map $\phi$ between two topological spaces $\mathcal{X},\mathcal{Y}$ is
-    continuous \emph{iff.}, for every open set $\mathcal{Y}' \subseteq
-    \mathcal{Y}$, its pre-image $\phi^{-1}(\mathcal{Y}')$ is an open set in
-    $\mathcal{X}$.%
+    continuous if, for every open set $\mathcal{Y}' \subseteq \mathcal{Y}$, its
+    pre-image $\phi^{-1}(\mathcal{Y}')$ is an open set in $\mathcal{X}$.%
   },%
   seealso={top.top,math.preim},%
 }%
@@ -838,7 +946,7 @@
   seealso={top.top},%
 }%
 \newglossaryentry{top.open}{%
-  name={open set (topology)},%
+  name={open set (Topology)},%
   text={open set},%
   description={},%
   see={top.top},%
