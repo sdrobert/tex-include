@@ -911,6 +911,11 @@
   },%
   seealso={top.top},%
 }%
+\newglossaryentry{top.conn}{%
+  name={connected (Topology)},%
+  description={},%
+  see={top.disconn},%
+}%
 \newglossaryentry{top.cont}{%
   name={continuous (Topology)},%
   text={continuous},%
@@ -934,14 +939,25 @@
     \subseteq \mathcal{X} \iff \mathcal{X}' \in \mathscr{X}$.%
   }%
 }%
-\newglossaryentry{top.haus}{%
-  name={Hausdorff space},%
+\newglossaryentry{top.disconn}{%
+  name={disconnected (Topology)},%
   description={%
-    A topological space $(\mathcal{X},\mathscr{X})$ such that, for any two
-    distinct elements $a,b \in \mathcal{X}$, $a \neq b$, there exists open sets
-    $a \in \mathcal{A} \in \mathscr{X}$ and $b \in \mathcal{B} \in \mathscr{X}$
-    which are disjoint, \emph{i.e.} $\mathcal{A} \cap \mathcal{B} =
-    \emptyset$.%
+    A topological space $(\mathcal{X}, \mathscr{X})$ is diconnected if it can
+    be expressed as the union of two disjoint open sets, \emph{i.e.}
+    $\mathcal{X}',\mathcal{X}'' \in \mathscr{X}$, $\mathcal{X}' \cap
+    \mathcal{X}'' = \emptyset$, such that $\mathcal{X}' \cup \mathcal{X}'' =
+    \mathcal{X}$. A space which is not disconnected is connected. %
+  },%
+  seealso={top.top},%
+}%
+\newglossaryentry{top.haus}{%
+  name={Hausdorff},%
+  description={%
+    A topological space $(\mathcal{X},\mathscr{X})$ is Hausdorff if, for any
+    two distinct elements $a,b \in \mathcal{X}$, $a \neq b$, there exists open
+    sets $a \in \mathcal{A} \in \mathscr{X}$ and $b \in \mathcal{B} \in
+    \mathscr{X}$ which are disjoint, \emph{i.e.} $\mathcal{A} \cap \mathcal{B}
+    = \emptyset$.%
   },%
   seealso={top.top},%
 }%
@@ -977,6 +993,14 @@
     topological space.%
   },%
   seealso={top.top},%
+}%
+\newglossaryentry{top.totaldisc}{%
+  name={totally-disconnected},%
+  description={%
+    A topological space is totally disconnected if its only connected subspaces
+    (\emph{w.r.t.} the subspace topology) are singleton sets.
+  },%
+  seealso={top.disconn},%
 }%
 \newglossaryentry{top.topspace}{%
   name={topological space},%
