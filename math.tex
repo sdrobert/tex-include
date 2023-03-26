@@ -53,13 +53,14 @@
 % \Q             % rational numbers
 % \Qp            % positive rational numbers
 % \R             % real numbers
-% \Rp            % positive real numbers
 % \ring{A}       % ring
+% \Rp            % positive real numbers
 % \semi{A}       % semiring
 % \set{A}        % set
 % \SInt{A}       % set integral
 % \supp x        % support of x
 % \tmat{x}       % matrix transpose
+% \topo{A}        % topology
 % \tvec{x}       % vector transpose
 % \V             % vocabulary
 % \vec{x}        % vector
@@ -240,24 +241,25 @@
 
 \ExplSyntaxOff
 
-\renewcommand\vec[1]{\ensuremath{\Vector{#1}}}
-\newcommand\tvec[1]{\ensuremath{\Vector{#1}^\intercal}}
-\newcommand\matr\vec
-\newcommand\tmatr\tvec
+\newcommand\alg[1]{\ensuremath{\mathfrak{#1}}}
+\newcommand\asto{\ensuremath{\mathbin{\overset{a.s.}{\to}}}}
+\newcommand\coll[1]{\ensuremath{\mathscr{#1}}}
+\newcommand\Conj[1]{\ensuremath{\overline{#1}}}
+\newcommand\Deriv[2]{\ensuremath{\frac{\mathrm{d}{#1}}{\mathrm{d}{#2}}}}
+\newcommand\Diff[2]{\ensuremath{\frac{\mathrm{d}#1}{\mathrm{d}#2}}}
+\newcommand\Dual[1]{\ensuremath{{#1}\prime}}
 \newcommand\field[1]{\ensuremath{\mathbb{#1}}}
+\newcommand\Inv[1]{\ensuremath{{#1}^{\text{-}1}}}
+\newcommand\matr\vec
+\newcommand\Pdiv[2]{\ensuremath{\frac{\partial{#1}}{\partial{#2}}}}
 \newcommand\ring\field
 \newcommand\semi\ring
 \newcommand\set[1]{\ensuremath{\mathcal{#1}}}
-\newcommand\coll[1]{\ensuremath{\mathscr{#1}}}
-\newcommand\Inv[1]{\ensuremath{{#1}^{\text{-}1}}}
-\newcommand\Dual[1]{\ensuremath{{#1}\prime}}
-\newcommand\alg[1]{\ensuremath{\mathfrak{#1}}}
 \newcommand\setint[1]{\ensuremath{\int\limits_{#1}\mathrm{d}#1\>}}
-\newcommand\Pdiv[2]{\ensuremath{\frac{\partial{#1}}{\partial{#2}}}}
-\newcommand\Diff[2]{\ensuremath{\frac{\mathrm{d}#1}{\mathrm{d}#2}}}
-\newcommand\Deriv[2]{\ensuremath{\frac{\mathrm{d}{#1}}{\mathrm{d}{#2}}}}
-\newcommand\Conj[1]{\ensuremath{\overline{#1}}}
-\newcommand\asto{\ensuremath{\mathbin{\overset{a.s.}{\to}}}}
+\newcommand\tmatr\tvec
+\newcommand\topo[1]{\ensuremath{\mathcal{#1}}}
+\newcommand\tvec[1]{\ensuremath{\Vector{#1}^\intercal}}
+\renewcommand\vec[1]{\ensuremath{\Vector{#1}}}
 
 \newcommand\R{\field{R}}
 \newcommand\Rp{\R_{>0}}

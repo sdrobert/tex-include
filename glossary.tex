@@ -297,6 +297,10 @@
     d(x, x')$.%
   },%
 }%
+\newglossaryentry{math.linfunctl}{%
+  name={linear functional},%
+  description={A linear map from a vector space to its field.},%
+}%
 \newglossaryentry{math.met}{%
   name={metric},%
   symbol={\ensuremath{d(\cdot,\cdot)}},%
@@ -525,14 +529,15 @@
   symbol={\ensuremath{L^p(\mathcal{X})}},%
   sort={Lp space},%
   description={%
-    A measure space consisting of the quotient space of functions $f :
-    \mathcal{X} \to \mathbb{C}$ (with $f \sim f' \iff f(x) =_{a.e.} f'(x)$)
-    equipped with $p$-norm $\|f\|^p_p = \int_{x \in \mathcal{X}} |f(x)|^p
-    \mathrm{d}\mu(x)$. The space is also a Banach space. If $p = 2$, it is also
-    a Hilbert space with inner product $\langle f,f'\rangle = \int_{x \in
-    \mathcal{X}} f(x)\overline{f'(x)} \mathrm{d}\mu(x)$.%
+    A measure space consisting of the quotient space of Lebesgue-measurable
+    functions $f : \mathcal{X} \to \mathbb{C}$ (with $f \sim f' \iff f(x)
+    =_{a.e.} f'(x)$) equipped with $p$-norm $\|f\|^p_p = \int_{x \in
+    \mathcal{X}} |f(x)|^p \mathrm{d}\mu(x)$. The space is also a Banach space.
+    If $p = 2$, it is also a Hilbert space with inner product $\langle
+    f,f'\rangle = \int_{x \in \mathcal{X}} f(x)\overline{f'(x)}
+    \mathrm{d}\mu(x)$.%
   },%
-  seealso={meas.meas,meas.ae,math.hspace},%
+  seealso={meas.meas,meas.ae,meas.lebmable,math.hspace},%
 }%
 \newglossaryentry{meas.mablefunc}{%
   name={measurable function},%
@@ -591,11 +596,11 @@
   symbol={\ensuremath{\Sigma}},%
   description={%
     A collection $\Sigma$ of subsets of a set $\mathcal{X}$ such that:
-    $\emptyset, \mathcal{X} \in \Sigma$; $\forall \sigma \in \Sigma$,
-    $\mathcal{X} \setminus \sigma \in \Sigma$; and for countably-indexed
-    collections $\Sigma' \subseteq \Sigma$, $\bigcup_{\sigma \in \Sigma'}
-    \sigma$ is closed in $\Sigma$. The resulting pair $(\mathcal{X}, \Sigma)$
-    is a measurable space.%
+    $\emptyset, \mathcal{X} \in \Sigma$; $\forall \sigma \in \Sigma$, $\sigma^c
+    = \{x \in \mathcal{X}\mid x \not \in \sigma\} \in \Sigma$; and for
+    countably-indexed collections $\Sigma' \subseteq \Sigma$, $\bigcup_{\sigma
+    \in \Sigma'} \sigma$ is closed in $\Sigma$. The resulting pair
+    $(\mathcal{X}, \Sigma)$ is a measurable space.%
   },%
 }%
 \newglossaryentry{meas.sfinite}{%
@@ -647,10 +652,8 @@
 % Monte Carlo (mc)
 \newglossaryentry{mc.mc_approx}{%
   name={Monte Carlo approximation},%
-  description={%
-    Estimation of an expected value derived by sampling values over the
-    expectation.%
-  },%
+  description={An estimate of a value using a statistic.},%
+  seealso={prob.statistic},%
 }%
 \newglossaryentry{mc.proposal}{%
   name={proposal distribution},%
@@ -744,7 +747,7 @@
   symbol={\ensuremath{\mathbb{E}\left[\cdot\right]}},%
   description={%
     The Lebesgue integral of a (Lebesgue-measurable) random variable
-    \emph{w.r.t.} some probability space $(\mathcal{X}, \Sigma, P)$
+    \emph{w.r.t.} some probability space $(\mathcal{X}, \Sigma, P)$:
     $\mathbb{E}_x\left[v(x)\right] = \int_{x \in \mathcal{X}} v(x) \mathrm{d}
     P(x)$.%
   },%
@@ -766,9 +769,10 @@
 \newglossaryentry{prob.pspace}{%
   name={probability space},%
   description={%
-    A measure space $(\mathcal{X}, \Sigma, P)$ where the measure, called
-    a probability measure, satisfies $P(\mathcal{X}) = 1$. Elements
-    $\sigma \in \Sigma$ are called events; $P(\sigma)$ are their probabilities.
+    A measure space $(\mathcal{X}, \Sigma, P)$ where the measure, called a
+    probability measure, satisfies $P(\mathcal{X}) = 1$. Elements $x \in
+    \mathcal{X}$ are samples; elements $\sigma \in \Sigma$ are called events;
+    $P(\sigma)$ are event probabilities.
   },%
   seealso={meas.meas},%
 }%
@@ -779,6 +783,11 @@
     a Legesgue-measurable one.%
   }%
   seealso={meas.mablefunc,meas.lebmable,prob.pspace},%
+}%
+\newglossaryentry{prob.statistic}{%
+  name={statistic},%
+  description={A value derived from samples.},%
+  seealso={prob.pspace},%
 }%
 
 % Signal Processing (sp)
@@ -1012,6 +1021,17 @@
   },%
   seealso={top.top},%
 }
+\newglossaryentry{top.normal}{%
+  name={normal (Topology)},%
+  text={normal},%
+  description={%
+    A topological space is normal if, for any two disjoint, closed sets
+    $\mathcal{A},\mathcal{B}$, there exists two disjoint, open sets
+    $\mathcal{A}',\mathcal{B}'$ such that $\mathcal{A} \subseteq \mathcal{A}'$,
+    $\mathcal{B} \subseteq \mathcal{B}'$.%
+  },%
+  seealso={top.top,top.closed},%
+}
 \newglossaryentry{top.top}{%
   name={topology},%
   plural={topologies},%
@@ -1039,4 +1059,12 @@
   name={topological space},%
   description={},%
   see={top.top},%
+}%
+\newglossaryentry{top.vspace}{%
+  name={topological vector space},%
+  description={
+    A vector space equipped with a topology such that addition and scalar
+    multiplication are continuous.%
+  },%
+  seealso={top.top,math.vspace},%
 }%
