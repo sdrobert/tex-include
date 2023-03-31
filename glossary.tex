@@ -151,6 +151,35 @@
   seealso={grp.grp,top.cont},%
 }%
 
+% Linguistics (ling)
+\newglossaryentry{ling.token}{%
+  name={token (linguistics)},%
+  text={token},%
+  description={%
+    An instance of a linguistic unit, \emph{e.g.} a word written on a page or
+    an uttered sound. Takes on values matching types. %
+  },%
+  seealso={ling.type}%
+}%
+\newglossaryentry{ling.type}{%
+  name={type (linguistics)},%
+  text={type},%
+  description={%
+    A class or label of linguistic unit, \emph{e.g.} a word uninstantiated.
+    A type gives values to tokens. %
+  },%
+  seealso={ling.token},%
+}%
+\newglossaryentry{ling.vocab}{%
+  name={vocabulary},
+  plural={vocabularies},
+  symbol=\ensuremath{\mathcal{V}},%
+  description={%
+    The set of possible types which can give value to a token. Usually finite.%
+  },%
+  see={ling.type,ling.token},%
+}%
+
 % Math (math)
 \newglossaryentry{math.bspace}{%
   name={Banach space},%
@@ -408,6 +437,29 @@
   seealso={grp.abelian,math.field},%
 }%
 
+% Monte Carlo (mc)
+\newglossaryentry{mc.mc_approx}{%
+  name={Monte Carlo approximation},%
+  description={An estimate of a value using a statistic.},%
+  seealso={prob.statistic},%
+}%
+\newglossaryentry{mc.proposal}{%
+  name={proposal distribution},%
+  description={%
+    The distribution sampled from to derive a Monte Carlo estimate. May match
+    or approximate the target distribution.%
+  },%
+  seealso={mc.target},%
+}%
+\newglossaryentry{mc.target}{%
+  name={target distribution},%
+  description={%
+    The probability distribution over the expectation in a Monte Carlo
+    approximation.%
+  },%
+  seealso={mc.mc_approx},%
+}%
+
 % Measure Theory (meas)
 \newglossaryentry{meas.ae}{%
   name={almost everywhere},%
@@ -620,59 +672,15 @@
   seealso={meas.ellpspace},%
 }%
 
-% Linguistics (ling)
-\newglossaryentry{ling.token}{%
-  name={token (linguistics)},%
-  text={token},%
-  description={%
-    An instance of a linguistic unit, \emph{e.g.} a word written on a page or
-    an uttered sound. Takes on values matching types. %
-  },%
-  seealso={ling.type}%
-}%
-\newglossaryentry{ling.type}{%
-  name={type (linguistics)},%
-  text={type},%
-  description={%
-    A class or label of linguistic unit, \emph{e.g.} a word uninstantiated.
-    A type gives values to tokens. %
-  },%
-  seealso={ling.token},%
-}%
-\newglossaryentry{ling.vocab}{%
-  name={vocabulary},
-  plural={vocabularies},
-  symbol=\ensuremath{\mathcal{V}},%
-  description={%
-    The set of possible types which can give value to a token. Usually finite.%
-  },%
-  see={ling.type,ling.token},%
-}%
-
-% Monte Carlo (mc)
-\newglossaryentry{mc.mc_approx}{%
-  name={Monte Carlo approximation},%
-  description={An estimate of a value using a statistic.},%
-  seealso={prob.statistic},%
-}%
-\newglossaryentry{mc.proposal}{%
-  name={proposal distribution},%
-  description={%
-    The distribution sampled from to derive a Monte Carlo estimate. May match
-    or approximate the target distribution.%
-  },%
-  seealso={mc.target},%
-}%
-\newglossaryentry{mc.target}{%
-  name={target distribution},%
-  description={%
-    The probability distribution over the expectation in a Monte Carlo
-    approximation.%
-  },%
-  seealso={mc.mc_approx},%
-}%
-
 % Machine Learning (ml)
+\newglossaryentry{ml.autoreg}{%
+  name={auto-regressive (neural network)},%
+  text={auto-regressive},%
+  description={%
+    A recurrent neural network is auto-regressive if it passes the previous
+    step's output as input to the current step during inference.%
+  },%
+}
 \newglossaryentry{ml.pretrain}{%
   name={pre-training},%
   description={%
