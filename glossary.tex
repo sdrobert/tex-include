@@ -687,16 +687,26 @@
     A recurrent neural network is auto-regressive if it passes the previous
     step's output as input to the current step during inference.%
   },%
-}
+}%
+\newglossaryentry{ml.finetune}{%
+  name={fine-tuning},%
+  description={%
+    Supervised training, occurring after pre-training a model, in which
+    task-specific data and (optionally) additional model structure are
+    incorporated into the model to complete that specific task.%
+  },%
+  seealso={ml.pretrain},%
+}%
 \newglossaryentry{ml.pretrain}{%
   name={pre-training},%
   description={%
-    Additional training of a statistical model prior to whatever constitutes
-    the standard training regime. In speech recognition, pre-training is often
-    an unsupervised training stage wherein an acoustic model is trained to
-    predict masked, quantized samples or frames. In language modelling,
-    pre-training involves predicting masked tokens.%
+    Training of a statistical model prior to task-specific training
+    (\emph{i.e.} fine-tuning). In speech recognition, pre-training is often an
+    unsupervised training stage wherein an acoustic model is trained to predict
+    masked, quantized samples or frames. In language modelling, pre-training
+    involves predicting masked tokens.%
   },%
+  seealso={ml.finetune},%
 }%
 \newglossaryentry{ml.ulearn}{%
   name={unsupervised learning},%
