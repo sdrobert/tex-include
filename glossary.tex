@@ -218,6 +218,11 @@
     number is its own conjugate.%
   },%
 }%
+\newglossaryentry{math.conjlinmap}{%  
+  name={conjugate-linear map},%
+  description={},%
+  see={math.linmap},%
+}%
 \newglossaryentry{math.cmspace}{%
   name={complete metric space},%
   description={%
@@ -297,18 +302,15 @@
     A binary operator over vectors $\langle\cdot,\cdot\rangle : \mathcal{X}
     \times \mathcal{X} \to \mathbb{F}$ which is: conjugate symmetric,
     $\langle\mathbf{x},\mathbf{x}'\rangle =
-    \overline{\langle\mathbf{x}',\mathbf{x}\rangle}$; linear (and
-    conjugate-bilinear), $\langle\alpha\mathbf{x} +
-    \alpha'\mathbf{x}',\mathbf{x}''\rangle =
-    \alpha\langle\mathbf{x},\mathbf{x}''\rangle +
-    \alpha'\langle\mathbf{x}',\mathbf{x}''\rangle$; and positive-definite,
+    \overline{\langle\mathbf{x}',\mathbf{x}\rangle}$; linear in the first
+    argument and conjugate-linear in the second; and positive-definite,
     $\langle\mathbf{x},\mathbf{x}\rangle \geq 0$,
     $\langle\mathbf{x},\mathbf{x}\rangle = 0 \iff \mathbf{x} = \mathbf{0}$. A
     vector space equipped with an inner product is called an inner product
     space. It is also a normed vector space by the induced norm $\|\mathbf{x}\|
     = \sqrt{\langle\mathbf{x},\mathbf{x}\rangle}$.%
   },%
-  seealso={math.norm,math.cconj},
+  seealso={math.norm,math.cconj,math.conjlinmap},%
 }%
 \newglossaryentry{math.irange}{%
   name={inclusive range},%
@@ -332,10 +334,25 @@
     0}$ such that, for all $x, x' \in \mathcal{X}$, $d'(f(x), f(x')) \leq C
     d(x, x')$.%
   },%
+  seealso={math.met},%
 }%
+\newglossaryentry{math.linmap}{%
+  name={linear map},%
+  description={%
+    A linear map, or linear operator, is a function between vector spaces $f :
+    \mathcal{X} \to \mathcal{Y}$ such that: for any two vectors $\mathbf{x},
+    \mathbf{x}' \in \mathcal{X}$, $f(\mathbf{x} + \mathbf{x'}) = f(\mathbf{x})
+    + f(\mathbf{x}')$; and for any scalar $s$, $f(s\mathbf{x}) =
+    sf(\mathbf{x})$. If instead $f(s\mathbf{x}) = \overline{s}f(\mathbf{x})$,
+    where $\overline{s}$ is the complex conjugate of $s$, the map is
+    conjugate-linear.%
+  },%
+  seealso={math.vspace},%
+}
 \newglossaryentry{math.linfunctl}{%
   name={linear functional},%
   description={A linear map from a vector space to its field.},%
+  seealso={math.linmap},%
 }%
 \newglossaryentry{math.met}{%
   name={metric},%
@@ -862,11 +879,12 @@
   plural={spectra},%
   symbol={\ensuremath{\widehat{\cdot}}},%
   description={%
-    The eigenvalues of an eigendecomposition of a bounded linear operator.
+    The eigenvalues of an eigendecomposition of a bounded linear map.
     Usually refers to the set of frequency coefficients describing a signal
     after a Fourier Transform, though other transforms may be substituted,
     (\emph{e.g.} Laplace).%
-  }%
+  },%
+  seealso={math.linmap},%
 }%
 \newglossaryentry{sp.spectro}{%
   name={spectrogram},%
