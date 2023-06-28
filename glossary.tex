@@ -188,6 +188,18 @@
 }%
 
 % Math (math)
+\newglossaryentry{math.adjoint}{%
+  name={adjoint},%
+  symbol=\ensuremath{\mathord{A}^\dagger},%
+  description={%
+    The adjoint of a linear operator $\mathord{A}: \mathcal{X} \to
+    \mathcal{Y}$, between inner product spaces $\mathcal{X}$ and $\mathcal{Y}$,
+    $\mathord{A}^\dagger: \mathcal{Y} \to \mathcal{X}$, is one which, for all
+    $x \in \mathcal{X}$ and $y \in \mathcal{Y}$, $\langle \mathord{A}x,y
+    \rangle = \langle x, \mathord{A}^\dagger y \rangle$.%
+  },%
+  seealso={math.iprod},%
+}%
 \newglossaryentry{math.bspace}{%
   name={Banach space},%
   description={%
@@ -435,6 +447,15 @@
   name={scalar},%
   description={},%
   see={math.field},%
+}%
+\newglossaryentry{math.sadjoint}{%
+  name={self-adjoint},%
+  description={%
+    A linear operator $\mathord{A}: \mathcal{X} \to \mathcal{X}$ on inner
+    product space $\mathcal{X}$ is self-adjoint (or Hermitian) if $\mathord{A}
+    = \mathord{A}^\dagger$.%
+  },%
+  see={math.adjoint},%
 }%
 \newglossaryentry{math.vector}{%
   name={vector},%
