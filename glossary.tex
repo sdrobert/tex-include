@@ -22,8 +22,8 @@
   text={delta},%
   description={%
     Features extracted from an existing sequence of feature vectors
-    $\mathbf{x}$ by taking a rolling average over the sequence dimension.
-    Double-deltas are computed by taking the rolling average of deltas.%
+    $\mathbf{x}$ by taking a rolling difference over the sequence dimension.
+    Double-deltas are computed by taking the rolling difference of deltas.%
   }%
 }%
 \newglossaryentry{asr.ddelta}{
@@ -113,9 +113,10 @@
   text={kernel},%
   symbol={\ensuremath{\ker}},%
   description={%
-    The kernel of a homomorphism $\phi : \mathcal{G} \to \mathcal{G}'$ is the
-    pre-image of the identity in the codomain $1 \in \mathcal{G}'$, \emph{i.e.}
-    $\mathord{ker} \phi = \{g \in \mathcal{G}: \phi(g) = e\}$. %
+    Given a group homomorphism $\phi : \mathcal{G} \to \mathcal{G}'$, its
+    kernel is the pre-image of the identity in the codomain $1 \in
+    \mathcal{G}'$, \emph{i.e.} $\operatorname{ker} \phi = \{g \in \mathcal{G}:
+    \phi(g) = e\}$. %
   },%
   seealso={grp.homo},%
 }%
@@ -124,7 +125,7 @@
   text={quotient space},%
   symbol={\ensuremath{\mathcal{G}/\mathcal{H}}},%
   description={%
-    For group $\mathcal{G}$ and subgroup $\mathcal{H}$, the left quotient
+    For group $\mathcal{G}$ and subgroup $\mathcal{H}$, their left quotient
     space, denoted $\mathcal{G}/\mathcal{H}$, contains equivalence classes $[g]
     = \{g : gh \in \mathcal{H}\}$ (also called cosets and denoted $gH$) under
     the equivalence relation $g \sim g' \iff g^{-1}g' \in \mathcal{H}$.%
@@ -136,13 +137,12 @@
   description={},%
   see={grp.rqspace},%
 }%
-\newglossaryentry{grp.rqspace}{
-  name={right quotient space},%
+\newglossaryentry{grp.rqspace}{ name={right quotient space},%
   symbol={\ensuremath{\mathcal{H}\setminus\mathcal{G}}},%
   description={%
-    Like the (left) quotient space, but with elements (right cosets) defined by
-    actions on elements of $\mathcal{H}$ on the right (and $g \sim g' \iff
-    gg'^{-1} \in \mathcal{H}$).%
+    A space defined similarly the to the left quotient space, but with elements
+    (right cosets) defined by actions on elements of $\mathcal{H}$ on the right
+    (and $g \sim g' \iff gg'^{-1} \in \mathcal{H}$).%
   },%
   seealso={grp.qspace},%
 }%
@@ -152,7 +152,7 @@
 }%
 \newglossaryentry{grp.top}{%
   name={topological group},%
-  description={
+  description={%
     A group on a topological space wherein group multiplication is continuous.%
   },%
   seealso={grp.grp,top.cont},%
@@ -172,15 +172,13 @@
   name={type (linguistics)},%
   text={type},%
   description={%
-    A class or label of linguistic unit, \emph{e.g.} a word uninstantiated.
-    A type gives values to tokens. %
+    A class or label of linguistic unit, \emph{e.g.} a word uninstantiated. A
+    type gives values to tokens. %
   },%
   seealso={ling.token},%
 }%
 \newglossaryentry{ling.vocab}{%
-  name={vocabulary},
-  plural={vocabularies},
-  symbol=\ensuremath{\mathcal{V}},%
+  name={vocabulary}, plural={vocabularies}, symbol=\ensuremath{\mathcal{V}},%
   description={%
     The set of possible types which can give value to a token. Usually finite.%
   },%
@@ -190,13 +188,14 @@
 % Math (math)
 \newglossaryentry{math.adjoint}{%
   name={adjoint},%
-  symbol=\ensuremath{\mathord{A}^\dagger},%
+  symbol=\ensuremath{\operatorname{A}^\dagger},%
   description={%
-    The adjoint of a linear operator $\mathord{A}: \mathcal{X} \to
+    The adjoint of a linear operator $\operatorname{A}: \mathcal{X} \to
     \mathcal{Y}$, between inner product spaces $\mathcal{X}$ and $\mathcal{Y}$,
-    $\mathord{A}^\dagger: \mathcal{Y} \to \mathcal{X}$, is one which, for all
-    $x \in \mathcal{X}$ and $y \in \mathcal{Y}$, $\langle \mathord{A}x,y
-    \rangle = \langle x, \mathord{A}^\dagger y \rangle$.%
+    $\operatorname{A}^\dagger: \mathcal{Y} \to \mathcal{X}$, is one which, for
+    all $x \in \mathcal{X}$ and $y \in \mathcal{Y}$, $\langle
+    \operatorname{A}x,y \rangle = \langle x, \operatorname{A}^\dagger y
+    \rangle$.%
   },%
   seealso={math.iprod},%
 }%
@@ -265,8 +264,7 @@
     is usually denoted $[x]$, where $x \in \mathcal{X}$ is any member in the
     class (called a representative). Any member can be a representative,
     \emph{i.e.} $[x'] = [x] \iff x' \sim x$.%
-  },
-  symbol={\ensuremath{[x]}}%
+  }, symbol={\ensuremath{[x]}}%
 }%
 \newglossaryentry{math.edist}{%
   name={Euclidean distance},%
@@ -276,8 +274,9 @@
 \newglossaryentry{math.emet}{%
   name={Euclidean metric},%
   description={%
-    For $\mathbf{x}, \mathbf{x}' \in \mathbb{R}^N$, the metric 
-    $d(\mathbf{x}, \mathbf{x'}) = \sqrt{\sum_n (x_n - x'_n)^2}$.%
+    A metric on $\mathbb{R}^N$ defined as $d(\mathbf{x}, \mathbf{x'}) =
+    \sqrt{\sum_n (x_n - x'_n)^2}$ for $\mathbf{x}, \mathbf{x}' \in
+    \mathbb{R}^N$.%
   },%
   seealso={math.met},%
 }%
@@ -303,8 +302,7 @@
   plural={indexed families},%
   symbol={\ensuremath{(x_y)_{y \in \mathcal{Y}}}},%
   description={%
-    Ordered elements from a set $x \in \mathcal{X}$ indexed by the set $y \in
-    \mathcal{Y}$.%
+    A set of elements indexed by the elements of another set (the index set).
   },%
 }%
 \newglossaryentry{math.iprod}{%
@@ -326,7 +324,7 @@
 }%
 \newglossaryentry{math.irange}{%
   name={inclusive range},%
-  symbol={\ensuremath{x\mathord{:}y}},%
+  symbol={\ensuremath{x\operatorname{:}y}},%
   description={%
     The ordered set of natural numbers between $x$ and $y$ inclusive.%
   }%
@@ -342,9 +340,8 @@
   description={%
     A function $f : \mathcal{X} \to \mathcal{X}'$ on metric spaces
     $(\mathcal{X}, d)$ and $(\mathcal{X}', d')$ is Lipschitz continuous (or
-    just ``Lipschitz'') if there exists some $C \in \mathbb{R}_{\geq
-    0}$ such that, for all $x, x' \in \mathcal{X}$, $d'(f(x), f(x')) \leq C
-    d(x, x')$.%
+    just ``Lipschitz'') if there exists some $C \in \mathbb{R}_{\geq 0}$ such
+    that, for all $x, x' \in \mathcal{X}$, $d'(f(x), f(x')) \leq C d(x, x')$.%
   },%
   seealso={math.met},%
 }%
@@ -360,8 +357,7 @@
     conjugate-linear.%
   },%
   seealso={math.vspace},%
-}
-\newglossaryentry{math.linfunctl}{%
+} \newglossaryentry{math.linfunctl}{%
   name={linear functional},%
   description={A linear map from a vector space to its field.},%
   seealso={math.linmap},%
@@ -422,8 +418,8 @@
   symbol={\ensuremath{\cdot^{-1}}},%
   description={%
     The pre-image of a function $f : \mathcal{A} \to \mathcal{B}$ on
-    $\mathcal{B}' \subseteq \mathcal{B}$ is the set $f^{-1}(\mathcal{B}') = 
-    \{a \in \mathcal{B} : f(a) \in \mathcal{B}'\} \subseteq \mathcal{A}$.%
+    $\mathcal{B}' \subseteq \mathcal{B}$ is the set $f^{-1}(\mathcal{B}') = \{a
+    \in \mathcal{B} : f(a) \in \mathcal{B}'\} \subseteq \mathcal{A}$.%
   },%
 }%
 \newglossaryentry{math.qspace}{%
@@ -451,9 +447,9 @@
 \newglossaryentry{math.sadjoint}{%
   name={self-adjoint},%
   description={%
-    A linear operator $\mathord{A}: \mathcal{X} \to \mathcal{X}$ on inner
-    product space $\mathcal{X}$ is self-adjoint (or Hermitian) if $\mathord{A}
-    = \mathord{A}^\dagger$.%
+    A linear operator $\operatorname{A}: \mathcal{X} \to \mathcal{X}$ on an
+    inner product space $\mathcal{X}$ s.t. $\operatorname{A} =
+    \operatorname{A}^\dagger$.%
   },%
   see={math.adjoint},%
 }%
@@ -491,8 +487,8 @@
 \newglossaryentry{mc.proposal}{%
   name={proposal distribution},%
   description={%
-    The distribution sampled from to derive a Monte Carlo estimate. May match
-    or approximate the target distribution.%
+    A distribution sampled from to derive a Monte Carlo estimate. May match or
+    approximate the target distribution.%
   },%
   seealso={mc.target},%
 }%
@@ -526,19 +522,20 @@
   seealso={meas.mablefunc},%
 }%
 \newglossaryentry{meas.completion}{%
-  name={completion},%
+  name={completion (measure space)},%
+  text={completion},%
   description={%
-    The completion of a measure space $(\mathcal{X}, \Sigma, \mu)$ is the
-    smallest complete measure space containing it,
-    $(\mathcal{X},\Sigma',\mu')$ where $\Sigma \subseteq \Sigma'$ and
-    $\forall \sigma \in \Sigma : \mu'(\sigma) = \mu(\sigma)$.%
+    Given a measure space $(\mathcal{X}, \Sigma, \mu)$, the smallest complete
+    measure space containing it, $(\mathcal{X},\Sigma',\mu')$ where $\Sigma
+    \subseteq \Sigma'$ and $\forall \sigma \in \Sigma : \mu'(\sigma) =
+    \mu(\sigma)$.%
   },%
   seealso={meas.compspace},%
 }%
 \newglossaryentry{meas.compspace}{%
   name={complete measure space},%
   description={%
-    A measure space $(\mathcal{X}, \Sigma, \mu)$ is complete if any subset of a
+    A measure space $(\mathcal{X}, \Sigma, \mu)$ s.t. any subset of a
     measure-zero element in its $\sigma$-algebra, $\sigma' \subseteq \sigma \in
     \Sigma$ where $\mu(\sigma) = 0$, is also in its $\sigma$-algebra, $\sigma'
     \in \Sigma$.%
@@ -556,10 +553,10 @@
 }%
 \newglossaryentry{meas.domin}{%
   name={domination},%
-  description={
-      Given measures $\mu,\nu$ on the same measure space
-      $(\mathcal{X}, \Sigma)$, $\mu$ dominates $\nu$ if, for every
-      $\sigma \in \Sigma$, $\mu(\sigma) = 0$ implies $\nu(\sigma) = 0$.%
+  description={%
+      Given measures $\mu,\nu$ on the same measure space $(\mathcal{X},
+      \Sigma)$, $\mu$ dominates $\nu$ if, for every $\sigma \in \Sigma$,
+      $\mu(\sigma) = 0$ implies $\nu(\sigma) = 0$.%
   },%
   seealso={meas.meas},%
 }
@@ -712,8 +709,9 @@
   seealso={meas.meas},%
 }%
 \newglossaryentry{meas.ss}{%
-  name={square-summable},%
-  description={A sequence is square-summable if it is a member of $\ell^2$.},%
+  name={square-summable sequence},%
+  text={square-summable},%
+  description={A member of $\ell^2$.},%
   seealso={meas.ellpspace},%
 }%
 
@@ -722,8 +720,8 @@
   name={auto-regressive (neural network)},%
   text={auto-regressive},%
   description={%
-    A recurrent neural network is auto-regressive if it passes the previous
-    step's output as input to the current step during inference.%
+    A recurrent neural network which computes its current step's output using
+    the output of the previous step as input.%
   },%
 }%
 \newglossaryentry{ml.finetune}{%
@@ -738,7 +736,7 @@
 \newglossaryentry{ml.pretrain}{%
   name={pre-training},%
   description={%
-    Training of a statistical model prior to task-specific training
+    The training of a statistical model prior to task-specific training
     (\emph{i.e.} fine-tuning). In speech recognition, pre-training is often an
     unsupervised training stage wherein an acoustic model is trained to predict
     masked, quantized samples or frames. In language modelling, pre-training
@@ -749,7 +747,8 @@
 \newglossaryentry{ml.ulearn}{%
   name={unsupervised learning},%
   description={%
-    Machine learning in which training is performed without target labels.
+    A style of machine learning in which training is performed without target
+    labels.%
   },%
 }%
 
@@ -863,7 +862,7 @@
 \newglossaryentry{sp.alias}{%
   name={aliasing},%
   description={%
-    Phenomenon wherein a digitized signal's frequency response cannot
+    A phenomenon wherein a digitized signal's frequency response cannot
     distinguish higher frequencies from lower ones due to undersampling.%
   },%
 }%
@@ -941,9 +940,10 @@
 \newglossaryentry{speech.coart}{%
   name={coarticulation},%
   description={%
-    The phenonenon in speech wherein the realization of speech sounds is
-    impacted by another nearby sound.%
+    The phenonenon in speech wherein the realization of a given phone is
+    impacted by nearby phones.%
   },%
+  seealso={speech.phone},%
 }%
 \newglossaryentry{speech.formant}{%
   name={formant},%
@@ -965,9 +965,9 @@
   name={Borel $\sigma$-algrebra},%
   symbol={\ensuremath{\mathcal{B}(\mathcal{X})}},%
   description={%
-    On topological space $\mathcal{X}$ with topology $\mathscr{X}$, its Borel
-    $\sigma$-algebra is the smallest $\sigma$-algebra containing $\mathcal{X}$,
-    $\cap_{\{\Sigma : \mathcal{X} \subseteq \Sigma\}} \Sigma$. %
+    The smallest $\sigma$-algebra on a topological $\mathcal{X}$ with topology
+    $\mathscr{X}$ containing $\mathcal{X}$, \emph{i.e.} $\cap_{\{\Sigma :
+    \mathcal{X} \subseteq \Sigma\}} \Sigma$. %
   },
   seealso={top.top,meas.sigma},%
 }%
@@ -1078,10 +1078,10 @@
 \newglossaryentry{top.loccomp}{%
   name={locally compact},%
   description={%
-    A topological space $(\mathcal{X}, \mathscr{X})$ is locally compact if, for
-    every $x \in \mathcal{X}$, there exists an open set $\mathcal{X}' \in
-    \mathscr{X}$ containing $x$ and a compact subspace $\mathcal{X}'' \subset
-    \mathcal{X}$ such that $\mathcal{X}' \subseteq \mathcal{X}''$.%
+    A topological space $(\mathcal{X}, \mathscr{X})$ s.t., for every $x \in
+    \mathcal{X}$, there exists an open set $\mathcal{X}' \in \mathscr{X}$
+    containing $x$ and a compact subspace $\mathcal{X}'' \subset \mathcal{X}$
+    such that $\mathcal{X}' \subseteq \mathcal{X}''$.%
   },%
   seealso={top.top},%
 }
@@ -1089,7 +1089,7 @@
   name={normal (Topology)},%
   text={normal},%
   description={%
-    A topological space is normal if, for any two disjoint, closed sets
+    A topological space in which, for any two disjoint, closed sets
     $\mathcal{A},\mathcal{B}$, there exists two disjoint, open sets
     $\mathcal{A}',\mathcal{B}'$ such that $\mathcal{A} \subseteq \mathcal{A}'$,
     $\mathcal{B} \subseteq \mathcal{B}'$.%
@@ -1101,21 +1101,22 @@
   plural={topologies},%
   symbol={\ensuremath{\mathscr{X}}},%
   description={%
-    For a given set $\mathcal{X}$, a topology on $\mathcal{X}$ is a collection
-    of subsets (called open sets) of $\mathcal{X}$, $\mathscr{X}$, such that:
-    $\emptyset,\mathcal{X} \in \mathscr{X}$; for any indexed collection
-    $\mathcal{X}_i \in \mathscr{X}$ (countable or uncountable), $\bigcup_i
-    \mathcal{X}_i \in \mathscr{X}$; and for any finite collection
-    $\mathcal{X}_i \in \mathscr{X}$, $\bigcap_i \mathcal{X}_i \in \mathscr{X}$.
-    The pair $(\mathcal{X}, \mathscr{X})$ is called a topological space.%
+    A topology on set $\mathcal{X}$ is a collection of subsets (called open
+    sets) of $\mathcal{X}$, $\mathscr{X}$, such that: $\emptyset,\mathcal{X}
+    \in \mathscr{X}$; for any indexed collection $\mathcal{X}_i \in
+    \mathscr{X}$ (countable or uncountable), $\bigcup_i \mathcal{X}_i \in
+    \mathscr{X}$; and for any finite collection $\mathcal{X}_i \in
+    \mathscr{X}$, $\bigcap_i \mathcal{X}_i \in \mathscr{X}$. The pair
+    $(\mathcal{X}, \mathscr{X})$ is called a topological space.%
   },%
   seealso={top.top},%
 }%
 \newglossaryentry{top.totaldisc}{%
-  name={totally-disconnected},%
+  name={totally-disconnected (topological space)},%
+  text={totally-disconnected},%
   description={%
-    A topological space is totally disconnected if its only connected subspaces
-    (\emph{w.r.t.} the subspace topology) are singleton sets.
+    A topological space is whose only connected subspaces (w.r.t. the subspace
+    topology) are singleton sets.%
   },%
   seealso={top.disconn},%
 }%
